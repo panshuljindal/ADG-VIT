@@ -10,6 +10,6 @@
 
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#4255FF</color>
-    <color name="bottomBarIcon">#888888</color>
+    <color name="bottomBarIcon">#969698</color>
     <color name="bottomBarIconSelected">#000000</color>
 </resources>
