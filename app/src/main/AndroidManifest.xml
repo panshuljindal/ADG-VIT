@@ -9,12 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdgExternals">
-        <activity android:name=".landingActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".landingActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity android:name=".recruitment_quiz"></activity>
+        <activity android:name=".recruitment_home" />
+        <activity android:name=".recruitment_signup" />
+        <activity android:name=".recruitment_login" />
+        <activity android:name=".MainActivity">
+
         </activity>
         <activity android:name=".MainActivity">
         </activity>
