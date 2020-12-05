@@ -42,7 +42,8 @@ public class landingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                count++;adglogo1.setVisibility(View.INVISIBLE);
+                count++;
+                adglogo1.setVisibility(View.INVISIBLE);
 
                 if(count==1){
 
