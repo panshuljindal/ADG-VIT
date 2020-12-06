@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".recruitment_home"
-    android:background="#fff">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:context=".recruitment_home"
         android:background="#fff">
 
         <View
             android:id="@+id/view"
             android:layout_width="350dp"
-            android:layout_height="380dp"
+            android:layout_height="350dp"
             android:background="@drawable/adg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,64 +24,76 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="65dp"
             android:fontFamily="@font/helveticaneu_bold"
             android:text="Interview."
             android:textColor="#000"
-            android:textSize="45dp"
+            android:textSize="35dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            app:layout_constraintBottom_toTopOf="@id/textView2"/>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             android:layout_marginLeft="25dp"
+            android:layout_marginBottom="70dp"
             android:fontFamily="@font/helveticaneue_regular"
             android:text="Like never before"
             android:textColor="#000"
-            android:textSize="45dp"
+            android:textSize="35dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintBottom_toTopOf="@+id/loginregbtns"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonSignupHome"
-            android:layout_width="164dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
+        <LinearLayout
+            android:id="@+id/loginregbtns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@drawable/ic_signup"
-            android:fontFamily="@font/helveticaneue_medium"
-            android:text="Signup"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/buttonLogin"
+            android:layout_marginBottom="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonLoginHome"
-            android:layout_width="164dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/loginback"
-            android:fontFamily="@font/helveticaneue_medium"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textColor="#FF6200"
-            android:textSize="20dp"
-            app:layout_constraintStart_toEndOf="@+id/buttonSignupHome"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <Button
+                android:id="@+id/buttonSignupHome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/ic_signup"
+                android:fontFamily="@font/helveticaneue_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Signup"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/buttonLogin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <Button
+                android:id="@+id/buttonLoginHome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/loginback"
+                android:fontFamily="@font/helveticaneue_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="#FF6200"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@+id/buttonSignupHome"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>

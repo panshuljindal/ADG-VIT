@@ -97,7 +97,9 @@ public class landingActivity extends AppCompatActivity {
 
                 tabBtn1.setActivated(!tab1.isActivated()); tabBtn2.setActivated(false);
                 tab1.setAnimation(animation4);
-                tab1.setVisibility(View.VISIBLE); tab2.setVisibility(View.INVISIBLE);
+                tab1.setVisibility(View.VISIBLE);
+                tab2.setAnimation(animation3);
+                tab2.setVisibility(View.INVISIBLE);
                 btnTab.setAnimation(animationFadein);
                 btnTab.setVisibility(View.VISIBLE);
                 tabBtn1.setSelected(true);
@@ -111,6 +113,7 @@ public class landingActivity extends AppCompatActivity {
 
                 tabBtn2.setActivated(!tab1.isActivated());
                 tab2.setAnimation(animation3);
+                tab1.setAnimation(animation4);
                 tab1.setVisibility(View.INVISIBLE);
                 nextBtn.setText("Start");
                 tab2.setVisibility(View.VISIBLE);
