@@ -99,8 +99,27 @@ public class recruitment_signup extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(recruitment_signup.this, "Signup Successfull", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(recruitment_signup.this,recruitment_login.class));
+                Log.i("Code",String.valueOf(response.code()));
+                if(response.isSuccessful() && response.code()==200){
+                    try{
+                        Toast.makeText(recruitment_signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(recruitment_signup.this,recruitment_login.class));
+                    }
+                    catch (Exception e){
+
+                    }
+                }
+                else if(!response.isSuccessful()){
+                    if(response.code()==400){
+                        Toast.makeText(recruitment_signup.this, "Email or registration number already exists", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(recruitment_signup.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(recruitment_signup.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

@@ -81,6 +81,7 @@ public class recruitment_login extends AppCompatActivity {
                         Toast.makeText(recruitment_login.this, "You have successfully logged in!", Toast.LENGTH_SHORT).show();
                         editor.putString("Token",response.body().getToken());
                         editor.apply();
+                        startActivity(new Intent(recruitment_login.this,MainActivity.class));
                     } catch (Exception e) {
                         Log.i("Exception", e.toString());
                     }
@@ -92,12 +93,18 @@ public class recruitment_login extends AppCompatActivity {
                     } else if (response.code() == 400) {
                         Toast.makeText(recruitment_login.this, "Registration number not found", Toast.LENGTH_SHORT).show();
                     }
+                    else{
+                        Toast.makeText(recruitment_login.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(recruitment_login.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<loginResponse> call, Throwable t) {
-
+                Toast.makeText(recruitment_login.this,"Error",Toast.LENGTH_SHORT).show();
             }
         });
     }
