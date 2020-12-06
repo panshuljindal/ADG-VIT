@@ -75,16 +75,22 @@ public class recruitment_login extends AppCompatActivity {
         call.enqueue(new Callback<loginResponse>() {
             @Override
             public void onResponse(Call<loginResponse> call, Response<loginResponse> response) {
-                if(response.isSuccessful()){
-                try {
-                    editor.putString("Token",response.body().getToken());
-                    editor.apply();
-                    Toast.makeText(recruitment_login.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(recruitment_login.this,MainActivity.class));
+                //Log.i("Code", String.valueOf(response.code()));
+                if(response.isSuccessful() && response.code()==200) {
+                    try {
+                        Toast.makeText(recruitment_login.this, "You have successfully logged in!", Toast.LENGTH_SHORT).show();
+                        editor.putString("Token",response.body().getToken());
+                        editor.apply();
+                    } catch (Exception e) {
+                        Log.i("Exception", e.toString());
+                    }
                 }
-                    catch (Exception e){
-                        //Log.i("Message",response.body().getMessage());
-                        Log.i("Exception",e.toString());
+                else if(!response.isSuccessful()) {
+
+                    if (response.code() == 403) {
+                        Toast.makeText(recruitment_login.this, "Password doesn't match", Toast.LENGTH_SHORT).show();
+                    } else if (response.code() == 400) {
+                        Toast.makeText(recruitment_login.this, "Registration number not found", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

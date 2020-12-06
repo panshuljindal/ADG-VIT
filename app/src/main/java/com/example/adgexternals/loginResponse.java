@@ -6,10 +6,10 @@ public class loginResponse {
     String Token;
     String message;
 
-    public loginResponse(String regno, String password, String token, String message) {
+    public loginResponse(String regno, String password, String Token, String message) {
         this.regno = regno;
         this.password = password;
-        Token = token;
+        this.Token = Token;
         this.message = message;
     }
 
@@ -33,8 +33,8 @@ public class loginResponse {
         return Token;
     }
 
-    public void setToken(String token) {
-        Token = token;
+    public void setToken(String Token) {
+        this.Token = Token;
     }
 
     public String getMessage() {
