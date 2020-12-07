@@ -9,9 +9,11 @@
 
     <ImageView
         android:id="@+id/adglogoLanding"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginTop="170dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
         android:src="@drawable/adglogo2"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"

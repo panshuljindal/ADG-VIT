@@ -36,11 +36,11 @@ public class recruitment_signup extends AppCompatActivity {
         onclicklisteners();
     }
     public void findId(){
-        email1 =findViewById(R.id.signupEmailid);
-        name1 = findViewById(R.id.signupName);
-        regNo1 = findViewById(R.id.signupRegNo);
-        phoneNo1 = findViewById(R.id.signupPhoneNumber);
-        github1 = findViewById(R.id.signupGithub);
+        email1 =findViewById(R.id.editProfileEmailid);
+        name1 = findViewById(R.id.editProfileName);
+        regNo1 = findViewById(R.id.editProfileRegNo);
+        phoneNo1 = findViewById(R.id.editProfilePhoneNumber);
+        github1 = findViewById(R.id.editProfileGithub);
         password1 = findViewById(R.id.signupPassword);
         continue1 = findViewById(R.id.buttonSignupContinue);
     }
