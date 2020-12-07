@@ -36,8 +36,10 @@ public class landingActivity extends AppCompatActivity {
         Button tabBtn1 = findViewById(R.id.tabBtn1);
         Button tabBtn2 = findViewById(R.id.tabBtn2);
 
-        ImageView adglogo1 = findViewById(R.id.adglogoLanding); adglogo1.setAnimation(animationFadein);
-        Button nextBtn = findViewById(R.id.nextBtnLanding); nextBtn.setAnimation(animationFadein2);
+        ImageView adglogo1 = findViewById(R.id.adglogoLanding);
+        adglogo1.setAnimation(animationFadein);
+        Button nextBtn = findViewById(R.id.nextBtnLanding);
+        nextBtn.setAnimation(animationFadein2);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

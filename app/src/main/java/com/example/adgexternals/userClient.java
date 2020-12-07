@@ -17,4 +17,21 @@ public interface userClient {
 
     @GET("getuser")
     Call<root> getUser(@Header("auth-token") String authtoken);
+
+    @GET("management/get-random-questions")
+    Call<ResponseBody> getQuestionManagement(@Header("auth-token") String authtoken);
+
+    @GET("design/get-random-questions")
+    Call<ResponseBody> getQuestionDesign(@Header("auth-token") String token);
+
+    @GET("technical/get-random-questions")
+    Call<ResponseBody> getQuestionTechnical(@Header("auth-token") String token);
+
+    //@POST("management/submit")
+
+    //@POST("design/submit")
+
+    //@POST("technical/submit")
+
+
 }

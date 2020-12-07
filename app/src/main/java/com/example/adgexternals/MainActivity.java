@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
                 if(response.body().userDetails.getName().length()!=0){
                     try {
                         userDetails user = response.body().getUserDetails();
-                        editor.putBoolean("attemptedTechnical", user.getAttemptedTechnical());
-                        editor.putBoolean("attemptedManagement", user.getAttemptedManagement());
-                        editor.putBoolean("attemptedDesign", user.getAttemptedDesign());
+                        editor.putBoolean("attemptedTechnical", user.getAttemptedTechnical()).commit();
+                        editor.putBoolean("attemptedManagement", user.getAttemptedManagement()).commit();
+                        editor.putBoolean("attemptedDesign", user.getAttemptedDesign()).commit();
                         editor.putInt("yearofstudy", user.getYearofstudy());
                         editor.putString("id", user.getId());
                         editor.putString("name", user.getName());
