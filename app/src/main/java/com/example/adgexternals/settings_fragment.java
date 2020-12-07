@@ -1,5 +1,7 @@
 package com.example.adgexternals;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,11 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class settings_fragment extends Fragment {
     Button editProfile; ImageView profilepic1;
-
+    TextView name1,email1;
+    String name,email;
+    SharedPreferences pref;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +38,16 @@ public class settings_fragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_settings_fragment, container, false);
 
+        pref = view.getContext().getSharedPreferences("com.adgexternals.com.userdata", Context.MODE_PRIVATE);
+        name = pref.getString("name","");
+        email = pref.getString("email","");
+
         editProfile = (Button) view.findViewById(R.id.editProfileBtn);
         profilepic1 = (ImageView) view.findViewById(R.id.profile_image1);
+        name1 = view.findViewById(R.id.profileName);
+        email1 = view.findViewById(R.id.profileEmail);
+        name1.setText(name);
+        email1.setText(email);
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
