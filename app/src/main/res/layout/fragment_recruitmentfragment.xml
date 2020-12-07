@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:text="Choose your domain for quiz"
                 android:textColor="#395AFF"
@@ -51,16 +51,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="47dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
+                app:cardBackgroundColor="#fff"
+                app:cardCornerRadius="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView18">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clTechnical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#fff">
 
                     <ImageView
                         android:id="@+id/imageViewTechnical"
@@ -98,6 +102,7 @@
                         android:layout_marginRight="30dp"
                         android:layout_marginBottom="30dp"
                         android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                        android:textColor="#9F9F9F"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -116,11 +121,15 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="#fff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewTechnical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clManagement"
+                    android:background="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -160,6 +169,7 @@
                         android:layout_marginRight="30dp"
                         android:layout_marginBottom="30dp"
                         android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                        android:textColor="#9F9F9F"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -178,11 +188,15 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="#fff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewManagement">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clDesign"
+                    android:background="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -222,6 +236,7 @@
                         android:layout_marginRight="30dp"
                         android:layout_marginBottom="30dp"
                         android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                        android:textColor="#9F9F9F"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
