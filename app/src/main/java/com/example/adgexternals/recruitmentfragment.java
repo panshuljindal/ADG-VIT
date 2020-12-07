@@ -8,6 +8,9 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +35,7 @@ public class recruitmentfragment extends Fragment {
     String type="null";
     Boolean attemptedTechnical,attemptedManagement,attemptedDesign;
     Button submit;
+    View view;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,7 @@ public class recruitmentfragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_recruitmentfragment, container, false);
+        view= inflater.inflate(R.layout.fragment_recruitmentfragment, container, false);
 
         clTechnical = view.findViewById(R.id.clTechnical);
         clManagement = view.findViewById(R.id.clManagement);
@@ -94,12 +98,18 @@ public class recruitmentfragment extends Fragment {
                         Toast.makeText(v.getContext(), "Please select a domain", Toast.LENGTH_SHORT).show();
                     } else if (type.equals("technical")) {
                         if (attemptedTechnical.equals(false)) {
-                            Toast.makeText(v.getContext(), "You have selected technical", Toast.LENGTH_SHORT).show();
+                            quiz_instruction fragment = new quiz_instruction();
+                            FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                            FragmentTransaction transaction = manager.beginTransaction();
+                            transaction.replace(R.id.frameLayout,fragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted technical quiz before", Toast.LENGTH_SHORT).show();
                         }
                     } else if (type.equals("management")) {
                         if (attemptedManagement.equals(false)) {
+                            startActivity(new Intent(view.getContext(),recruitment_quiz.class));
                             Toast.makeText(v.getContext(), "You have selected management", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted management quiz before", Toast.LENGTH_SHORT).show();

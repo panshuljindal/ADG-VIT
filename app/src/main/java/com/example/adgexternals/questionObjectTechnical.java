@@ -4,11 +4,11 @@ public class questionObjectTechnical {
 
     String _id;
     String questionDescription;
-    String[] options;
+    questionsOptions options;
     String yearofstudy;
     String __v;
 
-    public questionObjectTechnical(String _id, String questionDescription, String[] options, String yearofstudy, String __v) {
+    public questionObjectTechnical(String _id, String questionDescription, questionsOptions options, String yearofstudy, String __v) {
         this._id = _id;
         this.questionDescription = questionDescription;
         this.options = options;
@@ -32,11 +32,11 @@ public class questionObjectTechnical {
         this.questionDescription = questionDescription;
     }
 
-    public String[] getOptions() {
+    public questionsOptions getOptions() {
         return options;
     }
 
-    public void setOptions(String[] options) {
+    public void setOptions(questionsOptions options) {
         this.options = options;
     }
 

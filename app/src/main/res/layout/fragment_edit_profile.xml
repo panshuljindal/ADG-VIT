@@ -25,17 +25,15 @@
         android:id="@+id/editProfilebackBtn"
         android:layout_width="60dp"
         android:layout_height="25dp"
-        android:text="back"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:fontFamily="@font/robotoregular"
-        android:background="@drawable/backbgeditpro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        />
+        android:background="@drawable/backbgeditpro"
+        android:fontFamily="@font/robotoregular"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"

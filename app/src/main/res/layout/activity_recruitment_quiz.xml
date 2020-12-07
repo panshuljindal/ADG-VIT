@@ -48,7 +48,7 @@
             />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textViewTechnicalQuestionNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -63,7 +63,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/technicalQuestion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -86,11 +86,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
-        app:cardCornerRadius="10dp"
         android:layout_marginEnd="16dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
+        app:layout_constraintTop_toBottomOf="@+id/technicalQuestion">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl1"
@@ -102,10 +102,10 @@
                 android:id="@+id/option1Text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneu_bold"
+                android:paddingLeft="15dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:paddingLeft="15dp"
-                android:fontFamily="@font/helveticaneu_bold"
                 android:text="List"
                 android:textColor="#707070"
                 android:textSize="20dp"
@@ -133,7 +133,7 @@
             android:id="@+id/cl2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/quizselectedback">
+            android:background="@drawable/quizcardback">
 
             <TextView
                 android:id="@+id/option2Text"
@@ -229,23 +229,47 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/buttonTechnicalQuizNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:background="@drawable/quiznext"
+        android:fontFamily="@font/helveticaneue_medium"
+        android:foreground="?android:attr/selectableItemBackground"
         android:paddingLeft="45dp"
         android:paddingTop="10dp"
         android:paddingRight="45dp"
         android:paddingBottom="10dp"
-        android:background="@drawable/quiznext"
-        android:fontFamily="@font/helveticaneue_medium"
-        android:foreground="?android:attr/selectableItemBackground"
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="#4766FF"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardOption4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonTechnicalQuizSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/quiznext"
+        android:fontFamily="@font/helveticaneue_medium"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingLeft="45dp"
+        android:paddingTop="10dp"
+        android:paddingRight="45dp"
+        android:paddingBottom="10dp"
+        android:text="Skip"
+        android:textAllCaps="false"
+        android:textColor="#4766FF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTechnicalQuizNext"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardOption4" />
 

@@ -2,7 +2,9 @@ package com.example.adgexternals;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,32 +56,34 @@ public class recruitment_signup extends AppCompatActivity {
                 phoneNo = phoneNo1.getText().toString();
                 github = github1.getText().toString();
                 password = password1.getText().toString();
-                if(checkEmpty()){
-                    if(checkMail()){
-                        if(regNo1.getText().toString().startsWith("19")){
-                            if(github1.getText().length()==0){
-                                Log.i("User","user1_1");
-                                user  = new User(name,regNo,password,email,1,"https://github.com/panshuljindal");
-                                sendNetworkRequest(user);
-                            }
-                            else{
-                                Log.i("User","user1_2");
-                                user = new User(name,regNo,password,email,1,github);
-                                sendNetworkRequest(user);
-                            }
-                        }
-                        else if(regNo1.getText().toString().startsWith("18")){
-                            if(github1.getText().length()==0){
-                                Log.i("User","user2_1");
-                                Toast.makeText(recruitment_signup.this, "Github Link mandatory for second year", Toast.LENGTH_SHORT).show();
-                            }
-                            else{
-                                Log.i("User","user2_2");
-                                User user1 = new User(name,regNo,password,email,2,github);
-                                sendNetworkRequest(user1);
+                if (isNetworkAvailable(v.getContext())) {
+                    if (checkEmpty()) {
+                        if (checkMail()) {
+                            if (regNo1.getText().toString().startsWith("20")) {
+                                if (github1.getText().length() == 0) {
+                                    Log.i("User", "user1_1");
+                                    user = new User(name, regNo, password, email, 1, " ");
+                                    sendNetworkRequest(user);
+                                } else {
+                                    Log.i("User", "user1_2");
+                                    user = new User(name, regNo, password, email, 1, github);
+                                    sendNetworkRequest(user);
+                                }
+                            } else if (regNo1.getText().toString().startsWith("19")) {
+                                if (github1.getText().length() == 0) {
+                                    Log.i("User", "user2_1");
+                                    Toast.makeText(recruitment_signup.this, "Github Link mandatory for second year", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Log.i("User", "user2_2");
+                                    User user1 = new User(name, regNo, password, email, 2, github);
+                                    sendNetworkRequest(user1);
+                                }
                             }
                         }
                     }
+                }
+                else {
+                    Toast.makeText(recruitment_signup.this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -151,8 +155,7 @@ public class recruitment_signup extends AppCompatActivity {
         }
         return true;
     }
-    public Boolean checkMail()
-        {
+    public Boolean checkMail(){
             String tempEmail=email1.getText().toString().trim();
             String tempReqNo=regNo1.getText().toString().trim();
             String subreg=tempReqNo.substring(1,2);
@@ -164,5 +167,9 @@ public class recruitment_signup extends AppCompatActivity {
             }
             Toast.makeText(recruitment_signup.this, "Please enter Vit emailid", Toast.LENGTH_SHORT).show();
             return false;
-        }
+    }
+    public boolean isNetworkAvailable(final Context context) {
+        final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
+    }
 }

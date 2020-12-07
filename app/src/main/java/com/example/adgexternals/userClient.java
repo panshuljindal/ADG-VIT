@@ -4,6 +4,7 @@ import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -20,14 +21,14 @@ public interface userClient {
     @GET("getuser")
     Call<root> getUser(@Header("auth-token") String authtoken);
 
-    @GET("management/get-random-questions")
+    @GET("management/get-quiz-questions")
     Call<List<questionObject>> getQuestionManagement(@Header("auth-token") String authtoken);
 
-    @GET("design/get-random-questions")
+    @GET("design/get-quiz-questions")
     Call<List<questionObject>> getQuestionDesign(@Header("auth-token") String token);
 
-    @GET("technical/get-random-questions")
-    Call<questionObjectTechnical> getQuestionTechnical(@Header("auth-token") String token);
+    @GET("technical/get-quiz-questions/1")
+    Call<List<questionObjectTechnical>> getQuestionTechnical(@Header("auth-token") String token);
 
     @POST("management/submit")
     Call<postQuestion> postQuestionManagement(
@@ -40,11 +41,7 @@ public interface userClient {
             @Header("auth-token") String authtoken,
             @Body postQuestion ques
     );
-
     @POST("technical/submit")
-    Call<postQuestion> postQuestionTechnical(
-            @Header("auth-token") String authtoken,
-            @Body postQuestion ques
-    );
+    Call<postQuestion> postQuestionTechnical(@Header("auth-token") String authtoken, @Body List<postQuestion> ques);
 
 }

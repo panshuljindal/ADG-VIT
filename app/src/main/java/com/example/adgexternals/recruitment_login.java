@@ -2,8 +2,10 @@ package com.example.adgexternals;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,13 +44,20 @@ public class recruitment_login extends AppCompatActivity {
                 password = password1.getText().toString();
                 if(checkEmpty()){
                     loginrequest loginrequest = new loginrequest(regNo,password);
-                    sendNetworkRequest(loginrequest);
+                    if(isNetworkAvailable(v.getContext())){
+                        sendNetworkRequest(loginrequest);
+                    }
+                    else {
+                        Toast.makeText(recruitment_login.this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
 
             }
         });
 
     }
+
     public boolean checkEmpty(){
         if(regNo1.getText().length()==0){
             Toast.makeText(this, "Please enter registration number", Toast.LENGTH_SHORT).show();
@@ -107,5 +116,9 @@ public class recruitment_login extends AppCompatActivity {
                 Toast.makeText(recruitment_login.this,"Error",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public boolean isNetworkAvailable(final Context context) {
+        final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 }

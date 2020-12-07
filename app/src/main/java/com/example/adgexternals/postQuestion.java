@@ -3,10 +3,19 @@ package com.example.adgexternals;
 public class postQuestion {
     String qid;
     String response;
+    String message;
 
     public postQuestion(String qid, String response) {
         this.qid = qid;
         this.response = response;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getQid() {
