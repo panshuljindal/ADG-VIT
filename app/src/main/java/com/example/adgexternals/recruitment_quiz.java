@@ -36,7 +36,7 @@ public class recruitment_quiz extends AppCompatActivity {
     List<questionObjectTechnical> questionsTechnical;
     SharedPreferences pref,pref1;
     ConstraintLayout cl1,cl2,cl3,cl4;
-    int qno=0,maxques=6;
+    int qno=0,maxques;
     TextView option1,option2,option3,option4,question,quesText;
     String option="null";
     Button next,skip;
@@ -51,10 +51,11 @@ public class recruitment_quiz extends AppCompatActivity {
 
         findViewByIds();
         loadData();
+        maxques=questionsTechnical.size();
         questionList = new ArrayList<>();
         pref1 = getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref1.getString("Token","");
-        Log.i("list", String.valueOf(questionsTechnical.size()));
+        //Log.i("list", String.valueOf(questionsTechnical.size()));
         setOptions();
         onclicklisteners();
     }
@@ -80,7 +81,7 @@ public class recruitment_quiz extends AppCompatActivity {
             option2.setText(questionsTechnical.get(qno).getOptions().getB());
             option3.setText(questionsTechnical.get(qno).getOptions().getC());
             option4.setText(questionsTechnical.get(qno).getOptions().getD());
-            quesText.setText(String.valueOf(qno + 1) + "/6");
+            quesText.setText(String.valueOf(qno + 1) + "/"+String.valueOf(maxques));
         }
         else if(qno==maxques){
             sendNetworkRequest(questionList);
@@ -217,6 +218,9 @@ public class recruitment_quiz extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(recruitment_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
+                        Intent intent =new Intent(recruitment_quiz.this,finishQuiz.class);
+                        intent.putExtra("Type","Technical");
+                        startActivity(intent);
                     }
                 }
                 else if(response.code()==400){

@@ -33,7 +33,7 @@ public class design_quiz extends AppCompatActivity {
     List<questionObjectTechnical> questionsDesign;
     SharedPreferences pref,pref1;
     ConstraintLayout cl1,cl2,cl3,cl4;
-    int qno=0,maxques=6;
+    int qno=0,maxques;
     TextView option1,option2,option3,option4,question,quesText;
     String option="null";
     Button next,skip;
@@ -48,10 +48,11 @@ public class design_quiz extends AppCompatActivity {
 
         findViewByIds();
         loadData();
+        maxques=questionsDesign.size();
         questionList = new ArrayList<>();
         pref1 = getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref1.getString("Token","");
-        Log.i("list", String.valueOf(questionsDesign.size()));
+        //Log.i("list", String.valueOf(questionsDesign.size()));
         setOptions();
         onclicklisteners();
     }
@@ -77,7 +78,7 @@ public class design_quiz extends AppCompatActivity {
             option2.setText(questionsDesign.get(qno).getOptions().getB());
             option3.setText(questionsDesign.get(qno).getOptions().getC());
             option4.setText(questionsDesign.get(qno).getOptions().getD());
-            quesText.setText(String.valueOf(qno + 1) + "/6");
+            quesText.setText(String.valueOf(qno + 1) + "/" +String.valueOf(maxques));
         }
         else if(qno==maxques){
             sendNetworkRequest(questionList);
@@ -208,7 +209,16 @@ public class design_quiz extends AppCompatActivity {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
                 if(response.isSuccessful() && response.code()==200){
-                    Toast.makeText(design_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
+                    if(cheat==true){
+                        Toast.makeText(design_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(design_quiz.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(design_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
+                        Intent intent =new Intent(design_quiz.this,finishQuiz.class);
+                        intent.putExtra("Type","Design");
+                        startActivity(intent);
+                    }
 
                 }
                 else if(response.code()==400){
