@@ -1,6 +1,9 @@
 package com.example.adgexternals;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,5 +39,7 @@ public class recruitment_home extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
+        startActivity(new Intent(recruitment_home.this,MainActivity.class));
     }
 }

@@ -62,22 +62,35 @@ public class recruitment_signup extends AppCompatActivity {
                             if (regNo1.getText().toString().startsWith("20")) {
                                 if (github1.getText().length() == 0) {
                                     Log.i("User", "user1_1");
-                                    user = new User(name, regNo, password, email, 1, " ");
-                                    sendNetworkRequest(user);
+                                    user = new User(name, regNo, password, email, 1, "https://github.com/adgvit");
+                                    //sendNetworkRequest(user);
                                 } else {
                                     Log.i("User", "user1_2");
-                                    user = new User(name, regNo, password, email, 1, github);
-                                    sendNetworkRequest(user);
+                                    if(checkGithub()) {
+                                        user = new User(name, regNo, password, email, 1, github);
+                                        sendNetworkRequest(user);
+                                    }
+                                    else {
+                                        Toast.makeText(v.getContext(), "Please enter full githublink", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             } else if (regNo1.getText().toString().startsWith("19")) {
                                 if (github1.getText().length() == 0) {
                                     Log.i("User", "user2_1");
                                     Toast.makeText(recruitment_signup.this, "Github Link mandatory for second year", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Log.i("User", "user2_2");
-                                    User user1 = new User(name, regNo, password, email, 2, github);
-                                    sendNetworkRequest(user1);
+                                    if(checkGithub()) {
+                                        Log.i("User", "user2_2");
+                                        User user1 = new User(name, regNo, password, email, 2, github);
+                                        sendNetworkRequest(user1);
+                                    }
+                                    else{
+                                        Toast.makeText(v.getContext(), "Please enter full githublink", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
+                            }
+                            else{
+                                Toast.makeText(v.getContext(), "Please enter a correct registration number", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -157,9 +170,7 @@ public class recruitment_signup extends AppCompatActivity {
     }
     public Boolean checkMail(){
             String tempEmail=email1.getText().toString().trim();
-            String tempReqNo=regNo1.getText().toString().trim();
-            String subreg=tempReqNo.substring(1,2);
-            Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?201[0-9]@vitstudent.ac.in$");
+            Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?20[1-2][0-9]@vitstudent.ac.in$");
             Matcher emailMatcher=emailPattern.matcher(tempEmail);
             if(emailMatcher.matches())
             {
@@ -167,6 +178,17 @@ public class recruitment_signup extends AppCompatActivity {
             }
             Toast.makeText(recruitment_signup.this, "Please enter Vit emailid", Toast.LENGTH_SHORT).show();
             return false;
+    }
+    public boolean checkGithub(){
+        String tempGit = github1.getText().toString();
+        if(tempGit.startsWith("https://github.com/")){
+            return true;
+        }
+        if(tempGit.startsWith("github.com")){
+
+        }
+
+        return false;
     }
     public boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
