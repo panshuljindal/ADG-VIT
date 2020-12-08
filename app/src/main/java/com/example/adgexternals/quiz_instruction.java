@@ -61,7 +61,7 @@ public class quiz_instruction extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getFragmentManager().popBackStackImmediate();
+                getFragmentManager().popBackStackImmediate();
             }
         });
         start.setOnClickListener(new View.OnClickListener() {

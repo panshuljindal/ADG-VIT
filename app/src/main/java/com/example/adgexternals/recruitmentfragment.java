@@ -35,6 +35,7 @@ public class recruitmentfragment extends Fragment {
     String type="null";
     Boolean attemptedTechnical,attemptedManagement,attemptedDesign;
     Button submit;
+    int yearOfStudy;
     View view;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class recruitmentfragment extends Fragment {
         attemptedManagement = pref1.getBoolean("attemptedManagement",false);
         attemptedDesign = pref1.getBoolean("attemptedDesign",false);
         attemptedTechnical = pref1.getBoolean("attemptedTechnical",false);
+        yearOfStudy = pref.getInt("yearofstudy",0);
         onclicklisteners();
 
         if(token.length()==0){
@@ -98,19 +100,23 @@ public class recruitmentfragment extends Fragment {
                         Toast.makeText(v.getContext(), "Please select a domain", Toast.LENGTH_SHORT).show();
                     } else if (type.equals("technical")) {
                         if (attemptedTechnical.equals(false)) {
-                            quiz_instruction fragment = new quiz_instruction();
-                            FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                            FragmentTransaction transaction = manager.beginTransaction();
-                            transaction.replace(R.id.frameLayout,fragment);
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            if(yearOfStudy==1) {
+                                quiz_instruction fragment = new quiz_instruction();
+                                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                                FragmentTransaction transaction = manager.beginTransaction();
+                                transaction.replace(R.id.frameLayout, fragment);
+                                transaction.addToBackStack(null);
+                                transaction.commit();
+                            }
+                            else if(yearOfStudy==2){
+                                Toast.makeText(v.getContext(), "Second Year", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted technical quiz before", Toast.LENGTH_SHORT).show();
                         }
                     } else if (type.equals("management")) {
                         if (attemptedManagement.equals(false)) {
                             startActivity(new Intent(view.getContext(),recruitment_quiz.class));
-                            Toast.makeText(v.getContext(), "You have selected management", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted management quiz before", Toast.LENGTH_SHORT).show();
                         }

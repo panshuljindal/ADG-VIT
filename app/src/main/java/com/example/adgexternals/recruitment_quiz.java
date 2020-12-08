@@ -41,6 +41,7 @@ public class recruitment_quiz extends AppCompatActivity {
     String option="null";
     Button next,skip;
     String token;
+    boolean cheat=false;
     List<postQuestion> questionList;
 
     @Override
@@ -78,7 +79,7 @@ public class recruitment_quiz extends AppCompatActivity {
             option2.setText(questionsTechnical.get(qno).getOptions().getB());
             option3.setText(questionsTechnical.get(qno).getOptions().getC());
             option4.setText(questionsTechnical.get(qno).getOptions().getD());
-            quesText.setText(String.valueOf(qno + 1) + "/10");
+            quesText.setText(String.valueOf(qno + 1) + "/6");
         }
         else if(qno==maxques){
             sendNetworkRequest(questionList);
@@ -190,7 +191,10 @@ public class recruitment_quiz extends AppCompatActivity {
         });
     }
     public void cheating(){
-
+        for(int i=qno;i<maxques;i++){
+            questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "cheat"));
+        }
+        sendNetworkRequest(questionList);
     }
     public void sendNetworkRequest(List<postQuestion> ques){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -211,7 +215,13 @@ public class recruitment_quiz extends AppCompatActivity {
 
                 }
                 else if(response.code()==400){
-                    Toast.makeText(recruitment_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
+                    if(cheat==true){
+                        Toast.makeText(recruitment_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(recruitment_quiz.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(recruitment_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -221,10 +231,10 @@ public class recruitment_quiz extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
+        cheat=true;
         cheating();
     }
 }
