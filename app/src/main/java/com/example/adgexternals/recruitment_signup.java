@@ -63,7 +63,7 @@ public class recruitment_signup extends AppCompatActivity {
                                 if (github1.getText().length() == 0) {
                                     Log.i("User", "user1_1");
                                     user = new User(name, regNo, password, email, 1, "https://github.com/adgvit");
-                                    //sendNetworkRequest(user);
+                                    sendNetworkRequest(user);
                                 } else {
                                     Log.i("User", "user1_2");
                                     if(checkGithub()) {
