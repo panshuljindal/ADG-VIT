@@ -211,8 +211,13 @@ public class recruitment_quiz extends AppCompatActivity {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
                 if(response.isSuccessful() && response.code()==200){
-                    Toast.makeText(recruitment_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
-
+                    if(cheat==true){
+                        Toast.makeText(recruitment_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(recruitment_quiz.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(recruitment_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(response.code()==400){
                     if(cheat==true){
