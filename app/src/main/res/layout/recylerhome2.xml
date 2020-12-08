@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/cardDate"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <TextView
+                android:id="@+id/recycler2cardday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="24"
+                android:textSize="45dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/helveticaneue_medium"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/recycler2cardmonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOV"
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/helveticaneue_regular"
+                android:textColor="#000000"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/border"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/dashed"
+            android:layerType="software"
+            app:layout_constraintStart_toEndOf="@id/cardDate"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/carddetails1"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/morebtn"
+            app:layout_constraintStart_toEndOf="@id/border"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/recycler2cardevent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Introduction To ML and AI"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/helveticaneue_medium"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginTop = "10dp"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                android:id="@+id/recycler2cardvenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anna Auditorium"
+                android:fontFamily="@font/helveticaneue"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:layout_marginTop = "15dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop = "5dp"
+                android:layout_marginLeft="20dp"
+                >
+                <TextView
+                    android:id="@+id/timetxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time:"
+                    android:fontFamily="@font/helveticaneue_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/timerecyclercard2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="11:30 AM"
+                    android:fontFamily="@font/helveticaneue"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/morebtn"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:text=">"
+            android:textSize="22dp"
+            android:fontFamily="@font/helveticaneue"
+            android:background="@drawable/ic_path_173"
+            app:layout_constraintStart_toEndOf="@id/carddetails1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
