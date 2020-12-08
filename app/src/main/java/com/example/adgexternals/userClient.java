@@ -25,22 +25,17 @@ public interface userClient {
     Call<List<questionObject>> getQuestionManagement(@Header("auth-token") String authtoken);
 
     @GET("design/get-quiz-questions")
-    Call<List<questionObject>> getQuestionDesign(@Header("auth-token") String token);
+    Call<List<questionObjectTechnical>> getQuestionDesign(@Header("auth-token") String token);
 
     @GET("technical/get-quiz-questions/1")
     Call<List<questionObjectTechnical>> getQuestionTechnical(@Header("auth-token") String token);
 
     @POST("management/submit")
-    Call<postQuestion> postQuestionManagement(
-            @Header("auth-token") String authtoken,
-            @Body postQuestion ques
-    );
+    Call<postQuestion> postQuestionManagement(@Header("auth-token") String authtoken, @Body List<postQuestion> ques);
 
     @POST("design/submit")
-    Call<postQuestion> postQuestionDesign(
-            @Header("auth-token") String authtoken,
-            @Body postQuestion ques
-    );
+    Call<postQuestion> postQuestionDesign(@Header("auth-token") String authtoken, @Body List<postQuestion> ques);
+
     @POST("technical/submit")
     Call<postQuestion> postQuestionTechnical(@Header("auth-token") String authtoken, @Body List<postQuestion> ques);
 

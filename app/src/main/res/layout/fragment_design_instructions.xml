@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".quiz_instruction"
-    android:background="#fff">
+    tools:context=".design_instructions">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,22 +14,22 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="56dp"
             android:fontFamily="@font/helveticaneue_medium"
-            android:text="Technical Test"
+            android:text="Design Test"
             android:textColor="#000"
             android:textSize="25dp"
-            app:layout_constraintStart_toEndOf="@+id/back_button_dt"
+            app:layout_constraintStart_toEndOf="@+id/back_button_di"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/back_button_dt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="19dp"
-            android:text="Button"
+            android:id="@+id/back_button_di"
+            android:layout_width="86dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="49dp"
+            android:text="Back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,25 +37,19 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="255dp"
+            android:layout_marginTop="150dp"
             android:fontFamily="@font/helveticaneue_medium"
             android:text="Instructions"
             android:textColor="#000"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button_dt" />
+            app:layout_constraintTop_toBottomOf="@+id/back_button_di" />
 
         <Button
-            android:id="@+id/start_button_dt"
+            android:id="@+id/startButton_di"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="151dp"
-            android:layout_marginLeft="151dp"
-            android:layout_marginTop="205dp"
-            android:layout_marginEnd="160dp"
-            android:layout_marginRight="160dp"
+            android:layout_marginTop="132dp"
             android:background="@drawable/quiznext"
             android:fontFamily="@font/helveticaneu_bold"
             android:text="Start"
@@ -64,6 +57,7 @@
             android:textColor="#4766FF"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -71,11 +65,7 @@
             android:id="@+id/textView12"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginTop="20dp"
             android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna"
             android:textColor="#9F9F9F"
             android:textSize="15dp"
@@ -84,4 +74,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

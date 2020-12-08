@@ -28,12 +28,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class quiz_instruction extends Fragment {
-
+public class design_instructions extends Fragment {
+    View view;
     Button back,start;
     SharedPreferences pref,pref1;
     String token;
-    View view;
     List<questionObjectTechnical> questionsTechnical;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,13 +42,12 @@ public class quiz_instruction extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_quiz_instruction, container, false);
+        view= inflater.inflate(R.layout.fragment_design_instructions, container, false);
 
-        back = view.findViewById(R.id.back_button_dt);
-        start = view.findViewById(R.id.start_button_dt);
+        back = view.findViewById(R.id.back_button_di);
+        start = view.findViewById(R.id.startButton_di);
 
-        pref = view.getContext().getSharedPreferences("com.adgexternals.com.token",Context.MODE_PRIVATE);
+        pref = view.getContext().getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref.getString("Token","");
 
         questionsTechnical = new ArrayList<>();
@@ -84,7 +82,7 @@ public class quiz_instruction extends Fragment {
                 .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
-        Call<List<questionObjectTechnical>> call = client.getQuestionTechnical(token);
+        Call<List<questionObjectTechnical>> call = client.getQuestionDesign(token);
         call.enqueue(new Callback<List<questionObjectTechnical>>() {
             @Override
             public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
@@ -99,7 +97,7 @@ public class quiz_instruction extends Fragment {
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
                         saveData();
-                        startActivity(new Intent(view.getContext(),recruitment_quiz.class));
+                        startActivity(new Intent(view.getContext(),design_quiz.class));
                     }
                     else if(response.code()==400){
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
@@ -121,7 +119,7 @@ public class quiz_instruction extends Fragment {
         SharedPreferences.Editor editor= pref1.edit();
         Gson gson = new Gson();
         String json = gson.toJson(questionsTechnical);
-        editor.putString("questionsTechnical",json);
+        editor.putString("questionsDesign",json);
         Log.i("json",json);
         editor.apply();
     }

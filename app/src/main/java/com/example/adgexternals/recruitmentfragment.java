@@ -61,7 +61,6 @@ public class recruitmentfragment extends Fragment {
         attemptedManagement = pref1.getBoolean("attemptedManagement",false);
         attemptedDesign = pref1.getBoolean("attemptedDesign",false);
         attemptedTechnical = pref1.getBoolean("attemptedTechnical",false);
-        yearOfStudy = pref.getInt("yearofstudy",0);
         onclicklisteners();
 
         if(token.length()==0){
@@ -77,7 +76,6 @@ public class recruitmentfragment extends Fragment {
             @Override
             public void onClick(View v) {
                 type = "technical";
-
             }
         });
         clManagement.setOnClickListener(new View.OnClickListener() {
@@ -111,18 +109,32 @@ public class recruitmentfragment extends Fragment {
                             else if(yearOfStudy==2){
                                 Toast.makeText(v.getContext(), "Second Year", Toast.LENGTH_SHORT).show();
                             }
+                            else {
+                                Toast.makeText(v.getContext(), "Error. Please try again", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted technical quiz before", Toast.LENGTH_SHORT).show();
                         }
                     } else if (type.equals("management")) {
                         if (attemptedManagement.equals(false)) {
-                            startActivity(new Intent(view.getContext(),recruitment_quiz.class));
+                            Toast.makeText(v.getContext(), "Management Quiz under making", Toast.LENGTH_SHORT).show();
+                            //startActivity(new Intent(view.getContext(),recruitment_quiz.class));
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted management quiz before", Toast.LENGTH_SHORT).show();
                         }
                     } else if (type.equals("design")) {
                         if (attemptedDesign.equals(false)) {
-                            Toast.makeText(v.getContext(), "You have selected design", Toast.LENGTH_SHORT).show();
+                            if(yearOfStudy==1){
+                                design_instructions fragment = new design_instructions();
+                                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                                FragmentTransaction transaction = manager.beginTransaction();
+                                transaction.replace(R.id.frameLayout, fragment);
+                                transaction.addToBackStack(null);
+                                transaction.commit();
+                            }
+                            else if (yearOfStudy==2){
+                                Toast.makeText(v.getContext(), "Second Year", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted design quiz before", Toast.LENGTH_SHORT).show();
                         }
@@ -161,6 +173,7 @@ public class recruitmentfragment extends Fragment {
                             editor.putBoolean("attemptedManagement", user.getAttemptedManagement()).commit();
                             editor.putBoolean("attemptedDesign", user.getAttemptedDesign()).commit();
                             editor.putInt("yearofstudy", user.getYearofstudy());
+                            yearOfStudy = user.getYearofstudy();
                             editor.putString("id", user.getId());
                             editor.putString("name", user.getName());
                             editor.putString("regno", user.getRegno());
