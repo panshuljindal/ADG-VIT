@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +27,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class design_instructions extends Fragment {
+public class management_instructions extends Fragment {
     View view;
-    Button back,start;
-    SharedPreferences pref,pref1;
     String token;
-    List<questionObjectTechnical> questionsTechnical;
+    SharedPreferences pref;
+    Button back,start;
+    List<questionObject> questionManagement;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,20 +41,15 @@ public class design_instructions extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.fragment_design_instructions, container, false);
+        view= inflater.inflate(R.layout.fragment_management_instructions, container, false);
 
-        back = view.findViewById(R.id.back_button_di);
-        start = view.findViewById(R.id.startButton_di);
+        back = view.findViewById(R.id.back_button_dm);
+        start = view.findViewById(R.id.startButton_dm);
+        questionManagement = new ArrayList<>();
 
-        pref = view.getContext().getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
+        pref = view.getContext().getSharedPreferences("com.adgexternals.com.token",Context.MODE_PRIVATE);
         token = pref.getString("Token","");
 
-        questionsTechnical = new ArrayList<>();
-        onclicklisteners();
-
-        return  view;
-    }
-    public void onclicklisteners(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,49 +64,50 @@ public class design_instructions extends Fragment {
                 }
             }
         });
+        return view;
     }
-    public void sendNetworkRequest(){
-        HttpLoggingInterceptor logging  =new HttpLoggingInterceptor();
+    public void sendNetworkRequest() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/questions/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
+                .client(httpClient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
-        Call<List<questionObjectTechnical>> call = client.getQuestionDesign(token);
-        call.enqueue(new Callback<List<questionObjectTechnical>>() {
-            @Override
-            public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
-                    if (response.code()==200) {
+        if (isNetworkAvailable(getContext())) {
+            Call<List<questionObject>> call = client.getQuestionManagement(token);
+            call.enqueue(new Callback<List<questionObject>>() {
+                @Override
+                public void onResponse(Call<List<questionObject>> call, Response<List<questionObject>> response) {
+                    if (response.code() == 200) {
                         try {
-                            questionsTechnical.clear();
-                            questionsTechnical = response.body();
+                            questionManagement.clear();
+                            questionManagement = response.body();
                         } catch (Exception e) {
-                            Log.i("Exception",e.toString());
-                            Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
+
                         }
                         saveData();
-                        startActivity(new Intent(view.getContext(),design_quiz.class));
-                    }
-                    else if(response.code()==400){
-                        Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
                     }
                 }
 
-            @Override
-            public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
-                Toast.makeText(view.getContext(), "Network Error", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<List<questionObject>> call, Throwable t) {
+
+                }
+            });
+        }
+        else {
+            Toast.makeText(getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
+        }
     }
     public void saveData(){
         Gson gson = new Gson();
-        String json = gson.toJson(questionsTechnical);
-        Intent intent = new Intent(getActivity(),design_quiz.class);
-        intent.putExtra("questionsDesign",json);
+        String json = gson.toJson(questionManagement);
+        Intent intent = new Intent(getActivity(),management_quiz.class);
+        intent.putExtra("questionsManagement",json);
         startActivity(intent);
     }
     public boolean isNetworkAvailable(final Context context) {

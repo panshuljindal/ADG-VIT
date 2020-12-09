@@ -88,8 +88,6 @@ public class quiz_instruction extends Fragment {
         call.enqueue(new Callback<List<questionObjectTechnical>>() {
             @Override
             public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
-
-                if (isNetworkAvailable(view.getContext())) {
                     if (response.code()==200) {
                         try {
                             questionsTechnical.clear();
@@ -99,16 +97,11 @@ public class quiz_instruction extends Fragment {
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
                         saveData();
-                        startActivity(new Intent(view.getContext(),recruitment_quiz.class));
                     }
                     else if(response.code()==400){
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
                     }
                 }
-                else{
-                    Toast.makeText(view.getContext(), "Network not available", Toast.LENGTH_SHORT).show();
-                }
-            }
 
             @Override
             public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
@@ -117,13 +110,13 @@ public class quiz_instruction extends Fragment {
         });
     }
     public void saveData(){
-        pref1 = view.getContext().getSharedPreferences("com.adgexternals.com.questions",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= pref1.edit();
+        //pref1 = view.getContext().getSharedPreferences("com.adgexternals.com.questions",Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor= pref1.edit();
         Gson gson = new Gson();
         String json = gson.toJson(questionsTechnical);
-        editor.putString("questionsTechnical",json);
-        Log.i("json",json);
-        editor.apply();
+        Intent intent =new Intent(getActivity(),recruitment_quiz.class);
+        intent.putExtra("questionsTechnical",json);
+        startActivity(intent);
     }
     public boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));

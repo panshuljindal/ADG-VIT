@@ -52,7 +52,6 @@ public class design_quiz extends AppCompatActivity {
         questionList = new ArrayList<>();
         pref1 = getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref1.getString("Token","");
-        //Log.i("list", String.valueOf(questionsDesign.size()));
         setOptions();
         onclicklisteners();
     }
@@ -87,9 +86,9 @@ public class design_quiz extends AppCompatActivity {
         }
     }
     public void loadData(){
-        pref= getSharedPreferences("com.adgexternals.com.questions",MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = pref.getString("questionsDesign","");
+        Intent intent = getIntent();
+        String json = intent.getStringExtra("questionsDesign");
         Type type =new TypeToken<List<questionObjectTechnical>>() {}.getType();
         questionsDesign = gson.fromJson(json,type);
         if(questionsDesign==null){
@@ -216,7 +215,8 @@ public class design_quiz extends AppCompatActivity {
                     else{
                         Toast.makeText(design_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(design_quiz.this,finishQuiz.class);
-                        intent.putExtra("Type","Design");
+                        String type="Design";
+                        intent.putExtra("type",type);
                         startActivity(intent);
                     }
 

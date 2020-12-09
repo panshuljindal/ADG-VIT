@@ -23,10 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class settings_fragment extends Fragment {
-    Button editProfile,logout; ImageView profilepic1;
+    Button editProfile,logout;
+    ImageView profilepic1;
     TextView name1,email1;
     String name,email;
-    SharedPreferences pref,pref1,pref2;
+    SharedPreferences pref,pref1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,18 +40,22 @@ public class settings_fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings_fragment, container, false);
 
         pref1 = view.getContext().getSharedPreferences("com.adgexternals.com.token",Context.MODE_PRIVATE);
-        pref2 = view.getContext().getSharedPreferences("com.adgexternals.com.questions",Context.MODE_PRIVATE);
         pref = view.getContext().getSharedPreferences("com.adgexternals.com.userdata", Context.MODE_PRIVATE);
         name = pref.getString("name","");
         email = pref.getString("email","");
 
-        editProfile = (Button) view.findViewById(R.id.editProfileBtn);
-        profilepic1 = (ImageView) view.findViewById(R.id.profile_image1);
+        editProfile = view.findViewById(R.id.editProfileBtn);
+        profilepic1 = view.findViewById(R.id.profile_image1);
         logout = view.findViewById(R.id.buttonLogout);
         name1 = view.findViewById(R.id.profileName);
         email1 = view.findViewById(R.id.profileEmail);
-        name1.setText(name);
-        email1.setText(email);
+        if(name.isEmpty() && email.isEmpty()){
+            name1.setText("Name");
+            email1.setText("Email ID");
+        }else {
+            name1.setText(name);
+            email1.setText(email);
+        }
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,9 +63,6 @@ public class settings_fragment extends Fragment {
                 editor1.clear();
                 editor1.apply();
                 editor1 = pref1.edit();
-                editor1.clear();
-                editor1.apply();
-                editor1=pref2.edit();
                 editor1.clear();
                 editor1.apply();
 

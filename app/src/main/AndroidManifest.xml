@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdgExternals">
-        <activity android:name=".finishQuiz"></activity>
+        <activity android:name=".management_quiz"></activity>
+        <activity android:name=".finishQuiz" />
         <activity android:name=".design_quiz" />
         <activity android:name=".landingActivity">
             <intent-filter>

@@ -22,7 +22,7 @@ public interface userClient {
     Call<root> getUser(@Header("auth-token") String authtoken);
 
     @GET("management/get-quiz-questions")
-    Call<List<questionObject>> getQuestionManagement(@Header("auth-token") String authtoken);
+    Call<List<questionObject>> getQuestionManagement(@Header("auth-token") String token);
 
     @GET("design/get-quiz-questions")
     Call<List<questionObjectTechnical>> getQuestionDesign(@Header("auth-token") String token);

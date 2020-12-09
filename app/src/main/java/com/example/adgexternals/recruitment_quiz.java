@@ -90,9 +90,10 @@ public class recruitment_quiz extends AppCompatActivity {
         }
     }
     public void loadData(){
-        pref= getSharedPreferences("com.adgexternals.com.questions",MODE_PRIVATE);
+       // pref= getSharedPreferences("com.adgexternals.com.questions",MODE_PRIVATE);
+        Intent intent = getIntent();
         Gson gson = new Gson();
-        String json = pref.getString("questionsTechnical","");
+        String json = intent.getStringExtra("questionsTechnical");
         Type type =new TypeToken<List<questionObjectTechnical>>() {}.getType();
         questionsTechnical = gson.fromJson(json,type);
         if(questionsTechnical==null){
@@ -219,7 +220,8 @@ public class recruitment_quiz extends AppCompatActivity {
                     else{
                         Toast.makeText(recruitment_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(recruitment_quiz.this,finishQuiz.class);
-                        intent.putExtra("Type","Technical");
+                        String type="Technical";
+                        intent.putExtra("type",type);
                         startActivity(intent);
                     }
                 }
