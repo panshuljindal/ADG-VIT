@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:text="Choose your domain for quiz"
                 android:textColor="#395AFF"
@@ -50,14 +50,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
                 app:cardBackgroundColor="#fff"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18">
+                app:layout_constraintTop_toBottomOf="@+id/textView14">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/clTechnical"
@@ -261,6 +261,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewDesign" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginRight="35dp"
+                android:fontFamily="@font/helveticaneue_medium"
+                android:text="It is a long established fact that a reader will be distracted by "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="94dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
