@@ -61,31 +61,27 @@ public class recruitment_signup extends AppCompatActivity {
                         if (checkMail()) {
                             if (regNo1.getText().toString().startsWith("20")) {
                                 if (github1.getText().length() == 0) {
-                                    Log.i("User", "user1_1");
                                     user = new User(name, regNo, password, email, 1, "https://github.com/adgvit");
                                     sendNetworkRequest(user);
                                 } else {
-                                    Log.i("User", "user1_2");
                                     if(checkGithub()) {
                                         user = new User(name, regNo, password, email, 1, github);
                                         sendNetworkRequest(user);
                                     }
                                     else {
-                                        Toast.makeText(v.getContext(), "Please enter full githublink", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             } else if (regNo1.getText().toString().startsWith("19")) {
                                 if (github1.getText().length() == 0) {
-                                    Log.i("User", "user2_1");
                                     Toast.makeText(recruitment_signup.this, "Github Link mandatory for second year", Toast.LENGTH_SHORT).show();
                                 } else {
                                     if(checkGithub()) {
-                                        Log.i("User", "user2_2");
                                         User user1 = new User(name, regNo, password, email, 2, github);
                                         sendNetworkRequest(user1);
                                     }
                                     else{
-                                        Toast.makeText(v.getContext(), "Please enter full githublink", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -117,31 +113,20 @@ public class recruitment_signup extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.i("Code",String.valueOf(response.code()));
-                if(response.isSuccessful() && response.code()==200){
-                    try{
-                        Toast.makeText(recruitment_signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(recruitment_signup.this,recruitment_login.class));
-                    }
-                    catch (Exception e){
-
-                    }
+                if(response.code()==201){
+                    Toast.makeText(recruitment_signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(recruitment_signup.this,recruitment_login.class));
                 }
-                else if(!response.isSuccessful()){
-                    if(response.code()==400){
-                        Toast.makeText(recruitment_signup.this, "Email or registration number already exists", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        Toast.makeText(recruitment_signup.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
-                    }
+                if(response.code()==400){
+                    Toast.makeText(recruitment_signup.this, "Email already exists", Toast.LENGTH_SHORT).show();
                 }
-                else{
+                else {
                     Toast.makeText(recruitment_signup.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(recruitment_signup.this,"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(recruitment_signup.this,"Error occurred. Please try again",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -170,13 +155,13 @@ public class recruitment_signup extends AppCompatActivity {
     }
     public Boolean checkMail(){
             String tempEmail=email1.getText().toString().trim();
-            Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?20[1-2][0-9]@vitstudent.ac.in$");
+            Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?20[0-9][0-9]@vitstudent.ac.in$");
             Matcher emailMatcher=emailPattern.matcher(tempEmail);
             if(emailMatcher.matches())
             {
                 return true;
             }
-            Toast.makeText(recruitment_signup.this, "Please enter Vit emailid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(recruitment_signup.this, "Please enter Vit email id", Toast.LENGTH_SHORT).show();
             return false;
     }
     public boolean checkGithub(){
@@ -184,10 +169,6 @@ public class recruitment_signup extends AppCompatActivity {
         if(tempGit.startsWith("https://github.com/")){
             return true;
         }
-        if(tempGit.startsWith("github.com")){
-
-        }
-
         return false;
     }
     public boolean isNetworkAvailable(final Context context) {

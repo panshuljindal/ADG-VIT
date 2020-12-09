@@ -48,22 +48,25 @@ public class management_quiz extends AppCompatActivity {
         setData();
         onclicklisteners();
     }
+    public void submitanswer(){
+        questionAnswer.add(new postQuestion(questionManagement.get(0).get_id(), q1A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(1).get_id(), q2A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(2).get_id(), q3A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(3).get_id(), q4A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(4).get_id(), q5A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(5).get_id(), q6A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(6).get_id(), q7A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(7).get_id(), q8A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(8).get_id(), q9A.getText().toString()));
+        questionAnswer.add(new postQuestion(questionManagement.get(9).get_id(), q10A.getText().toString()));
+        sendNetWorkRequest(questionAnswer);
+    }
     public void onclicklisteners(){
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable(v.getContext())) {
-                    questionAnswer.add(new postQuestion(questionManagement.get(0).get_id(), q1A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(1).get_id(), q2A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(2).get_id(), q3A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(3).get_id(), q4A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(4).get_id(), q5A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(5).get_id(), q6A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(6).get_id(), q7A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(7).get_id(), q8A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(8).get_id(), q9A.getText().toString()));
-                    questionAnswer.add(new postQuestion(questionManagement.get(9).get_id(), q10A.getText().toString()));
-                    sendNetWorkRequest(questionAnswer);
+                    submitanswer();
                 }
                 else{
                     Toast.makeText(management_quiz.this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
@@ -110,8 +113,8 @@ public class management_quiz extends AppCompatActivity {
         questionManagement.clear();
         Gson gson = new Gson();
         Intent intent = getIntent();
-        String json = intent.getStringExtra("questionsDesign");
-        Type type =new TypeToken<List<questionObjectTechnical>>() {}.getType();
+        String json = intent.getStringExtra("questionsManagement");
+        Type type =new TypeToken<List<questionObject>>() {}.getType();
         questionManagement = gson.fromJson(json,type);
         if(questionManagement==null){
             questionManagement=new ArrayList<>();
@@ -119,13 +122,17 @@ public class management_quiz extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.adgexternals.com.token",MODE_PRIVATE);
         token = preferences.getString("Token","");
     }
+    public void cheating(){
+
+        submitanswer();
+    }
     public void sendNetWorkRequest(List<postQuestion> ques){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
         httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://adgrecruitments.herokuapp.com/questions/")
+                .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpclient.build())
                 .build();
@@ -135,7 +142,29 @@ public class management_quiz extends AppCompatActivity {
         call.enqueue(new Callback<postQuestion>() {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
-
+                if(response.code()==200){
+                    if(cheat==true){
+                        Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(management_quiz.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(management_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
+                        Intent intent =new Intent(management_quiz.this,finishQuiz.class);
+                        String type="Management";
+                        intent.putExtra("type",type);
+                        startActivity(intent);
+                    }
+                }
+                else if(response.code()==403){
+                    if(cheat==true){
+                        Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(management_quiz.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(management_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(management_quiz.this,MainActivity.class));
+                    }
+                }
             }
 
             @Override

@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,6 +92,9 @@ public class management_instructions extends Fragment {
                         }
                         saveData();
                     }
+                    else {
+
+                    }
                 }
 
                 @Override
@@ -106,8 +110,10 @@ public class management_instructions extends Fragment {
     public void saveData(){
         Gson gson = new Gson();
         String json = gson.toJson(questionManagement);
+        Log.i("Json",json);
         Intent intent = new Intent(getActivity(),management_quiz.class);
         intent.putExtra("questionsManagement",json);
+        Log.i("json",json);
         startActivity(intent);
     }
     public boolean isNetworkAvailable(final Context context) {

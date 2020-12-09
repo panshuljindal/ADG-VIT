@@ -31,9 +31,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class design_quiz extends AppCompatActivity {
     List<questionObjectTechnical> questionsDesign;
-    SharedPreferences pref,pref1;
+    SharedPreferences pref1;
     ConstraintLayout cl1,cl2,cl3,cl4;
-    int qno=0,maxques;
+    int qno=0;
+    int maxques;
     TextView option1,option2,option3,option4,question,quesText;
     String option="null";
     Button next,skip;
@@ -47,8 +48,10 @@ public class design_quiz extends AppCompatActivity {
         setContentView(R.layout.activity_design_quiz);
 
         findViewByIds();
+        questionsDesign = new ArrayList<>();
         loadData();
         maxques=questionsDesign.size();
+        Log.i("maxQues",String.valueOf(maxques));
         questionList = new ArrayList<>();
         pref1 = getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref1.getString("Token","");
@@ -86,13 +89,14 @@ public class design_quiz extends AppCompatActivity {
         }
     }
     public void loadData(){
-        Gson gson = new Gson();
         Intent intent = getIntent();
+        Gson gson = new Gson();
         String json = intent.getStringExtra("questionsDesign");
         Type type =new TypeToken<List<questionObjectTechnical>>() {}.getType();
         questionsDesign = gson.fromJson(json,type);
         if(questionsDesign==null){
             questionsDesign=new ArrayList<>();
+            loadData();
         }
     }
     public void reset(){
@@ -207,7 +211,7 @@ public class design_quiz extends AppCompatActivity {
         call.enqueue(new Callback<postQuestion>() {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
-                if(response.isSuccessful() && response.code()==200){
+                if(response.code()==200){
                     if(cheat==true){
                         Toast.makeText(design_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(design_quiz.this,MainActivity.class));
@@ -219,15 +223,15 @@ public class design_quiz extends AppCompatActivity {
                         intent.putExtra("type",type);
                         startActivity(intent);
                     }
-
                 }
-                else if(response.code()==400){
+                else if(response.code()==403){
                     if(cheat==true){
                         Toast.makeText(design_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(design_quiz.this,MainActivity.class));
                     }
                     else{
                         Toast.makeText(design_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(design_quiz.this,MainActivity.class));
                     }
                 }
             }

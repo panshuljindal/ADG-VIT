@@ -18,4 +18,10 @@ public class finishQuiz extends AppCompatActivity {
         TextView text = findViewById(R.id.resultText1);
         text.setText("Thank you for the " + type + " Quiz");
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        startActivity(new Intent(finishQuiz.this,MainActivity.class));
+    }
 }

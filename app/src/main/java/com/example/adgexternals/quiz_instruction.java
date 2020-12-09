@@ -98,11 +98,11 @@ public class quiz_instruction extends Fragment {
                         }
                         saveData();
                     }
-                    else if(response.code()==400){
+                    else if(response.code()==403){
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
+                        getFragmentManager().popBackStackImmediate();
                     }
                 }
-
             @Override
             public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
                 Toast.makeText(view.getContext(), "Network Error", Toast.LENGTH_SHORT).show();
@@ -110,8 +110,6 @@ public class quiz_instruction extends Fragment {
         });
     }
     public void saveData(){
-        //pref1 = view.getContext().getSharedPreferences("com.adgexternals.com.questions",Context.MODE_PRIVATE);
-        //SharedPreferences.Editor editor= pref1.edit();
         Gson gson = new Gson();
         String json = gson.toJson(questionsTechnical);
         Intent intent =new Intent(getActivity(),recruitment_quiz.class);

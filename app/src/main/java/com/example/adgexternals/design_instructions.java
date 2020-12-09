@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class design_instructions extends Fragment {
     View view;
     Button back,start;
-    SharedPreferences pref,pref1;
+    SharedPreferences pref;
     String token;
     List<questionObjectTechnical> questionsTechnical;
     @Override
@@ -95,10 +95,10 @@ public class design_instructions extends Fragment {
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
                         saveData();
-                        startActivity(new Intent(view.getContext(),design_quiz.class));
                     }
-                    else if(response.code()==400){
+                    else if(response.code()==403){
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
+                        getFragmentManager().popBackStackImmediate();
                     }
                 }
 

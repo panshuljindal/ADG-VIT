@@ -34,9 +34,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitment_quiz extends AppCompatActivity {
     List<questionObjectTechnical> questionsTechnical;
-    SharedPreferences pref,pref1;
+    SharedPreferences pref1;
     ConstraintLayout cl1,cl2,cl3,cl4;
-    int qno=0,maxques;
+    int qno=0;
+    int maxques;
     TextView option1,option2,option3,option4,question,quesText;
     String option="null";
     Button next,skip;
@@ -55,7 +56,6 @@ public class recruitment_quiz extends AppCompatActivity {
         questionList = new ArrayList<>();
         pref1 = getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref1.getString("Token","");
-        //Log.i("list", String.valueOf(questionsTechnical.size()));
         setOptions();
         onclicklisteners();
     }
@@ -90,14 +90,15 @@ public class recruitment_quiz extends AppCompatActivity {
         }
     }
     public void loadData(){
-       // pref= getSharedPreferences("com.adgexternals.com.questions",MODE_PRIVATE);
         Intent intent = getIntent();
         Gson gson = new Gson();
         String json = intent.getStringExtra("questionsTechnical");
+        Log.i("json",json);
         Type type =new TypeToken<List<questionObjectTechnical>>() {}.getType();
         questionsTechnical = gson.fromJson(json,type);
         if(questionsTechnical==null){
             questionsTechnical=new ArrayList<>();
+            loadData();
         }
     }
     public void reset(){

@@ -117,8 +117,12 @@ public class recruitmentfragment extends Fragment {
                         }
                     } else if (type.equals("management")) {
                         if (attemptedManagement.equals(false)) {
-                            Toast.makeText(v.getContext(), "Management Quiz under making", Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(view.getContext(),recruitment_quiz.class));
+                            management_instructions fragment = new management_instructions();
+                            FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                            FragmentTransaction transaction = manager.beginTransaction();
+                            transaction.replace(R.id.frameLayout, fragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted management quiz before", Toast.LENGTH_SHORT).show();
                         }

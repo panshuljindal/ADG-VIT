@@ -84,8 +84,7 @@ public class recruitment_login extends AppCompatActivity {
         call.enqueue(new Callback<loginResponse>() {
             @Override
             public void onResponse(Call<loginResponse> call, Response<loginResponse> response) {
-                //Log.i("Code", String.valueOf(response.code()));
-                if(response.isSuccessful() && response.code()==200) {
+                if(response.code()==200) {
                     try {
                         Toast.makeText(recruitment_login.this, "You have successfully logged in!", Toast.LENGTH_SHORT).show();
                         editor.putString("Token",response.body().getToken());
@@ -95,25 +94,20 @@ public class recruitment_login extends AppCompatActivity {
                         Log.i("Exception", e.toString());
                     }
                 }
-                else if(!response.isSuccessful()) {
-
-                    if (response.code() == 403) {
-                        Toast.makeText(recruitment_login.this, "Password doesn't match", Toast.LENGTH_SHORT).show();
-                    } else if (response.code() == 400) {
-                        Toast.makeText(recruitment_login.this, "Registration number not found", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(recruitment_login.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
-                    }
+                else if (response.code() == 403) {
+                    Toast.makeText(recruitment_login.this, "Password doesn't match", Toast.LENGTH_SHORT).show();
                 }
-                else {
+                else if (response.code() == 400) {
+                    Toast.makeText(recruitment_login.this, "Registration number not found", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     Toast.makeText(recruitment_login.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<loginResponse> call, Throwable t) {
-                Toast.makeText(recruitment_login.this,"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(recruitment_login.this,"Error occurred. Please try again",Toast.LENGTH_SHORT).show();
             }
         });
     }
