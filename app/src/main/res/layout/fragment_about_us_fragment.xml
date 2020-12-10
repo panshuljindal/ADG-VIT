@@ -172,7 +172,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/profile" />
+                        app:srcCompat="@drawable/krishna" />
 
                     <TextView
                         android:id="@+id/krishnaName"
@@ -279,7 +279,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/profile" />
+                        app:srcCompat="@drawable/arupam" />
 
                     <TextView
                         android:id="@+id/arupamName"
@@ -479,7 +479,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/profile" />
+                            app:srcCompat="@drawable/gokul" />
 
                         <TextView
                             android:id="@+id/gokulName"
@@ -572,7 +572,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/profile" />
+                            app:srcCompat="@drawable/prabaljit" />
 
                         <TextView
                             android:id="@+id/prabaljitName"

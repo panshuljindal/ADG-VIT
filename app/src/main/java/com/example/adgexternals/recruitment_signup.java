@@ -119,7 +119,7 @@ public class recruitment_signup extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
-                if(response.code()==400){
+                else if(response.code()==400){
                     Toast.makeText(recruitment_signup.this, "Email id or registration number already exists", Toast.LENGTH_SHORT).show();
                 }
                 else {
