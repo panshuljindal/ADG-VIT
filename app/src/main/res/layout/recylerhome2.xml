@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="85dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp">
@@ -13,10 +13,12 @@
 
         <LinearLayout
             android:id="@+id/cardDate"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" >
@@ -25,9 +27,8 @@
                 android:id="@+id/recycler2cardday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:text="24"
-                android:textSize="45dp"
+                android:textSize="27dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:textColor="#000000"
@@ -37,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NOV"
-                android:textSize="25dp"
+                android:textSize="18dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/helveticaneue_regular"
                 android:textColor="#000000"
@@ -59,9 +60,10 @@
         <LinearLayout
             android:id="@+id/carddetails1"
             android:layout_width="0dp"
-            android:layout_height="120dp"
+            android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/morebtn"
             app:layout_constraintStart_toEndOf="@id/border"
@@ -74,21 +76,20 @@
                 android:text="Introduction To ML and AI"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/helveticaneue_medium"
-                android:textSize="18dp"
+                android:textSize="12dp"
                 android:textColor="@color/black"
-                android:layout_marginTop = "10dp"
-                android:layout_marginLeft="20dp"
+
                 />
             <TextView
                 android:id="@+id/recycler2cardvenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Anna Auditorium"
-                android:fontFamily="@font/helveticaneue"
-                android:textSize="14dp"
+                android:fontFamily="@font/robotolight"
+                android:textSize="10dp"
                 android:textColor="@color/black"
-                android:layout_marginTop = "15dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginTop = "3dp"
+
                 />
 
             <LinearLayout
@@ -96,15 +97,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop = "5dp"
-                android:layout_marginLeft="20dp"
+
                 >
                 <TextView
                     android:id="@+id/timetxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Time:"
+                    android:layout_gravity="center_vertical"
                     android:fontFamily="@font/helveticaneue_medium"
-                    android:textSize="14dp"
+                    android:textSize="10dp"
                     android:textColor="@color/black"/>
                 <TextView
                     android:id="@+id/timerecyclercard2"
@@ -112,8 +114,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:text="11:30 AM"
-                    android:fontFamily="@font/helveticaneue"
-                    android:textSize="14dp"
+                    android:fontFamily="@font/robotolight"
+                    android:textSize="10dp"
                     android:textColor="@color/black"/>
 
             </LinearLayout>

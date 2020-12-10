@@ -51,7 +51,7 @@ public class homefragment extends Fragment {
     }
     public void addData(){
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
-        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
+        list1.add(new recyler2item("Introduction to Machine Learning","Anna Audi","11:30","23","NOV"));
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
     }
