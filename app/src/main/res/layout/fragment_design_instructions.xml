@@ -1,78 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".design_instructions">
+    android:scrollbars="vertical"
+    tools:context=".design_instructions"
+    android:background="#fff">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/Designtesthead"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="56dp"
-            android:fontFamily="@font/helveticaneue_medium"
-            android:text="Design Test"
-            android:textColor="#000"
-            android:textSize="25dp"
-            app:layout_constraintStart_toEndOf="@+id/back_button_di"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/back_button_di"
-            android:layout_width="86dp"
-            android:layout_height="57dp"
-            android:layout_marginTop="49dp"
-            android:text="Back"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <Button
+                android:id="@+id/back_button_di"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_icon_feather_arrow_left"
+                />
+            <TextView
+                android:id="@+id/TestHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue_medium"
+                android:text="Design Test"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                android:textSize="30dp"
+                app:layout_constraintStart_toEndOf="@+id/back_button_dt"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/chooseTextViewDes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:fontFamily="@font/helveticaneue_medium"
-            android:text="Instructions"
-            android:textColor="#000"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/helveticaneu_bold"
             android:textSize="20dp"
+            android:textColor="#395AFF"
+            android:text="You have choosen Design"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button_di" />
+            app:layout_constraintTop_toBottomOf="@+id/Designtesthead"
+            />
+        <TextView
+            android:id="@+id/instructionTimeTextViewDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/helveticaneue"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:text="It is a long established fact that a reader will be distracted by "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseTextViewDes"
+            />
+
+        <LinearLayout
+            android:id="@+id/timetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/timetxtbg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instructionTimeTextViewDes"
+            >
+            <TextView
+                android:id="@+id/fromInstTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration : "
+                android:textSize="16dp"
+                android:fontFamily="@font/helveticaneue"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/fromInstTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 Mins"
+                android:fontFamily="@font/helveticaneu_bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toEndOf="@id/fromInstTextView"
+                app:layout_constraintTop_toBottomOf="@id/instructionTimeTextView"
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/InstructionsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:text="Instructions"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/helveticaneu_bold"
+            app:layout_constraintTop_toBottomOf="@+id/timetxt"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <LinearLayout
+            android:id="@+id/InstructionsPoint1Des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/InstructionsText"
+            >
+            <View
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/ic_dot"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/InstructionsPoint2Des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/InstructionsPoint1Des"
+            >
+            <View
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/ic_dot"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/InstructionsPoint3Des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/InstructionsPoint2Des"
+            >
+            <View
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/ic_dot"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneue"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/startButton_di"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="132dp"
             android:background="@drawable/quiznext"
             android:fontFamily="@font/helveticaneu_bold"
             android:text="Start"
+            android:layout_marginTop="95dp"
+            android:layout_marginBottom="20dp"
             android:textAllCaps="false"
             android:textColor="#4766FF"
             android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/InstructionsPoint3Des" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna"
-            android:textColor="#9F9F9F"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
+</ScrollView>
