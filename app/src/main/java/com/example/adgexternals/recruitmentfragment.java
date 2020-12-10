@@ -67,7 +67,7 @@ public class recruitmentfragment extends Fragment {
             startActivity(new Intent(getContext(),recruitment_home.class));
         }
         else{
-            startActivity(new Intent(view.getContext(),finishQuiz.class));
+            //startActivity(new Intent(view.getContext(),finishQuiz.class));
             sendNetworkRequest(token);
         }
         if(type=="null"){
