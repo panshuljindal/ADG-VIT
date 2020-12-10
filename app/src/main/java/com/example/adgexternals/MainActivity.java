@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -107,6 +109,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    Boolean doubleback=false;
+    @Override
+    public void onBackPressed() {
+        if(doubleback) {
+            super.onBackPressed();
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+        } else {
+            doubleback = true;
 
+            Toast.makeText(this, "Please once again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleback = false;
+                    Log.i("doubleback", doubleback.toString());
+                }
+            }, 2000);
+        }
     }
 }
