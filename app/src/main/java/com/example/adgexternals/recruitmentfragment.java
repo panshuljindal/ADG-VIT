@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import okhttp3.OkHttpClient;
@@ -31,6 +33,7 @@ public class recruitmentfragment extends Fragment {
     SharedPreferences pref,pref1;
     SharedPreferences.Editor editor;
     String token;
+    TextView tech,tech1,manage,manage1,design,design1;
     ConstraintLayout clTechnical,clManagement,clDesign;
     String type="null";
     Boolean attemptedTechnical,attemptedManagement,attemptedDesign;
@@ -48,10 +51,7 @@ public class recruitmentfragment extends Fragment {
                              Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_recruitmentfragment, container, false);
 
-        clTechnical = view.findViewById(R.id.clTechnical);
-        clManagement = view.findViewById(R.id.clManagement);
-        clDesign = view.findViewById(R.id.clDesign);
-        submit = view.findViewById(R.id.buttonDomainSubmit);
+        findViewByIds();
 
         pref= view.getContext().getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref.getString("Token","");
@@ -69,24 +69,83 @@ public class recruitmentfragment extends Fragment {
         else{
             sendNetworkRequest(token);
         }
+        if(type=="null"){
+
+        }
+        else if(type=="technical"){
+            clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
+            tech.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+            tech1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+            type = "technical";
+        }
+        else if(type=="management"){
+            clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
+            manage.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+            manage1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+            type = "management";
+        }
+        else if(type=="design"){
+            clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
+            design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+            design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+            type = "design";
+        }
+        else {
+            type="null";
+        }
         return view;
+    }
+    public void findViewByIds(){
+        clTechnical = view.findViewById(R.id.clTechnical);
+        clManagement = view.findViewById(R.id.clManagement);
+        clDesign = view.findViewById(R.id.clDesign);
+        submit = view.findViewById(R.id.buttonDomainSubmit);
+        tech = view.findViewById(R.id.textViewTechnical);
+        tech1 = view.findViewById(R.id.textViewTechnical1);
+        manage = view.findViewById(R.id.textViewManagement);
+        manage1 = view.findViewById(R.id.textViewManagement1);
+        design = view.findViewById(R.id.textViewDesign);
+        design1 = view.findViewById(R.id.textViewDesign1);
+    }
+    public void reset(){
+        clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_back));
+        clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_back));
+        clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_back));
+        tech.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_black));
+        tech1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_grey));
+        manage.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_black));
+        manage1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_grey));
+        design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_black));
+        design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_grey));
     }
     public void onclicklisteners(){
         clTechnical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                reset();
+                clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
+                tech.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+                tech1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
                 type = "technical";
             }
         });
         clManagement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                reset();
+                clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
+                manage.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+                manage1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
                 type = "management";
             }
         });
         clDesign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                reset();
+                clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
+                design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
+                design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
                 type = "design";
             }
         });
