@@ -4,19 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class finishQuiz extends AppCompatActivity {
+    Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish_quiz);
 
+        TextView text = findViewById(R.id.resultText1);
+        home= findViewById(R.id.finishHomeButton);
+
         Intent intent = getIntent();
         String type=intent.getStringExtra("type");
-        TextView text = findViewById(R.id.resultText1);
-        text.setText("Thank you for the " + type + " Quiz");
+        text.setText(type);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(finishQuiz.this,MainActivity.class));
+            }
+        });
+
     }
 
     @Override
