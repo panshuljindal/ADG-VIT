@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class settings_fragment extends Fragment {
-    Button editProfile,logout;
+    Button editProfile,logout,aboutus;
     ImageView profilepic1;
     TextView name1,email1;
     String name,email;
@@ -50,6 +50,20 @@ public class settings_fragment extends Fragment {
         logout = view.findViewById(R.id.buttonLogout);
         name1 = view.findViewById(R.id.profileName);
         email1 = view.findViewById(R.id.profileEmail);
+        aboutus = view.findViewById(R.id.aboutUsBtn);
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                about_us_fragment fragment = new about_us_fragment();
+                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         if(name.isEmpty() && email.isEmpty()){
             name1.setText("Name");
             email1.setText("Email ID");
