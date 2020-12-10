@@ -179,7 +179,6 @@
             android:textSize="16dp" />
 
     </LinearLayout>
-
         <Button
             android:id="@+id/finishHomeButton"
             android:layout_width="112dp"
