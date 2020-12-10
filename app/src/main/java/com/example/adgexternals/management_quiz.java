@@ -2,6 +2,7 @@ package com.example.adgexternals;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,7 +34,7 @@ public class management_quiz extends AppCompatActivity {
 
     TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D,time;
     EditText q1A,q2A,q3A,q4A,q5A,q6A,q7A,q8A,q9A,q10A;
-    Button submit;
+    Button submit,submit1,cancel;
     List<questionObject> questionManagement;
     List<postQuestion> questionAnswer;
     SharedPreferences pref;
@@ -74,7 +75,26 @@ public class management_quiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable(v.getContext())) {
-                    submitanswer();
+                    Dialog dialog = new Dialog(v.getContext(),R.style.Theme_Dialog);
+                    dialog.setContentView(R.layout.dialogbox_submit);
+                    submit1 = dialog.findViewById(R.id.submit_dialog_button);
+                    cancel = dialog.findViewById(R.id.cancel_dialog_button);
+                    dialog.show();
+                    submit1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            dialog.dismiss();
+                            submitanswer();
+                        }
+                    });
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
                 }
                 else{
                     Toast.makeText(management_quiz.this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
