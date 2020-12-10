@@ -42,7 +42,9 @@ public class homefragment extends Fragment {
         adglogoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(),adg_info.class));
+                Intent intent = new Intent(v.getContext(),adg_info.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
     }
