@@ -107,7 +107,7 @@ public class recruitment_quiz extends AppCompatActivity {
         if(seconds<=9){
             secondString="0"+secondString;
         }
-        if(min>1) {
+        if(min>=1) {
             time.setText(Integer.toString(min) + ":" + secondString +"s");
         }
         else{

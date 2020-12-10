@@ -83,9 +83,8 @@ public class management_quiz extends AppCompatActivity {
                     submit1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
-                            dialog.dismiss();
                             submitanswer();
+                            dialog.dismiss();
                         }
                     });
                     cancel.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +174,7 @@ public class management_quiz extends AppCompatActivity {
         if(seconds<=9){
             secondString="0"+secondString;
         }
-        if(min>1) {
+        if(min>=1) {
             time.setText(Integer.toString(min) + ":" + secondString +"s");
         }
         else{

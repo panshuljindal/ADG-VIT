@@ -1,5 +1,6 @@
 package com.example.adgexternals;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.Image;
@@ -59,12 +60,30 @@ public class settings_fragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor editor1 = pref.edit();
-                editor1.clear();
-                editor1.apply();
-                editor1 = pref1.edit();
-                editor1.clear();
-                editor1.apply();
+                Dialog dialog = new Dialog(v.getContext(),R.style.Theme_Dialog);
+                dialog.setContentView(R.layout.dialog_logout);
+                Button logout = dialog.findViewById(R.id.submit_logout_button);
+                Button cancel = dialog.findViewById(R.id.cancel_logout_button);
+                dialog.show();
+                logout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(v.getContext(), "Logged Out", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor1 = pref.edit();
+                        editor1.clear();
+                        editor1.apply();
+                        editor1 = pref1.edit();
+                        editor1.clear();
+                        editor1.apply();
+                        dialog.dismiss();
+                    }
+                });
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
 
             }
         });
