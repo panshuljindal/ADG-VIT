@@ -89,7 +89,9 @@ public class recruitment_login extends AppCompatActivity {
                         Toast.makeText(recruitment_login.this, "You have successfully logged in!", Toast.LENGTH_SHORT).show();
                         editor.putString("Token",response.body().getToken());
                         editor.apply();
-                        startActivity(new Intent(recruitment_login.this,MainActivity.class));
+                        Intent intent = new Intent(recruitment_login.this,MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                     } catch (Exception e) {
                         Log.i("Exception", e.toString());
                     }
