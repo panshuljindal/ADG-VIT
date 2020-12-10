@@ -12,7 +12,7 @@
         android:layout_width="230dp"
         android:layout_height="85dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/adglogo4"
+        android:background="@drawable/adglogo1_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
