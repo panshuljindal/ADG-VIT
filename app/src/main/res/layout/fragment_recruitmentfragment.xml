@@ -68,8 +68,8 @@
 
                     <ImageView
                         android:id="@+id/imageViewTechnical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="7dp"
@@ -135,12 +135,12 @@
 
                     <ImageView
                         android:id="@+id/imageViewManagement"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="7dp"
-                        android:src="@drawable/ic_r1"
+                        android:src="@drawable/ic_r3"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -188,8 +188,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="28dp"
                 app:cardBackgroundColor="#fff"
                 app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonDomainSubmit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewManagement">
@@ -202,12 +204,12 @@
 
                     <ImageView
                         android:id="@+id/imageViewDesign"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="7dp"
-                        android:src="@drawable/ic_r1"
+                        android:src="@drawable/ic_r5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -251,7 +253,6 @@
                 android:layout_width="120dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginBottom="20dp"
                 android:background="@drawable/quiznext"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -259,6 +260,7 @@
                 android:textAllCaps="false"
                 android:textColor="#3582FF"
                 android:textSize="18dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewDesign" />

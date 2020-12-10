@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitmentfragment extends Fragment {
     SharedPreferences pref,pref1;
+    ImageView technical,management,designImage;
     SharedPreferences.Editor editor;
     String token;
     TextView tech,tech1,manage,manage1,design,design1;
@@ -74,18 +76,30 @@ public class recruitmentfragment extends Fragment {
 
         }
         else if(type=="technical"){
+            reset();
+            technical.setImageResource(R.drawable.ic_r2);
+            management.setImageResource(R.drawable.ic_r3);
+            designImage.setImageResource(R.drawable.ic_r5);
             clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
             tech.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
             tech1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
             type = "technical";
         }
         else if(type=="management"){
+            reset();
+            technical.setImageResource(R.drawable.ic_r1);
+            management.setImageResource(R.drawable.ic_r4);
+            designImage.setImageResource(R.drawable.ic_r5);
             clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
             manage.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
             manage1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
             type = "management";
         }
         else if(type=="design"){
+            reset();
+            technical.setImageResource(R.drawable.ic_r1);
+            management.setImageResource(R.drawable.ic_r3);
+            designImage.setImageResource(R.drawable.ic_r6);
             clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
             design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
             design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
@@ -107,8 +121,14 @@ public class recruitmentfragment extends Fragment {
         manage1 = view.findViewById(R.id.textViewManagement1);
         design = view.findViewById(R.id.textViewDesign);
         design1 = view.findViewById(R.id.textViewDesign1);
+        technical = view.findViewById(R.id.imageViewTechnical);
+        management= view.findViewById(R.id.imageViewManagement);
+        designImage = view.findViewById(R.id.imageViewDesign);
     }
     public void reset(){
+        technical.setImageResource(R.drawable.ic_r1);
+        management.setImageResource(R.drawable.ic_r3);
+        designImage.setImageResource(R.drawable.ic_r5);
         clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_back));
         clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_back));
         clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_back));
@@ -124,6 +144,9 @@ public class recruitmentfragment extends Fragment {
             @Override
             public void onClick(View v) {
                 reset();
+                technical.setImageResource(R.drawable.ic_r2);
+                management.setImageResource(R.drawable.ic_r3);
+                designImage.setImageResource(R.drawable.ic_r5);
                 clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
                 tech.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
                 tech1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
@@ -134,6 +157,9 @@ public class recruitmentfragment extends Fragment {
             @Override
             public void onClick(View v) {
                 reset();
+                technical.setImageResource(R.drawable.ic_r1);
+                management.setImageResource(R.drawable.ic_r4);
+                designImage.setImageResource(R.drawable.ic_r5);
                 clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
                 manage.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
                 manage1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
@@ -144,6 +170,9 @@ public class recruitmentfragment extends Fragment {
             @Override
             public void onClick(View v) {
                 reset();
+                technical.setImageResource(R.drawable.ic_r1);
+                management.setImageResource(R.drawable.ic_r3);
+                designImage.setImageResource(R.drawable.ic_r6);
                 clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
                 design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
                 design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
@@ -153,67 +182,70 @@ public class recruitmentfragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetworkAvailable(v.getContext())) {
-                    if (type.equals("null")) {
-                        Toast.makeText(v.getContext(), "Please select a domain", Toast.LENGTH_SHORT).show();
-                    } else if (type.equals("technical")) {
-                        if (attemptedTechnical.equals(false)) {
-                            if(yearOfStudy==1) {
-                                quiz_instruction fragment = new quiz_instruction();
-                                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                                FragmentTransaction transaction = manager.beginTransaction();
-                                transaction.replace(R.id.frameLayout, fragment);
-                                transaction.addToBackStack(null);
-                                transaction.commit();
-                            }
-                            else if(yearOfStudy==2){
-                                Intent i = new Intent(v.getContext(),secondYear1.class);
-                                i.putExtra("type","technical");
-                                startActivity(i);
-
-                            }
-                            else {
-                                Toast.makeText(v.getContext(), "Error. Please try again", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(v.getContext(), "You have attempted technical quiz before", Toast.LENGTH_SHORT).show();
-                        }
-                    } else if (type.equals("management")) {
-                        if (attemptedManagement.equals(false)) {
-                            management_instructions fragment = new management_instructions();
-                            FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                            FragmentTransaction transaction = manager.beginTransaction();
-                            transaction.replace(R.id.frameLayout, fragment);
-                            transaction.addToBackStack(null);
-                            transaction.commit();
-                        } else {
-                            Toast.makeText(v.getContext(), "You have attempted management quiz before", Toast.LENGTH_SHORT).show();
-                        }
-                    } else if (type.equals("design")) {
-                        if (attemptedDesign.equals(false)) {
-                            if(yearOfStudy==1){
-                                design_instructions fragment = new design_instructions();
-                                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                                FragmentTransaction transaction = manager.beginTransaction();
-                                transaction.replace(R.id.frameLayout, fragment);
-                                transaction.addToBackStack(null);
-                                transaction.commit();
-                            }
-                            else if (yearOfStudy==2){
-                                Intent i = new Intent(v.getContext(),secondYear1.class);
-                                i.putExtra("type","design");
-                                startActivity(i);
-                            }
-                        } else {
-                            Toast.makeText(v.getContext(), "You have attempted design quiz before", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            else{
-                    Toast.makeText(v.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
-                }
+                submitClick(v);
             }
         });
+    }
+    public void submitClick(View v){
+        if(isNetworkAvailable(v.getContext())) {
+            if (type.equals("null")) {
+                Toast.makeText(v.getContext(), "Please select a domain", Toast.LENGTH_SHORT).show();
+            } else if (type.equals("technical")) {
+                if (attemptedTechnical.equals(false)) {
+                    if(yearOfStudy==1) {
+                        quiz_instruction fragment = new quiz_instruction();
+                        FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+                        transaction.replace(R.id.frameLayout, fragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                    else if(yearOfStudy==2){
+                        Intent i = new Intent(v.getContext(),secondYear1.class);
+                        i.putExtra("type","technical");
+                        startActivity(i);
+
+                    }
+                    else {
+                        Toast.makeText(v.getContext(), "Error. Please try again", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(v.getContext(), "You have attempted technical quiz before", Toast.LENGTH_SHORT).show();
+                }
+            } else if (type.equals("management")) {
+                if (attemptedManagement.equals(false)) {
+                    management_instructions fragment = new management_instructions();
+                    FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.replace(R.id.frameLayout, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                } else {
+                    Toast.makeText(v.getContext(), "You have attempted management quiz before", Toast.LENGTH_SHORT).show();
+                }
+            } else if (type.equals("design")) {
+                if (attemptedDesign.equals(false)) {
+                    if(yearOfStudy==1){
+                        design_instructions fragment = new design_instructions();
+                        FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+                        transaction.replace(R.id.frameLayout, fragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                    else if (yearOfStudy==2){
+                        Intent i = new Intent(v.getContext(),secondYear1.class);
+                        i.putExtra("type","design");
+                        startActivity(i);
+                    }
+                } else {
+                    Toast.makeText(v.getContext(), "You have attempted design quiz before", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        else{
+            Toast.makeText(v.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
+        }
     }
     public boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
