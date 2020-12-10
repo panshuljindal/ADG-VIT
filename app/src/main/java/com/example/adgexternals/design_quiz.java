@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -35,12 +36,14 @@ public class design_quiz extends AppCompatActivity {
     SharedPreferences.Editor editor;
     ConstraintLayout cl1,cl2,cl3,cl4;
     int qno=0;
+    int quiztime=600000;
     int maxques;
-    TextView option1,option2,option3,option4,question,quesText;
+    TextView option1,option2,option3,option4,question,quesText,time;
     String option="null";
     Button next,skip;
     String token;
     boolean cheat=false;
+    CountDownTimer countDownTimer;
     List<postQuestion> questionList;
 
     @Override
@@ -59,8 +62,40 @@ public class design_quiz extends AppCompatActivity {
 
         pref = getSharedPreferences("com.adgexternals.com.userdata",Context.MODE_PRIVATE);
         editor=pref.edit();
+        setCountDownTimer();
         setOptions();
         onclicklisteners();
+    }
+    public void setCountDownTimer(){
+        countDownTimer=new CountDownTimer(quiztime,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                updateTextView(millisUntilFinished/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                for(int i=qno;i<maxques;i++){
+                    questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "skip"));
+                }
+                sendNetworkRequest(questionList);
+            }
+        }.start();
+    }
+    public void updateTextView(long secondsLeft){
+        int min = (int) (secondsLeft/60);
+        int seconds = (int) (secondsLeft-(min*60));
+        String secondString;
+        secondString = Integer.toString(seconds);
+        if(seconds<=9){
+            secondString="0"+secondString;
+        }
+        if(min>1) {
+            time.setText(Integer.toString(min) + ":" + secondString +"s");
+        }
+        else{
+            time.setText(secondString + "s");
+        }
     }
     public void findViewByIds(){
         cl1 = findViewById(R.id.cl1D);
@@ -75,6 +110,7 @@ public class design_quiz extends AppCompatActivity {
         option4 = findViewById(R.id.option4TextD);
         next = findViewById(R.id.buttonDesignQuizNext);
         skip = findViewById(R.id.buttonDesignQuizSkip);
+        time = findViewById(R.id.timetextView);
     }
     public void setOptions(){
         if(qno<maxques) {

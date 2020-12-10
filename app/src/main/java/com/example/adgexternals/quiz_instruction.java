@@ -70,11 +70,14 @@ public class quiz_instruction extends Fragment {
                 if(isNetworkAvailable(v.getContext())){
                     sendNetworkRequest();
                 }
+                else {
+                    Toast.makeText(v.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
-    public void sendNetworkRequest(){
-        HttpLoggingInterceptor logging  =new HttpLoggingInterceptor();
+    public void sendNetworkRequest() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
         httpclient.addInterceptor(logging);
@@ -84,30 +87,39 @@ public class quiz_instruction extends Fragment {
                 .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
-        Call<List<questionObjectTechnical>> call = client.getQuestionTechnical(token);
-        call.enqueue(new Callback<List<questionObjectTechnical>>() {
-            @Override
-            public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
-                    if (response.code()==200) {
+        if (isNetworkAvailable(view.getContext())) {
+            Call<List<questionObjectTechnical>> call = client.getQuestionTechnical(token);
+            call.enqueue(new Callback<List<questionObjectTechnical>>() {
+                @Override
+                public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
+                    if (response.code() == 200) {
                         try {
                             questionsTechnical.clear();
                             questionsTechnical = response.body();
                         } catch (Exception e) {
-                            Log.i("Exception",e.toString());
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
                         saveData();
-                    }
-                    else if(response.code()==403){
+                    } else if (response.code() == 400) {
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
                         getFragmentManager().popBackStackImmediate();
                     }
+                    else {
+                        Toast.makeText(view.getContext(), "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(view.getContext(), MainActivity.class));
+                    }
                 }
-            @Override
-            public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
-                Toast.makeText(view.getContext(), "Network Error", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+                @Override
+                public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
+                    Toast.makeText(view.getContext(), "Network error. Please try again", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(view.getContext(), MainActivity.class));
+                }
+            });
+        }
+        else{
+            Toast.makeText(view.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
+        }
     }
     public void saveData(){
         Gson gson = new Gson();

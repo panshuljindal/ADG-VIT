@@ -118,7 +118,7 @@ public class recruitment_signup extends AppCompatActivity {
                     startActivity(new Intent(recruitment_signup.this,recruitment_login.class));
                 }
                 if(response.code()==400){
-                    Toast.makeText(recruitment_signup.this, "Email already exists", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(recruitment_signup.this, "Email id or registration number already exists", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(recruitment_signup.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();

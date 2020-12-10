@@ -63,6 +63,9 @@ public class management_instructions extends Fragment {
                 if(isNetworkAvailable(v.getContext())){
                     sendNetworkRequest();
                 }
+                else {
+                    Toast.makeText(v.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return view;
@@ -88,18 +91,24 @@ public class management_instructions extends Fragment {
                             questionManagement.clear();
                             questionManagement = response.body();
                         } catch (Exception e) {
-
+                            Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
                         saveData();
                     }
+                    else if(response.code()==400){
+                        Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
+                        getFragmentManager().popBackStackImmediate();
+                    }
                     else {
-
+                        Toast.makeText(view.getContext(), "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(view.getContext(), MainActivity.class));
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<questionObject>> call, Throwable t) {
-
+                    Toast.makeText(view.getContext(), "Network error. Please try again", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(view.getContext(), MainActivity.class));
                 }
             });
         }

@@ -167,7 +167,10 @@ public class recruitmentfragment extends Fragment {
                                 transaction.commit();
                             }
                             else if(yearOfStudy==2){
-                                Toast.makeText(v.getContext(), "Second Year", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(v.getContext(),secondYear1.class);
+                                i.putExtra("type","technical");
+                                startActivity(i);
+
                             }
                             else {
                                 Toast.makeText(v.getContext(), "Error. Please try again", Toast.LENGTH_SHORT).show();
@@ -197,7 +200,9 @@ public class recruitmentfragment extends Fragment {
                                 transaction.commit();
                             }
                             else if (yearOfStudy==2){
-                                Toast.makeText(v.getContext(), "Second Year", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(v.getContext(),secondYear1.class);
+                                i.putExtra("type","design");
+                                startActivity(i);
                             }
                         } else {
                             Toast.makeText(v.getContext(), "You have attempted design quiz before", Toast.LENGTH_SHORT).show();

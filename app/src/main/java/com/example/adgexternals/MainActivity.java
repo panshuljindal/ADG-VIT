@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
         pref1 = this.getSharedPreferences("com.adgexternals.com.userdata",MODE_PRIVATE);
         editor=pref1.edit();
-
-
         sendNetworkRequest(token);
     }
     public void sendNetworkRequest(String t){

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdgExternals">
-        <activity android:name=".adg_info"></activity>
+        <activity android:name=".secondYear1"></activity>
+        <activity android:name=".adg_info" />
         <activity android:name=".management_quiz" />
         <activity android:name=".finishQuiz" />
         <activity android:name=".design_quiz" />

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class management_quiz extends AppCompatActivity {
 
-    TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D;
+    TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D,time;
     EditText q1A,q2A,q3A,q4A,q5A,q6A,q7A,q8A,q9A,q10A;
     Button submit;
     List<questionObject> questionManagement;
@@ -39,6 +40,8 @@ public class management_quiz extends AppCompatActivity {
     SharedPreferences.Editor editor;
     String token;
     Boolean cheat=false;
+    CountDownTimer countDownTimer;
+    int quiztime=600000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,7 @@ public class management_quiz extends AppCompatActivity {
         questionAnswer= new ArrayList<>();
         loadData();
         setData();
+        setCountDownTimer();
         onclicklisteners();
     }
     public void submitanswer(){
@@ -112,6 +116,7 @@ public class management_quiz extends AppCompatActivity {
         q9A = findViewById(R.id.q9A);
         q10D = findViewById(R.id.q10D);
         q10A = findViewById(R.id.q10A);
+        time = findViewById(R.id.management_time);
     }
     public void loadData(){
         questionManagement.clear();
@@ -128,6 +133,34 @@ public class management_quiz extends AppCompatActivity {
     }
     public void cheating(){
         submitanswer();
+    }
+    public void setCountDownTimer(){
+        countDownTimer=new CountDownTimer(quiztime,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                updateTextView(millisUntilFinished/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                submitanswer();
+            }
+        }.start();
+    }
+    public void updateTextView(long secondsLeft){
+        int min = (int) (secondsLeft/60);
+        int seconds = (int) (secondsLeft-(min*60));
+        String secondString;
+        secondString = Integer.toString(seconds);
+        if(seconds<=9){
+            secondString="0"+secondString;
+        }
+        if(min>1) {
+            time.setText(Integer.toString(min) + ":" + secondString +"s");
+        }
+        else{
+            time.setText(secondString + "s");
+        }
     }
     public void sendNetWorkRequest(List<postQuestion> ques){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
