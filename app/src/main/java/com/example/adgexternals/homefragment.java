@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +26,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class homefragment extends Fragment {
     View view;
     Button adglogoBtn;
-    SharedPreferences pref;
+    List<recyler2item> list1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +37,23 @@ public class homefragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_homefragment, container, false);
         adglogoBtn = view.findViewById(R.id.adglogoBtn);
+         RecyclerView recyclerView1 = view.findViewById(R.id.homeEventsRecycler);
+
+        list1 = new ArrayList<>();
+        addData();
+        recyler2adapter adapter = new recyler2adapter(list1,getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        manager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView1.setLayoutManager(manager);
+        recyclerView1.setAdapter(adapter);
         onclickListeners();
         return view;
+    }
+    public void addData(){
+        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
+        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
+        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
+        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
     }
     public void onclickListeners(){
         adglogoBtn.setOnClickListener(new View.OnClickListener() {
