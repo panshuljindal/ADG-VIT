@@ -127,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     doubleback = false;
-                    Log.i("doubleback", doubleback.toString());
                 }
             }, 2000);
         }
