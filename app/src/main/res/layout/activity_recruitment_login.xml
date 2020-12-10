@@ -91,6 +91,7 @@
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:background="@drawable/loginback"
         android:fontFamily="@font/helveticaneue_medium"
         android:foreground="?android:attr/selectableItemBackground"
@@ -98,14 +99,12 @@
         android:paddingTop="10dp"
         android:paddingRight="65dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="40dp"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="#FF6200"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

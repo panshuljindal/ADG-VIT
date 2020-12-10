@@ -35,6 +35,8 @@ public class management_quiz extends AppCompatActivity {
     Button submit;
     List<questionObject> questionManagement;
     List<postQuestion> questionAnswer;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     String token;
     Boolean cheat=false;
     @Override
@@ -42,6 +44,8 @@ public class management_quiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_management_quiz);
         findViewByIds();
+        pref= getSharedPreferences("com.adgexternals.com.userdata",Context.MODE_PRIVATE);
+        editor = pref.edit();
         questionManagement = new ArrayList<>();
         questionAnswer= new ArrayList<>();
         loadData();
@@ -123,7 +127,6 @@ public class management_quiz extends AppCompatActivity {
         token = preferences.getString("Token","");
     }
     public void cheating(){
-
         submitanswer();
     }
     public void sendNetWorkRequest(List<postQuestion> ques){
@@ -144,23 +147,32 @@ public class management_quiz extends AppCompatActivity {
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
                 if(response.code()==200){
                     if(cheat==true){
+                        editor.putBoolean("attemptedManagement", true).commit();
+                        editor.apply();
                         Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(management_quiz.this,MainActivity.class));
                     }
                     else{
+                        editor.putBoolean("attemptedManagement", true).commit();
+                        editor.apply();
                         Toast.makeText(management_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(management_quiz.this,finishQuiz.class);
                         String type="Management";
                         intent.putExtra("type",type);
                         startActivity(intent);
                     }
+
                 }
                 else if(response.code()==403){
                     if(cheat==true){
+                        editor.putBoolean("attemptedManagement", true).commit();
+                        editor.apply();
                         Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(management_quiz.this,MainActivity.class));
                     }
                     else{
+                        editor.putBoolean("attemptedManagement", true).commit();
+                        editor.apply();
                         Toast.makeText(management_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(management_quiz.this,MainActivity.class));
                     }

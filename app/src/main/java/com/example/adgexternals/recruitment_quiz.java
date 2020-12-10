@@ -34,7 +34,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitment_quiz extends AppCompatActivity {
     List<questionObjectTechnical> questionsTechnical;
-    SharedPreferences pref1;
+    SharedPreferences pref1,pref;
+    SharedPreferences.Editor editor;
     ConstraintLayout cl1,cl2,cl3,cl4;
     int qno=0;
     int maxques;
@@ -54,8 +55,13 @@ public class recruitment_quiz extends AppCompatActivity {
         loadData();
         maxques=questionsTechnical.size();
         questionList = new ArrayList<>();
+
         pref1 = getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref1.getString("Token","");
+
+        pref = getSharedPreferences("com.adgexternals.com.userdata",Context.MODE_PRIVATE);
+        editor=pref.edit();
+
         setOptions();
         onclicklisteners();
     }
@@ -215,10 +221,14 @@ public class recruitment_quiz extends AppCompatActivity {
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
                 if(response.isSuccessful() && response.code()==200){
                     if(cheat==true){
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
                         Toast.makeText(recruitment_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(recruitment_quiz.this,MainActivity.class));
                     }
                     else{
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
                         Toast.makeText(recruitment_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(recruitment_quiz.this,finishQuiz.class);
                         String type="Technical";
@@ -228,10 +238,14 @@ public class recruitment_quiz extends AppCompatActivity {
                 }
                 else if(response.code()==400){
                     if(cheat==true){
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
                         Toast.makeText(recruitment_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(recruitment_quiz.this,MainActivity.class));
                     }
                     else{
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
                         Toast.makeText(recruitment_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
                     }
                 }
