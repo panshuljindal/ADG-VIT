@@ -61,7 +61,7 @@ public class adg_info extends AppCompatActivity {
         adgInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
             }
         });
 

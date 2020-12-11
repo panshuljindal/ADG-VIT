@@ -170,7 +170,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeEventsRecycler"
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="250dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:padding="15dp"
             android:orientation="horizontal"
@@ -200,6 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="20dp"
                     android:text="Have Any Doubt? Ask Us"
                     android:fontFamily="@font/helveticaneu_bold"
                     android:textColor="#0010B5"
