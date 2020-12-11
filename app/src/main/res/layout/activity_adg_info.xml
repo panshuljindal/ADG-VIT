@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <LinearLayout
+        android:id="@+id/quot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -62,6 +63,22 @@
 
 
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/socialText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="SOCIAL"
+        android:layout_marginTop="60dp"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quot" />
+
 
     <TextView
         android:id="@+id/textView26"
@@ -104,9 +121,54 @@
         android:layout_marginRight="15dp"
         android:background="@drawable/ic_baseline_cancel_24"
         android:fontFamily="@font/helveticaneue_medium"
-
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/socialText">
+
+        <ImageView
+            android:id="@+id/adgLinkedin"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_linkedinwhite" />
+
+        <ImageView
+            android:id="@+id/adgFacebook"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_facebookwhite" />
+
+        <ImageView
+            android:id="@+id/adgInstagram"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_instagramwhite" />
+
+        <ImageView
+            android:id="@+id/adgTwitter"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="15dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_twitterwhite" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
