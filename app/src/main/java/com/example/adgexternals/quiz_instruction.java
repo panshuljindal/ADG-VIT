@@ -43,7 +43,7 @@ public class quiz_instruction extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         view =  inflater.inflate(R.layout.fragment_quiz_instruction, container, false);
 
         back = view.findViewById(R.id.back_button_dt);
@@ -96,24 +96,31 @@ public class quiz_instruction extends Fragment {
                         try {
                             questionsTechnical.clear();
                             questionsTechnical = response.body();
+                            saveData();
                         } catch (Exception e) {
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
-                        saveData();
+
                     } else if (response.code() == 400) {
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
-                        getFragmentManager().popBackStackImmediate();
+                        Intent i=(new Intent(view.getContext(), MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                     else {
                         Toast.makeText(view.getContext(), "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(view.getContext(), MainActivity.class));
+                        Intent i=(new Intent(view.getContext(), MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
                     Toast.makeText(view.getContext(), "Network error. Please try again", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(view.getContext(), MainActivity.class));
+                    Intent i=(new Intent(view.getContext(), MainActivity.class));
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
                 }
             });
         }
@@ -125,6 +132,7 @@ public class quiz_instruction extends Fragment {
         Gson gson = new Gson();
         String json = gson.toJson(questionsTechnical);
         Intent intent =new Intent(getActivity(),recruitment_quiz.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("questionsTechnical",json);
         startActivity(intent);
     }

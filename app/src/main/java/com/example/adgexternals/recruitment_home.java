@@ -40,7 +40,6 @@ public class recruitment_home extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-
         Intent intent = new Intent(recruitment_home.this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

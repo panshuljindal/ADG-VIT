@@ -202,13 +202,16 @@ public class management_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedManagement", true).commit();
                         editor.apply();
                         Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(management_quiz.this,MainActivity.class));
+                        Intent i =(new Intent(management_quiz.this,MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                     else{
                         editor.putBoolean("attemptedManagement", true).commit();
                         editor.apply();
                         Toast.makeText(management_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(management_quiz.this,finishQuiz.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         String type="Management";
                         intent.putExtra("type",type);
                         startActivity(intent);
@@ -220,20 +223,24 @@ public class management_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedManagement", true).commit();
                         editor.apply();
                         Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(management_quiz.this,MainActivity.class));
+                        Intent i =(new Intent(management_quiz.this,MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                     else{
                         editor.putBoolean("attemptedManagement", true).commit();
                         editor.apply();
                         Toast.makeText(management_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(management_quiz.this,MainActivity.class));
+                        Intent i =(new Intent(management_quiz.this,MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<postQuestion> call, Throwable t) {
-
+                Toast.makeText(management_quiz.this, "Network error", Toast.LENGTH_SHORT).show();
             }
         });
         }

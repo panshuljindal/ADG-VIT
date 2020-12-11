@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 public class finishQuiz extends AppCompatActivity {
     Button home;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

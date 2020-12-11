@@ -266,6 +266,7 @@ public class recruitment_quiz extends AppCompatActivity {
                         editor.apply();
                         Toast.makeText(recruitment_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(recruitment_quiz.this,finishQuiz.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         String type="Technical";
                         intent.putExtra("type",type);
                         startActivity(intent);
@@ -288,7 +289,7 @@ public class recruitment_quiz extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<postQuestion> call, Throwable t) {
-
+                Toast.makeText(recruitment_quiz.this, "Network error. Please try again", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -77,12 +77,16 @@ public class secondYear1 extends AppCompatActivity {
             @Override
             public void onResponse(Call<postQuestion2> call, Response<postQuestion2> response) {
                 if(response.code()==200){
+                    editor.putBoolean("attemptedTechnical", true).commit();
+                    editor.apply();
                     Toast.makeText(secondYear1.this, "Thank you for your submission", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(secondYear1.this,MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
                 else if(response.code()==403){
+                    editor.putBoolean("attemptedTechnical", true).commit();
+                    editor.apply();
                     Toast.makeText(secondYear1.this, "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(secondYear1.this,MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

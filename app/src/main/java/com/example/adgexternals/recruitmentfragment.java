@@ -54,7 +54,6 @@ public class recruitmentfragment extends Fragment {
         view= inflater.inflate(R.layout.fragment_recruitmentfragment, container, false);
 
         findViewByIds();
-
         pref= view.getContext().getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref.getString("Token","");
 
@@ -272,6 +271,9 @@ public class recruitmentfragment extends Fragment {
                     if(response.body().userDetails.getName().length()!=0){
                         try {
                             userDetails user = response.body().getUserDetails();
+                            attemptedDesign=user.getAttemptedDesign();
+                            attemptedTechnical=user.getAttemptedTechnical();
+                            attemptedManagement=user.getAttemptedManagement();
                             editor.putBoolean("attemptedTechnical", user.getAttemptedTechnical()).commit();
                             editor.putBoolean("attemptedManagement", user.getAttemptedManagement()).commit();
                             editor.putBoolean("attemptedDesign", user.getAttemptedDesign()).commit();

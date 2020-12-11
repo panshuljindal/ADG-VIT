@@ -72,7 +72,6 @@ public class design_quiz extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 updateTextView(millisUntilFinished/1000);
             }
-
             @Override
             public void onFinish() {
                 for(int i=qno;i<maxques;i++){
@@ -256,13 +255,16 @@ public class design_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedDesign", true).commit();
                         editor.apply();
                         Toast.makeText(design_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(design_quiz.this,MainActivity.class));
+                        Intent i = new Intent(design_quiz.this,MainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                     else{
                         editor.putBoolean("attemptedDesign", true).commit();
                         editor.apply();
                         Toast.makeText(design_quiz.this, "Thank you for the quiz", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(design_quiz.this,finishQuiz.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         String type="Design";
                         intent.putExtra("type",type);
                         startActivity(intent);
@@ -273,13 +275,17 @@ public class design_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedDesign", true).commit();
                         editor.apply();
                         Toast.makeText(design_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(design_quiz.this,MainActivity.class));
+                        Intent i = new Intent(design_quiz.this,MainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                     else{
                         editor.putBoolean("attemptedDesign", true).commit();
                         editor.apply();
                         Toast.makeText(design_quiz.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(design_quiz.this,MainActivity.class));
+                        Intent i = new Intent(design_quiz.this,MainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                 }
             }

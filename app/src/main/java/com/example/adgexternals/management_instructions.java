@@ -90,25 +90,31 @@ public class management_instructions extends Fragment {
                         try {
                             questionManagement.clear();
                             questionManagement = response.body();
+                            saveData();
                         } catch (Exception e) {
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
                         }
-                        saveData();
                     }
                     else if(response.code()==400){
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
-                        getFragmentManager().popBackStackImmediate();
+                        Intent i =(new Intent(view.getContext(), MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                     else {
                         Toast.makeText(view.getContext(), "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(view.getContext(), MainActivity.class));
+                        Intent i =(new Intent(view.getContext(), MainActivity.class));
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<questionObject>> call, Throwable t) {
                     Toast.makeText(view.getContext(), "Network error. Please try again", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(view.getContext(), MainActivity.class));
+                    Intent i =(new Intent(view.getContext(), MainActivity.class));
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
                 }
             });
         }
@@ -121,6 +127,7 @@ public class management_instructions extends Fragment {
         String json = gson.toJson(questionManagement);
         Log.i("Json",json);
         Intent intent = new Intent(getActivity(),management_quiz.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("questionsManagement",json);
         Log.i("json",json);
         startActivity(intent);
