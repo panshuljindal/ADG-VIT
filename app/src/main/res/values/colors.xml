@@ -11,7 +11,7 @@
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#4255FF</color>
     <color name="bottomBarIcon">#969698</color>
-    <color name="bottomBarIconSelected">#395AFF</color>
+    <color name="bottomBarIconSelected">#FF6200</color>
     <color name="recruitment_white">#ffffff</color>
     <color name="recruitment_grey">#9F9F9F</color>
     <color name="recruitment_black">#000000</color>
