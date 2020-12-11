@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.List;
 public class about_us_fragment extends Fragment {
     List<aboutUs> list;
     View view;
+    Button backaboutus;
     ImageView ritikL,ritikGit,ritikGm,krishnaL,krishnaGit,krishnaGm,arupamL,arupamGit,arupamGm,panshulL,panshulGit,panshulGm
     ,gokulL,gokulGit,gokulGm,prabaljitL,prabaljitGit,prabaljitGm;
     @Override
@@ -29,6 +31,8 @@ public class about_us_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_about_us_fragment, container, false);
+
+
         findViewByIds();
         list=new ArrayList<>();
         addData();
@@ -36,6 +40,14 @@ public class about_us_fragment extends Fragment {
         return view;
     }
     public void onClickListener(){
+
+        backaboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
         ritikL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,6 +158,7 @@ public class about_us_fragment extends Fragment {
         });
     }
     public void findViewByIds(){
+        backaboutus = view.findViewById(R.id.buttonaboutusback);
         ritikL = view.findViewById(R.id.ritikLinkedin);
         ritikGit = view.findViewById(R.id.ritikGithub);
         ritikGm = view.findViewById(R.id.ritikEmail);
