@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,8 @@ public class secondYear1 extends AppCompatActivity {
     TextView heading;
     String token;
     SharedPreferences pref;
+    SharedPreferences pref1;
+    SharedPreferences.Editor editor;
     boolean cheat=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,9 @@ public class secondYear1 extends AppCompatActivity {
         heading = findViewById(R.id.twoHeading);
         pref= getSharedPreferences("com.adgexternals.com.token", Context.MODE_PRIVATE);
         token = pref.getString("Token","");
-        submit.setEnabled(false);
+
+        pref1= getSharedPreferences("com.adgexternals.com.userdata",Context.MODE_PRIVATE);
+        editor = pref1.edit();
         sendQuestionsRequest();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,34 +106,47 @@ public class secondYear1 extends AppCompatActivity {
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
         httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://adgrecruitments.herokuapp.com/questions")
+                .baseUrl("https://adgrecruitments.herokuapp.com/questions/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
-                .build();
+                .client(httpclient.build()).build();
         userClient client = retrofit.create(userClient.class);
         Call<List<questionObjectTechnical>> call = client.getQuestionTechnical2(token);
         call.enqueue(new Callback<List<questionObjectTechnical>>() {
             @Override
             public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
                 if(response.code()==200){
-                    submit.setEnabled(true);
+                    if(cheat==true){
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
+                        Toast.makeText(secondYear1.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(secondYear1.this,MainActivity.class));
+                    }
+                    else{
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
+                        Toast.makeText(secondYear1.this, "Start", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    Toast.makeText(secondYear1.this, "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(secondYear1.this,MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                else if(response.code()==400){
+                    if(cheat==true){
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
+                        Toast.makeText(secondYear1.this, "Cheating", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(secondYear1.this,MainActivity.class));
+                    }
+                    else{
+                        editor.putBoolean("attemptedTechnical", true).commit();
+                        editor.apply();
+                        Toast.makeText(secondYear1.this, "You cannot submit quiz more than once", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
+
             @Override
             public void onFailure(Call<List<questionObjectTechnical>> call, Throwable t) {
-                Toast.makeText(secondYear1.this, "Network Error", Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(secondYear1.this,MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+
             }
         });
-
     }
     public boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
