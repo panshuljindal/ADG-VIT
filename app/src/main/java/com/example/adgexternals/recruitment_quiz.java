@@ -206,22 +206,22 @@ public class recruitment_quiz extends AppCompatActivity {
                     if (option == "null") {
                         Toast.makeText(recruitment_quiz.this, "Please select a option", Toast.LENGTH_SHORT).show();
                     } else if (option == "a") {
-                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "a"));
+                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "1"));
                         qno++;
                         option = "null";
                         setOptions();
                     } else if (option == "b") {
-                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "b"));
+                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "2"));
                         qno++;
                         option = "null";
                         setOptions();
                     } else if (option == "c") {
-                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "c"));
+                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "3"));
                         qno++;
                         option = "null";
                         setOptions();
                     } else if (option == "d") {
-                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "d"));
+                        questionList.add(new postQuestion(questionsTechnical.get(qno).get_id(), "4"));
                         qno++;
                         option = "null";
                         setOptions();

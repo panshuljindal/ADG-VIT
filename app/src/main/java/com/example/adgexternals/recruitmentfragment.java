@@ -202,9 +202,8 @@ public class recruitmentfragment extends Fragment {
                     }
                     else if(yearOfStudy==2){
                         Intent i = new Intent(v.getContext(),secondYear1.class);
-                        i.putExtra("type","technical");
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(i);
-
                     }
                     else {
                         Toast.makeText(v.getContext(), "Error. Please try again", Toast.LENGTH_SHORT).show();
@@ -234,9 +233,12 @@ public class recruitmentfragment extends Fragment {
                         transaction.commit();
                     }
                     else if (yearOfStudy==2){
-                        Intent i = new Intent(v.getContext(),secondYear1.class);
-                        i.putExtra("type","design");
-                        startActivity(i);
+                        design_instructions fragment = new design_instructions();
+                        FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+                        transaction.replace(R.id.frameLayout, fragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                     }
                 } else {
                     Toast.makeText(v.getContext(), "You have attempted design quiz before", Toast.LENGTH_SHORT).show();

@@ -30,7 +30,13 @@ public interface userClient {
     @GET("technical/get-quiz-questions/1")
     Call<List<questionObjectTechnical>> getQuestionTechnical(@Header("auth-token") String token);
 
-    @POST("https://adgrecruitments.herokuapp.com/user/management/submit")
+    @GET("technical/get-quiz-questions/2")
+    Call<List<questionObjectTechnical>> getQuestionTechnical2(@Header("auth-token") String token);
+
+    @POST("technical2/submit")
+    Call<postQuestion2> postQuestionTechnical2(@Header("auth-token") String authtoken, @Body postQuestion2 ques);
+
+    @POST("management/submit")
     Call<postQuestion> postQuestionManagement(@Header("auth-token") String authtoken, @Body List<postQuestion> ques);
 
     @POST("design/submit")
