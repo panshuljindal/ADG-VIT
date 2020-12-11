@@ -19,16 +19,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:fontFamily="@font/helveticaneue_medium"
+        android:fontFamily="@font/robotomedium"
         android:text="Are you sure you want to submit?"
         android:textColor="#000"
-        android:textSize="24dp"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonlayoutsubmit"
        />
 
         <LinearLayout
+            android:id="@+id/buttonlayoutsubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -38,15 +40,18 @@
             >
 
         <Button
-        android:id="@+id/cancel_dialog_button"
-        android:layout_width="0dp"
-        android:layout_height="63dp"
-        android:layout_weight="1" android:layout_marginLeft="2dp" android:layout_marginBottom="2dp"
-        android:background="@drawable/cancelbrnnext"
-        android:fontFamily="@font/robotomedium"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:text="Cancel"
-        android:textColor="#000"
+            android:id="@+id/cancel_dialog_button"
+            android:layout_width="0dp"
+            android:layout_height="63dp"
+            android:layout_marginRight="0.02dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/cancelbrnnext"
+            android:fontFamily="@font/robotoregular"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Cancel"
+            android:textColor="#000"
        />
 
     <Button
@@ -57,7 +62,7 @@
         android:layout_marginRight="2dp"
         android:layout_marginBottom="2dp"
         android:background="@drawable/logoutbrndiag"
-        android:fontFamily="@font/robotomedium"
+        android:fontFamily="@font/robotoregular"
         android:foreground="?android:attr/selectableItemBackground"
         android:text="Submit"
         android:textColor="#ff0000"

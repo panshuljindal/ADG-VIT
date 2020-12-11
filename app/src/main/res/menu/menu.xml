@@ -10,10 +10,6 @@
         android:title="Recruitment"
         android:icon="@drawable/ic_alert1"/>
 
-    <item
-        android:id="@+id/navigation_faq"
-        android:title="F.A.Q"
-        android:icon="@drawable/ic_mom"/>
 
     <item
         android:id="@+id/navigation_settings"

@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_recruitment:
                         selectedfragment = new recruitmentfragment();
                         break;
-                    case R.id.navigation_faq:
-                        selectedfragment = new faq_fragment();
-                        break;
                     case R.id.navigation_settings:
                         selectedfragment = new settings_fragment();
                         break;
