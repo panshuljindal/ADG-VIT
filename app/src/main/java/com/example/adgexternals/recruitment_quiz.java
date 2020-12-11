@@ -254,6 +254,7 @@ public class recruitment_quiz extends AppCompatActivity {
         call.enqueue(new Callback<postQuestion>() {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
+                countDownTimer.cancel();
                 if(response.isSuccessful() && response.code()==200){
                     if(cheat==true){
                         editor.putBoolean("attemptedTechnical", true).commit();

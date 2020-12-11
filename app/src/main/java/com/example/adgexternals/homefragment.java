@@ -25,7 +25,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class homefragment extends Fragment {
     View view;
-    Button adglogoBtn;
+    Button adglogoBtn,faq;
     List<recyler2item> list1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class homefragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_homefragment, container, false);
         adglogoBtn = view.findViewById(R.id.adglogoBtn);
+        faq=view.findViewById(R.id.doubtCardbtn);
          RecyclerView recyclerView1 = view.findViewById(R.id.homeEventsRecycler);
 
         list1 = new ArrayList<>();

@@ -250,6 +250,7 @@ public class design_quiz extends AppCompatActivity {
         call.enqueue(new Callback<postQuestion>() {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
+                countDownTimer.cancel();
                 if(response.code()==200){
                     if(cheat==true){
                         editor.putBoolean("attemptedDesign", true).commit();
