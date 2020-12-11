@@ -3,10 +3,13 @@ package com.example.adgexternals;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import static android.net.Uri.*;
 
 public class adg_info extends AppCompatActivity {
     Button cancel;
@@ -35,33 +38,39 @@ public class adg_info extends AppCompatActivity {
         });
     }
 
+    public void githubLinkedin(String link, View v){
+        Uri uri = parse(link);
+        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+        v.getContext().startActivity(intent);
+    }
+
     private void onClickListener() {
 
         adgLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                githubLinkedin("https://www.linkedin.com/company/adgvit/",v);
             }
         });
 
         adgFb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                githubLinkedin("https://www.facebook.com/vitios/",v);
             }
         });
 
         adgTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                githubLinkedin("https://twitter.com/adgvit",v);
             }
         });
 
         adgInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                githubLinkedin("https://www.instagram.com/adgvit/",v);
             }
         });
 
