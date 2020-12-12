@@ -31,9 +31,6 @@ public class landingActivity extends AppCompatActivity {
         if (count1 == true) {
             startActivity(new Intent(landingActivity.this, MainActivity.class));
         } else if (count1 == false) {
-            editor.putBoolean("count", true).commit();
-            editor.apply();
-
             animationFadein = AnimationUtils.loadAnimation(getApplicationContext(),
                     R.anim.fadein1);
 

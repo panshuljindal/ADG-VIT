@@ -12,9 +12,11 @@ import android.widget.Button;
 public class onboardingActivity extends AppCompatActivity {
 
     private ViewPager vP;
-    Button nextBtnOnBoard, tabBtn1 , tabBtn2;
-    sliderAdapter mslider;
+    private Button nextBtnOnBoard, tabBtn1 , tabBtn2;
+    private sliderAdapter mslider;
     private int p;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,10 @@ public class onboardingActivity extends AppCompatActivity {
                     vP.setCurrentItem(p+1); tabbtn(p+1);
                 }else if(p==1){
                     //change state variable here
+                    pref = getSharedPreferences("com.adgexternals.com.count", MODE_PRIVATE);
+                    editor = pref.edit();
+                    editor.putBoolean("count", true).commit();
+                    editor.apply();
                     startActivity(new Intent(onboardingActivity.this, MainActivity.class));
                 }
             }
