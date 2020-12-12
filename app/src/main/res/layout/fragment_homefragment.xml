@@ -56,24 +56,16 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/domainsCardview"
                     android:layout_width="190dp"
-                    android:layout_height="165dp"
+                    android:layout_height="155dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_group__4_"
+                        android:background="@drawable/cardbgdomain"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:padding="10dp"
-                            android:text="Domain"
-                            android:textSize="20dp" />
 
                     </LinearLayout>
 
@@ -82,25 +74,18 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/projectsCardview"
                     android:layout_width="190dp"
-                    android:layout_height="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_group__3_"
+                        android:background="@drawable/projectcardbg"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:padding="10dp"
-                            android:text="Projects"
-                            android:textSize="20dp" />
 
                     </LinearLayout>
 
@@ -109,25 +94,17 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/eventsCardview"
                     android:layout_width="190dp"
-                    android:layout_height="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_group1"
+                        android:background="@drawable/eventscardbg"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:padding="10dp"
-                            android:text="Events"
-                            android:textSize="20dp" />
 
                     </LinearLayout>
 
@@ -136,8 +113,8 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/teamsCardview"
                     android:layout_width="190dp"
-                    android:layout_height="165dp"
-                    app:cardCornerRadius="10dp"
+                    android:layout_height="155dp"
+                    app:cardCornerRadius="30dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
                     >
@@ -146,16 +123,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_group__2_"
+                        android:background="@drawable/teamscardbg"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:padding="10dp"
-                            android:text="Teams"
-                            android:textSize="20dp" />
 
                     </LinearLayout>
 
