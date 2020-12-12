@@ -179,7 +179,12 @@ public class about_us_fragment extends Fragment {
         prabaljitGm = view.findViewById(R.id.prabaljitEmail);
     }
     void email(String text,View view){
-
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL,new String[] {text});
+        intent.putExtra(Intent.EXTRA_SUBJECT,"");
+        intent.putExtra(Intent.EXTRA_TEXT,"");
+        intent.setType("message/rfc822");
+        startActivity(intent);
     }
     void githubLinkedin(String link, View v){
         Uri uri = Uri.parse(link);
