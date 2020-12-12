@@ -29,10 +29,12 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 
 public class homefragment extends Fragment {
+
     private View view;
     private Button adglogoBtn,faq;
     private List<recyler2item> list1;
-    CardView domain,events,projects,teams;
+    private CardView domain,events,projects,teams;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,12 @@ public class homefragment extends Fragment {
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
     }
     void onclickListeners(){
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Feature coming soon!", Toast.LENGTH_SHORT).show();
+            }
+        });
         adglogoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

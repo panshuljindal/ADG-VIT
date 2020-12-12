@@ -180,19 +180,6 @@
             app:layout_constraintTop_toBottomOf="@+id/homeEventCardRecycler"
             />
 
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@android:color/transparent"
-            android:text="See all"
-            android:textColor="#4766FF"
-            android:textAllCaps="false"
-            android:textSize="13sp"
-            app:layout_constraintTop_toBottomOf="@id/homeEventCardRecycler"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeEventsRecycler"
             android:layout_width="match_parent"
@@ -209,26 +196,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:cardCornerRadius="10dp"
+            android:layout_marginBottom="9dp"
             android:background="@drawable/carddoubtbg"
+            app:cardCornerRadius="10dp"
             app:layout_constraintTop_toBottomOf="@+id/homeEventsRecycler"
-            >
+            tools:layout_editor_absoluteX="10dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/carddoubtbg"
-                android:padding="10dp"
-              >
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/doubtCardTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Have Any Doubt? Ask Us"
                     android:fontFamily="@font/helveticaneu_bold"
+                    android:text="Have Any Doubt? Ask Us"
                     android:textColor="#0010B5"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -249,8 +237,8 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="Ask your question"
-                    android:textColor="#4766FF"
                     android:textAllCaps="false"
+                    android:textColor="#4766FF"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +254,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
 
                     />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
