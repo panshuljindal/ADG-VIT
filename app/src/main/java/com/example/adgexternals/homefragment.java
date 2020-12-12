@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +32,7 @@ public class homefragment extends Fragment {
     private View view;
     private Button adglogoBtn,faq;
     private List<recyler2item> list1;
+    CardView domain,events,projects,teams;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,11 @@ public class homefragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_homefragment, container, false);
         adglogoBtn = view.findViewById(R.id.adglogoBtn);
         faq=view.findViewById(R.id.doubtCardbtn);
-         RecyclerView recyclerView1 = view.findViewById(R.id.homeEventsRecycler);
+        RecyclerView recyclerView1 = view.findViewById(R.id.homeEventsRecycler);
+        domain = view.findViewById(R.id.domainsCardview);
+        events = view.findViewById(R.id.eventsCardview);
+        projects = view.findViewById(R.id.projectsCardview);
+        teams = view.findViewById(R.id.teamsCardview);
 
         list1 = new ArrayList<>();
         addData();
@@ -70,6 +79,50 @@ public class homefragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "This feature will be available soon!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        teams.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                teamFragment fragment = new teamFragment();
+                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+        domain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                domainsFragment fragment = new domainsFragment();
+                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eventsFragment fragment = new eventsFragment();
+                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+        projects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                projectsFragment fragment = new projectsFragment();
+                FragmentManager manager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
     }
