@@ -1,6 +1,5 @@
 package com.example.adgexternals;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -165,7 +164,7 @@ public class about_us_fragment extends Fragment {
         krishnaL = view.findViewById(R.id.krishnaLinkedin);
         krishnaGit = view.findViewById(R.id.krishnaGithub);
         krishnaGm = view.findViewById(R.id.krishnaEmail);
-        arupamL = view.findViewById(R.id.arupamLinkedin);
+        arupamL = view.findViewById(R.id.keshavLinkedin);
         arupamGit = view.findViewById(R.id.arupamGithub);
         arupamGm = view.findViewById(R.id.arupamEmail);
         panshulL =view.findViewById(R.id.panshulLinkedin);
