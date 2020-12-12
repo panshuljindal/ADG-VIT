@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.nav_view);
+        pref = this.getSharedPreferences("com.adgexternals.com.token",MODE_PRIVATE);
+        token = pref.getString("Token","");
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new homefragment()).commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -45,8 +48,16 @@ public class MainActivity extends AppCompatActivity {
                         selectedfragment = new homefragment();
                         break;
                     case R.id.navigation_recruitment:
-                        selectedfragment = new recruitmentfragment();
-                        break;
+                        if(token.isEmpty()) {
+                            selectedfragment = new recruitmentfragment();
+                            break;
+                        }
+                        else {
+                            Intent i = new Intent(MainActivity.this,recruitment_home.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(i);
+                        }
+
                     case R.id.navigation_faq:
                         selectedfragment = new faq_fragment();
                         break;
@@ -59,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 return  true;
             }
         });
-        pref = this.getSharedPreferences("com.adgexternals.com.token",MODE_PRIVATE);
-        token = pref.getString("Token","");
+
 
         pref1 = this.getSharedPreferences("com.adgexternals.com.userdata",MODE_PRIVATE);
         editor=pref1.edit();
