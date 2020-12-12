@@ -9,8 +9,10 @@ public class userDetails {
     private String name;
     private String regno;
     private String email;
+    private String githubLink;
+    private String phone;
 
-    public userDetails(boolean attemptedTechnical, boolean attemptedManagement, boolean attemptedDesign, int yearofstudy, String id, String name, String regno, String email) {
+    public userDetails(boolean attemptedTechnical, boolean attemptedManagement, boolean attemptedDesign, int yearofstudy, String id, String name, String regno, String email, String githubLink, String phone) {
         this.attemptedTechnical = attemptedTechnical;
         this.attemptedManagement = attemptedManagement;
         this.attemptedDesign = attemptedDesign;
@@ -19,6 +21,8 @@ public class userDetails {
         this.name = name;
         this.regno = regno;
         this.email = email;
+        this.githubLink = githubLink;
+        this.phone = phone;
     }
 
     public boolean getAttemptedTechnical() {
@@ -83,5 +87,21 @@ public class userDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGithubLink() {
+        return githubLink;
+    }
+
+    public void setGithubLink(String githubLink) {
+        this.githubLink = githubLink;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

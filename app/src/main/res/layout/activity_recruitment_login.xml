@@ -59,7 +59,7 @@
         android:background="@drawable/signupedittext"
         android:fontFamily="@font/helveticaneue_regular"
         android:hint="VIT Registration Number"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textCapCharacters"
         android:textColor="#000"
         android:textColorHint="#707070"
         app:layout_constraintEnd_toEndOf="parent"

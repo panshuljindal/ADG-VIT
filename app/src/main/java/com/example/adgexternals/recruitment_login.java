@@ -40,7 +40,7 @@ public class recruitment_login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                regNo = regNo1.getText().toString();
+                regNo = regNo1.getText().toString().toUpperCase();
                 password = password1.getText().toString();
                 if(checkEmpty()){
                     loginrequest loginrequest = new loginrequest(regNo,password);
@@ -52,7 +52,6 @@ public class recruitment_login extends AppCompatActivity {
                     }
 
                 }
-
             }
         });
 

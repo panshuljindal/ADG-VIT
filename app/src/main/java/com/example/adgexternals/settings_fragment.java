@@ -105,9 +105,7 @@ public class settings_fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(view.getContext(), "edit profile", Toast.LENGTH_SHORT).show();
                 editProfileFragment nextFrag= new editProfileFragment();
-
                 FragmentManager fragmentManager = ((FragmentActivity) view.getContext()).getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 nextFrag.setSharedElementEnterTransition(new DetailsTransition());

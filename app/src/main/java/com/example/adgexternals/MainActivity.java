@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("name", user.getName());
                         editor.putString("regno", user.getRegno());
                         editor.putString("email", user.getEmail());
+                        editor.putString("github",user.getGithubLink());
+                        editor.putString("phone",user.getPhone());
                         editor.apply();
                     }
                     catch (Exception e){

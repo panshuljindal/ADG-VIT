@@ -52,41 +52,41 @@ public class recruitment_signup extends AppCompatActivity {
             public void onClick(View v) {
                 email = email1.getText().toString();
                 name = name1.getText().toString();
-                regNo = regNo1.getText().toString();
+                regNo = regNo1.getText().toString().toUpperCase();
                 phoneNo = phoneNo1.getText().toString();
                 github = github1.getText().toString();
                 password = password1.getText().toString();
+                Log.i("regNo",regNo.toUpperCase());
                 if (isNetworkAvailable(v.getContext())) {
                     if (checkEmpty()) {
                         if (checkMail()) {
-                            if (regNo1.getText().toString().startsWith("20")) {
-                                if (github1.getText().length() == 0) {
-                                    user = new User(name, regNo, password, email, 1, "https://github.com/adgvit");
-                                    sendNetworkRequest(user);
-                                } else {
-                                    if(checkGithub()) {
-                                        user = new User(name, regNo, password, email, 1, github);
+                            if (checkPhone()) {
+                                if (regNo1.getText().toString().startsWith("20") && email1.getText().toString().contains("2020")) {
+                                    if (github1.getText().length() == 0) {
+                                        user = new User(name, regNo, password, email, 1, "https://github.com/adgvit",phoneNo);
                                         sendNetworkRequest(user);
+                                    } else {
+                                        if (checkGithub()) {
+                                            user = new User(name, regNo, password, email, 1, github,phoneNo);
+                                            sendNetworkRequest(user);
+                                        } else {
+                                            Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                    else {
-                                        Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
+                                } else if (regNo1.getText().toString().startsWith("19") && email1.getText().toString().contains("2019")) {
+                                    if (github1.getText().length() == 0) {
+                                        Toast.makeText(recruitment_signup.this, "Github Link mandatory for second year", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        if (checkGithub()) {
+                                            User user1 = new User(name, regNo, password, email, 2, github,phoneNo);
+                                            sendNetworkRequest(user1);
+                                        } else {
+                                            Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                }
-                            } else if (regNo1.getText().toString().startsWith("19")) {
-                                if (github1.getText().length() == 0) {
-                                    Toast.makeText(recruitment_signup.this, "Github Link mandatory for second year", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    if(checkGithub()) {
-                                        User user1 = new User(name, regNo, password, email, 2, github);
-                                        sendNetworkRequest(user1);
-                                    }
-                                    else{
-                                        Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
-                                    }
+                                    Toast.makeText(v.getContext(), "Registration number and email id doesn't match", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-                            else{
-                                Toast.makeText(v.getContext(), "Please enter a correct registration number", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -132,6 +132,9 @@ public class recruitment_signup extends AppCompatActivity {
             }
         });
     }
+    boolean checkPhone(){
+        return true;
+    }
     boolean checkEmpty(){
         if(name1.getText().length()==0){
             Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show();
@@ -142,7 +145,7 @@ public class recruitment_signup extends AppCompatActivity {
             return false;
         }
         if(email1.getText().length()==0){
-            Toast.makeText(this, "Please enter emailid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter email id", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(phoneNo1.getText().length()==0){
@@ -155,7 +158,7 @@ public class recruitment_signup extends AppCompatActivity {
         }
         return true;
     }
-    Boolean checkMail(){
+    boolean checkMail(){
             String tempEmail=email1.getText().toString().trim();
             Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?20[0-9][0-9]@vitstudent.ac.in$");
             Matcher emailMatcher=emailPattern.matcher(tempEmail);
