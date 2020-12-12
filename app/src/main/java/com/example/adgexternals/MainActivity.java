@@ -42,20 +42,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedfragment = null;
-
                 switch (item.getItemId()){
                     case R.id.navigation_home:
                         selectedfragment = new homefragment();
                         break;
                     case R.id.navigation_recruitment:
                         if(token.isEmpty()) {
-                            selectedfragment = new recruitmentfragment();
-                            break;
-                        }
-                        else {
                             Intent i = new Intent(MainActivity.this,recruitment_home.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
+                        }
+                        else {
+                            selectedfragment = new recruitmentfragment();
+                            break;
                         }
 
                     case R.id.navigation_faq:

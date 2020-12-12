@@ -232,6 +232,8 @@ public class design_quiz extends AppCompatActivity {
         });
     }
     void cheating(){
+        next.setEnabled(false);
+        skip.setEnabled(false);
         for(int i=qno;i<maxques;i++){
             questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "cheat"));
         }

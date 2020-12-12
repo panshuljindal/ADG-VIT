@@ -152,6 +152,7 @@ public class management_quiz extends AppCompatActivity {
         token = preferences.getString("Token","");
     }
     public void cheating(){
+        submit.setEnabled(false);
         submitanswer();
     }
     public void setCountDownTimer(){
