@@ -31,20 +31,20 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class design_quiz extends AppCompatActivity {
-    List<questionObjectTechnical> questionsDesign;
-    SharedPreferences pref1,pref;
-    SharedPreferences.Editor editor;
-    ConstraintLayout cl1,cl2,cl3,cl4;
-    int qno=0;
-    int quiztime=600000;
-    int maxques;
-    TextView option1,option2,option3,option4,question,quesText,time;
-    String option="null";
-    Button next,skip;
-    String token;
-    boolean cheat=false;
-    CountDownTimer countDownTimer;
-    List<postQuestion> questionList;
+    private List<questionObjectTechnical> questionsDesign;
+    private SharedPreferences pref1,pref;
+    private SharedPreferences.Editor editor;
+    private ConstraintLayout cl1,cl2,cl3,cl4;
+    private int qno=0;
+    private int quiztime=600000;
+    private int maxques;
+    private TextView option1,option2,option3,option4,question,quesText,time;
+    private String option="null";
+    private Button next,skip;
+    private String token;
+    private boolean cheat=false;
+    private CountDownTimer countDownTimer;
+    private List<postQuestion> questionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class design_quiz extends AppCompatActivity {
         setOptions();
         onclicklisteners();
     }
-    public void setCountDownTimer(){
+    void setCountDownTimer(){
         countDownTimer=new CountDownTimer(quiztime,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -81,7 +81,7 @@ public class design_quiz extends AppCompatActivity {
             }
         }.start();
     }
-    public void updateTextView(long secondsLeft){
+    void updateTextView(long secondsLeft){
         int min = (int) (secondsLeft/60);
         int seconds = (int) (secondsLeft-(min*60));
         String secondString;
@@ -96,7 +96,7 @@ public class design_quiz extends AppCompatActivity {
             time.setText(secondString + "s");
         }
     }
-    public void findViewByIds(){
+    void findViewByIds(){
         cl1 = findViewById(R.id.cl1D);
         cl2 = findViewById(R.id.cl2D);
         cl3 = findViewById(R.id.cl3D);
@@ -111,7 +111,7 @@ public class design_quiz extends AppCompatActivity {
         skip = findViewById(R.id.buttonDesignQuizSkip);
         time = findViewById(R.id.timetextView);
     }
-    public void setOptions(){
+    void setOptions(){
         if(qno<maxques) {
             reset();
             question.setText(questionsDesign.get(qno).getQuestionDescription());
@@ -127,7 +127,7 @@ public class design_quiz extends AppCompatActivity {
             skip.setEnabled(false);
         }
     }
-    public void loadData(){
+    void loadData(){
         Intent intent = getIntent();
         Gson gson = new Gson();
         String json = intent.getStringExtra("questionsDesign");
@@ -138,13 +138,13 @@ public class design_quiz extends AppCompatActivity {
             loadData();
         }
     }
-    public void reset(){
+    void reset(){
         cl1.setBackground(ContextCompat.getDrawable(this,R.drawable.quizcardback));
         cl2.setBackground(ContextCompat.getDrawable(this,R.drawable.quizcardback));
         cl3.setBackground(ContextCompat.getDrawable(this,R.drawable.quizcardback));
         cl4.setBackground(ContextCompat.getDrawable(this,R.drawable.quizcardback));
     }
-    public void onclicklisteners(){
+    void onclicklisteners(){
         cl1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,13 +230,13 @@ public class design_quiz extends AppCompatActivity {
             }
         });
     }
-    public void cheating(){
+    void cheating(){
         for(int i=qno;i<maxques;i++){
             questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "cheat"));
         }
         sendNetworkRequest(questionList);
     }
-    public void sendNetworkRequest(List<postQuestion> ques){
+    void sendNetworkRequest(List<postQuestion> ques){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();

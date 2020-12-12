@@ -1,9 +1,9 @@
 package com.example.adgexternals;
 
 public class questionObject {
-    String _id;
-    String description;
-    String image;
+    private String _id;
+    private String description;
+    private String image;
 
     public questionObject(String _id, String description, String image) {
         this._id = _id;

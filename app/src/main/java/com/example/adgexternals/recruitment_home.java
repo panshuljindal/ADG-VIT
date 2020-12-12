@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class recruitment_home extends AppCompatActivity {
-    Button signup,login;
+    private Button signup,login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class recruitment_home extends AppCompatActivity {
         login = findViewById(R.id.buttonLoginHome);
         onclicklisteners();
     }
-    public void onclicklisteners(){
+    void onclicklisteners(){
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

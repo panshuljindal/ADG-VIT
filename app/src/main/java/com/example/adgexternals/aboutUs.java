@@ -2,10 +2,10 @@ package com.example.adgexternals;
 
 public class aboutUs {
 
-    String name;
-    String github;
-    String linkedin;
-    String email;
+    private String name;
+    private String github;
+    private String linkedin;
+    private String email;
 
     public aboutUs(String name, String github, String linkedin, String email) {
         this.name = name;

@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class landingActivity extends AppCompatActivity {
-    boolean count1=false;
-    int count=0;
-    LinearLayout tab1,tab2,btnTab;
-    Animation animationFadein,animationFadein2,animation2,animation3,animation4;
-    Button tabBtn1,tabBtn2,nextBtn;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
-    ImageView adglogo1;
+    private boolean count1=false;
+    private int count=0;
+    private LinearLayout tab1,tab2,btnTab;
+    private Animation animationFadein,animationFadein2,animation2,animation3,animation4;
+    private Button tabBtn1,tabBtn2,nextBtn;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+    private ImageView adglogo1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

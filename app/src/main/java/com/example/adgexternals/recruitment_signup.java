@@ -25,10 +25,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitment_signup extends AppCompatActivity {
 
-    EditText email1,name1,regNo1,phoneNo1,github1,password1;
-    String email,name,regNo,phoneNo,github,password;
-    Button continue1;
-    User user;
+    private EditText email1,name1,regNo1,phoneNo1,github1,password1;
+    private String email,name,regNo,phoneNo,github,password;
+    private Button continue1;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class recruitment_signup extends AppCompatActivity {
         findId();
         onclicklisteners();
     }
-    public void findId(){
+    void findId(){
         email1 =findViewById(R.id.editProfileEmailid);
         name1 = findViewById(R.id.editProfileName);
         regNo1 = findViewById(R.id.editProfileRegNo);
@@ -46,7 +46,7 @@ public class recruitment_signup extends AppCompatActivity {
         password1 = findViewById(R.id.signupPassword);
         continue1 = findViewById(R.id.buttonSignupContinue);
     }
-    public void onclicklisteners(){
+    void onclicklisteners(){
         continue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +97,7 @@ public class recruitment_signup extends AppCompatActivity {
             }
         });
     }
-    public void sendNetworkRequest(User user1){
+    void sendNetworkRequest(User user1){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
@@ -132,7 +132,7 @@ public class recruitment_signup extends AppCompatActivity {
             }
         });
     }
-    public boolean checkEmpty(){
+    boolean checkEmpty(){
         if(name1.getText().length()==0){
             Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show();
             return false;
@@ -155,7 +155,7 @@ public class recruitment_signup extends AppCompatActivity {
         }
         return true;
     }
-    public Boolean checkMail(){
+    Boolean checkMail(){
             String tempEmail=email1.getText().toString().trim();
             Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?20[0-9][0-9]@vitstudent.ac.in$");
             Matcher emailMatcher=emailPattern.matcher(tempEmail);
@@ -166,14 +166,14 @@ public class recruitment_signup extends AppCompatActivity {
             Toast.makeText(recruitment_signup.this, "Please enter Vit email id", Toast.LENGTH_SHORT).show();
             return false;
     }
-    public boolean checkGithub(){
+    boolean checkGithub(){
         String tempGit = github1.getText().toString();
         if(tempGit.startsWith("https://github.com/")){
             return true;
         }
         return false;
     }
-    public boolean isNetworkAvailable(final Context context) {
+    boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }

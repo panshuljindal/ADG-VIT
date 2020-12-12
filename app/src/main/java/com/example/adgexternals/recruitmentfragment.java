@@ -31,17 +31,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitmentfragment extends Fragment {
-    SharedPreferences pref,pref1;
-    ImageView technical,management,designImage;
-    SharedPreferences.Editor editor;
-    String token;
-    TextView tech,tech1,manage,manage1,design,design1;
-    ConstraintLayout clTechnical,clManagement,clDesign;
-    String type="null";
-    Boolean attemptedTechnical,attemptedManagement,attemptedDesign;
-    Button submit;
-    int yearOfStudy;
-    View view;
+    private SharedPreferences pref,pref1;
+    private ImageView technical,management,designImage;
+    private SharedPreferences.Editor editor;
+    private String token;
+    private TextView tech,tech1,manage,manage1,design,design1;
+    private ConstraintLayout clTechnical,clManagement,clDesign;
+    private String type="null";
+    private Boolean attemptedTechnical,attemptedManagement,attemptedDesign;
+    private Button submit;
+    private int yearOfStudy;
+    private View view;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +109,7 @@ public class recruitmentfragment extends Fragment {
         }
         return view;
     }
-    public void findViewByIds(){
+    void findViewByIds(){
         clTechnical = view.findViewById(R.id.clTechnical);
         clManagement = view.findViewById(R.id.clManagement);
         clDesign = view.findViewById(R.id.clDesign);
@@ -124,7 +124,7 @@ public class recruitmentfragment extends Fragment {
         management= view.findViewById(R.id.imageViewManagement);
         designImage = view.findViewById(R.id.imageViewDesign);
     }
-    public void reset(){
+    void reset(){
         technical.setImageResource(R.drawable.ic_r1);
         management.setImageResource(R.drawable.ic_r3);
         designImage.setImageResource(R.drawable.ic_r5);
@@ -138,7 +138,7 @@ public class recruitmentfragment extends Fragment {
         design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_black));
         design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_grey));
     }
-    public void onclicklisteners(){
+    void onclicklisteners(){
         clTechnical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,7 +185,7 @@ public class recruitmentfragment extends Fragment {
             }
         });
     }
-    public void submitClick(View v){
+    void submitClick(View v){
         if(isNetworkAvailable(v.getContext())) {
             if (type.equals("null")) {
                 Toast.makeText(v.getContext(), "Please select a domain", Toast.LENGTH_SHORT).show();
@@ -248,11 +248,11 @@ public class recruitmentfragment extends Fragment {
             Toast.makeText(v.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
         }
     }
-    public boolean isNetworkAvailable(final Context context) {
+    boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
-    public void sendNetworkRequest(String t){
+    void sendNetworkRequest(String t){
         HttpLoggingInterceptor logging  =new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();

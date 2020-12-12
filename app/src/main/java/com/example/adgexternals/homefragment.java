@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,9 +25,9 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 
 public class homefragment extends Fragment {
-    View view;
-    Button adglogoBtn,faq;
-    List<recyler2item> list1;
+    private View view;
+    private Button adglogoBtn,faq;
+    private List<recyler2item> list1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,19 +51,25 @@ public class homefragment extends Fragment {
         onclickListeners();
         return view;
     }
-    public void addData(){
+    void addData(){
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
         list1.add(new recyler2item("Introduction to Machine Learning","Anna Audi","11:30","23","NOV"));
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
         list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
     }
-    public void onclickListeners(){
+    void onclickListeners(){
         adglogoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),adg_info.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+            }
+        });
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "This feature will be available soon!", Toast.LENGTH_SHORT).show();
             }
         });
     }

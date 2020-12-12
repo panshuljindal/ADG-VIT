@@ -29,11 +29,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class management_instructions extends Fragment {
-    View view;
-    String token;
-    SharedPreferences pref;
-    Button back,start;
-    List<questionObject> questionManagement;
+    private View view;
+    private String token;
+    private SharedPreferences pref;
+    private Button back,start;
+    private List<questionObject> questionManagement;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +70,7 @@ public class management_instructions extends Fragment {
         });
         return view;
     }
-    public void sendNetworkRequest() {
+    void sendNetworkRequest() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
@@ -122,7 +122,7 @@ public class management_instructions extends Fragment {
             Toast.makeText(getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
         }
     }
-    public void saveData(){
+    void saveData(){
         Gson gson = new Gson();
         String json = gson.toJson(questionManagement);
         Log.i("Json",json);
@@ -132,7 +132,7 @@ public class management_instructions extends Fragment {
         Log.i("json",json);
         startActivity(intent);
     }
-    public boolean isNetworkAvailable(final Context context) {
+    boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }

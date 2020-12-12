@@ -1,9 +1,9 @@
 package com.example.adgexternals;
 
 public class postQuestion {
-    String qid;
-    String response;
-    String message;
+    private String qid;
+    private String response;
+    private String message;
 
     public postQuestion(String qid, String response) {
         this.qid = qid;

@@ -29,11 +29,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class design_instructions extends Fragment {
-    View view;
-    Button back,start;
-    SharedPreferences pref;
-    String token;
-    List<questionObjectTechnical> questionsTechnical;
+    private View view;
+    private Button back,start;
+    private SharedPreferences pref;
+    private String token;
+    private List<questionObjectTechnical> questionsTechnical;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,7 @@ public class design_instructions extends Fragment {
 
         return  view;
     }
-    public void onclicklisteners(){
+    void onclicklisteners(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class design_instructions extends Fragment {
             }
         });
     }
-    public void sendNetworkRequest() {
+    void sendNetworkRequest() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
@@ -125,7 +125,7 @@ public class design_instructions extends Fragment {
             Toast.makeText(view.getContext(), "Please connect to the internet", Toast.LENGTH_SHORT).show();
         }
     }
-    public void saveData(){
+    void saveData(){
         Gson gson = new Gson();
         String json = gson.toJson(questionsTechnical);
         Intent intent = new Intent(getActivity(),design_quiz.class);
@@ -133,7 +133,7 @@ public class design_instructions extends Fragment {
         intent.putExtra("questionsDesign",json);
         startActivity(intent);
     }
-    public boolean isNetworkAvailable(final Context context) {
+    boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }

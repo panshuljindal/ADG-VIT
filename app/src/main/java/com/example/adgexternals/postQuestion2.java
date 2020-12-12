@@ -1,8 +1,8 @@
 package com.example.adgexternals;
 
 public class postQuestion2 {
-    String projects;
-    String brief;
+    private String projects;
+    private String brief;
 
     public postQuestion2(String projects, String brief) {
         this.projects = projects;

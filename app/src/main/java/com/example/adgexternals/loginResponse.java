@@ -1,10 +1,10 @@
 package com.example.adgexternals;
 
 public class loginResponse {
-    String regno;
-    String password;
-    String Token;
-    String message;
+    private String regno;
+    private  String password;
+    private  String Token;
+    private String message;
 
     public loginResponse(String regno, String password, String Token, String message) {
         this.regno = regno;

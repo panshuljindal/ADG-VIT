@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import static android.net.Uri.*;
 
 public class adg_info extends AppCompatActivity {
-    Button cancel;
-    ImageView adgFb , adgTwitter , adgInsta , adgLinkedin;
+    private Button cancel;
+    private ImageView adgFb , adgTwitter , adgInsta , adgLinkedin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +38,13 @@ public class adg_info extends AppCompatActivity {
         });
     }
 
-    public void githubLinkedin(String link, View v){
+    void githubLinkedin(String link, View v){
         Uri uri = parse(link);
         Intent intent = new Intent(Intent.ACTION_VIEW,uri);
         v.getContext().startActivity(intent);
     }
 
-    private void onClickListener() {
+    void onClickListener() {
 
         adgLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override

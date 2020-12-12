@@ -12,7 +12,8 @@ import android.widget.Toast;
 
 
 public class editProfileFragment extends Fragment {
- Button SaveBtn,backBtn;
+
+    private Button SaveBtn,backBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

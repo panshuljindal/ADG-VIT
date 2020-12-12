@@ -1,10 +1,10 @@
 package com.example.adgexternals;
 
 public class questionsOptions {
-    String a;
-    String b;
-    String c;
-    String d;
+    private String a;
+    private String b;
+    private String c;
+    private String d;
 
     public questionsOptions(String a, String b, String c, String d) {
         this.a = a;

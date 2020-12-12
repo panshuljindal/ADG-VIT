@@ -32,17 +32,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class management_quiz extends AppCompatActivity {
 
-    TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D,time;
-    EditText q1A,q2A,q3A,q4A,q5A,q6A,q7A,q8A,q9A,q10A;
-    Button submit,submit1,cancel;
-    List<questionObject> questionManagement;
-    List<postQuestion> questionAnswer;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
-    String token;
-    Boolean cheat=false;
-    CountDownTimer countDownTimer;
-    int quiztime=600000;
+    private TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D,time;
+    private EditText q1A,q2A,q3A,q4A,q5A,q6A,q7A,q8A,q9A,q10A;
+    private Button submit,submit1,cancel;
+    private List<questionObject> questionManagement;
+    private List<postQuestion> questionAnswer;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+    private String token;
+    private Boolean cheat=false;
+    private CountDownTimer countDownTimer;
+    private int quiztime=600000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -17,10 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class about_us_fragment extends Fragment {
-    List<aboutUs> list;
-    View view;
-    Button backaboutus;
-    ImageView ritikL,ritikGit,ritikGm,krishnaL,krishnaGit,krishnaGm,arupamL,arupamGit,arupamGm,panshulL,panshulGit,panshulGm
+    private List<aboutUs> list;
+    private View view;
+    private Button backaboutus;
+    private ImageView ritikL,ritikGit,ritikGm,krishnaL,krishnaGit,krishnaGm,arupamL,arupamGit,arupamGm,panshulL,panshulGit,panshulGm
     ,gokulL,gokulGit,gokulGm,prabaljitL,prabaljitGit,prabaljitGm;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class about_us_fragment extends Fragment {
         onClickListener();
         return view;
     }
-    public void onClickListener(){
+    void onClickListener(){
 
         backaboutus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +157,7 @@ public class about_us_fragment extends Fragment {
             }
         });
     }
-    public void findViewByIds(){
+    void findViewByIds(){
         backaboutus = view.findViewById(R.id.buttonaboutusback);
         ritikL = view.findViewById(R.id.ritikLinkedin);
         ritikGit = view.findViewById(R.id.ritikGithub);
@@ -178,10 +178,10 @@ public class about_us_fragment extends Fragment {
         prabaljitGit =view.findViewById(R.id.prabaljitGithub);
         prabaljitGm = view.findViewById(R.id.prabaljitEmail);
     }
-    public void email(String text,View view){
+    void email(String text,View view){
 
     }
-    public void githubLinkedin(String link, View v){
+    void githubLinkedin(String link, View v){
         Uri uri = Uri.parse(link);
         Intent intent = new Intent(Intent.ACTION_VIEW,uri);
         v.getContext().startActivity(intent);

@@ -1,11 +1,11 @@
 package com.example.adgexternals;
 
 public class recyler2item {
-    String heading;
-    String venue;
-    String time;
-    String day;
-    String month;
+    private String heading;
+    private String venue;
+    private String time;
+    private String day;
+    private String month;
 
     public recyler2item(String heading, String venue, String time, String day, String month) {
         this.heading = heading;

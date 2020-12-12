@@ -24,11 +24,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class settings_fragment extends Fragment {
-    Button editProfile,logout,aboutus;
-    ImageView profilepic1;
-    TextView name1,email1;
-    String name,email;
-    SharedPreferences pref,pref1;
+    private Button editProfile,logout,aboutus;
+    private ImageView profilepic1;
+    private TextView name1,email1;
+    private String name,email;
+    private SharedPreferences pref,pref1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

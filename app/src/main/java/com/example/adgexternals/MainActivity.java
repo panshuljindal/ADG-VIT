@@ -23,10 +23,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    SharedPreferences pref,pref1;
-    SharedPreferences.Editor editor;
-    BottomNavigationView bottomNavigationView;
-    String token;
+    private SharedPreferences pref,pref1;
+    private SharedPreferences.Editor editor;
+    private BottomNavigationView bottomNavigationView;
+    private String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         editor=pref1.edit();
         sendNetworkRequest(token);
     }
-    public void sendNetworkRequest(String t){
+    void sendNetworkRequest(String t){
         HttpLoggingInterceptor logging  =new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();

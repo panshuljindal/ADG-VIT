@@ -13,8 +13,8 @@ import java.util.List;
 
 public class recyler2adapter extends RecyclerView.Adapter<recyler2adapter.MyViewHolder> {
 
-    List<recyler2item> mlist;
-    Context mcontext;
+    private List<recyler2item> mlist;
+    private Context mcontext;
     public recyler2adapter(List<recyler2item> mlist, Context mcontext) {
         this.mlist = mlist;
         this.mcontext = mcontext;

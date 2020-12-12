@@ -1,14 +1,14 @@
 package com.example.adgexternals;
 
 public class userDetails {
-    boolean attemptedTechnical;
-    boolean attemptedManagement;
-    boolean attemptedDesign;
-    int yearofstudy;
-    String id;
-    String name;
-    String regno;
-    String email;
+    private boolean attemptedTechnical;
+    private boolean attemptedManagement;
+    private boolean attemptedDesign;
+    private int yearofstudy;
+    private String id;
+    private String name;
+    private String regno;
+    private String email;
 
     public userDetails(boolean attemptedTechnical, boolean attemptedManagement, boolean attemptedDesign, int yearofstudy, String id, String name, String regno, String email) {
         this.attemptedTechnical = attemptedTechnical;

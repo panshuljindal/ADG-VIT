@@ -25,13 +25,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class secondYear1 extends AppCompatActivity {
-    Button submit;
-    EditText q1,q2;
-    TextView heading;
-    String token;
-    SharedPreferences pref;
-    SharedPreferences pref1;
-    SharedPreferences.Editor editor;
+    private Button submit;
+    private EditText q1,q2;
+    private TextView heading;
+    private String token;
+    private SharedPreferences pref;
+    private SharedPreferences pref1;
+    private SharedPreferences.Editor editor;
     boolean cheat=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class secondYear1 extends AppCompatActivity {
             }
         });
     }
-    public void sendPostQuestionRequest(postQuestion2 ques){
+    void sendPostQuestionRequest(postQuestion2 ques){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
@@ -104,7 +104,7 @@ public class secondYear1 extends AppCompatActivity {
             }
         });
     }
-    public void sendQuestionsRequest(){
+    void sendQuestionsRequest(){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
@@ -152,7 +152,7 @@ public class secondYear1 extends AppCompatActivity {
             }
         });
     }
-    public boolean isNetworkAvailable(final Context context) {
+    boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }

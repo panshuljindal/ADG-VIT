@@ -22,11 +22,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitment_login extends AppCompatActivity {
-    Button login;
-    EditText regNo1,password1;
-    String regNo,password;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
+    private Button login;
+    private EditText regNo1,password1;
+    private String regNo,password;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class recruitment_login extends AppCompatActivity {
 
     }
 
-    public boolean checkEmpty(){
+    boolean checkEmpty(){
         if(regNo1.getText().length()==0){
             Toast.makeText(this, "Please enter registration number", Toast.LENGTH_SHORT).show();
             return false;
@@ -69,7 +69,7 @@ public class recruitment_login extends AppCompatActivity {
         }
         return true;
     }
-    public void sendNetworkRequest(loginrequest user){
+    void sendNetworkRequest(loginrequest user){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
@@ -113,7 +113,7 @@ public class recruitment_login extends AppCompatActivity {
             }
         });
     }
-    public boolean isNetworkAvailable(final Context context) {
+    boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }

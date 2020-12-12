@@ -2,11 +2,11 @@ package com.example.adgexternals;
 
 public class questionObjectTechnical {
 
-    String _id;
-    String questionDescription;
-    questionsOptions options;
-    String yearofstudy;
-    String __v;
+    private String _id;
+    private String questionDescription;
+    private questionsOptions options;
+    private String yearofstudy;
+    private String __v;
 
     public questionObjectTechnical(String _id, String questionDescription, questionsOptions options, String yearofstudy, String __v) {
         this._id = _id;
