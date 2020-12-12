@@ -315,7 +315,7 @@ public class recruitment_quiz extends AppCompatActivity {
             public void run() {
                 doubleback=false;
             }
-        },2000);
+        },3000);
     }
 
     @Override

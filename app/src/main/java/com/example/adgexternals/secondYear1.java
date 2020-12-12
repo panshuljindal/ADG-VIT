@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -156,11 +157,26 @@ public class secondYear1 extends AppCompatActivity {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
+    void cheating(){
+        postQuestion2 user = new postQuestion2(q2.getText().toString(),q1.getText().toString());
+        sendPostQuestionRequest(user);
+    }
 
+    private boolean doubleback=false;
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        cheat =false;
-        //cheating();
+        if(doubleback){
+            cheat=true;
+            cheating();
+        }
+        doubleback=true;
+        Toast.makeText(this, "Test will be submitted if you press again", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleback=false;
+            }
+        },3000);
     }
 }

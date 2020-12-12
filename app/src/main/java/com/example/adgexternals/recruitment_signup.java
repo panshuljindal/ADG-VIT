@@ -70,7 +70,7 @@ public class recruitment_signup extends AppCompatActivity {
                                             user = new User(name, regNo, password, email, 1, github,phoneNo);
                                             sendNetworkRequest(user);
                                         } else {
-                                            Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(v.getContext(), "Please enter in the format https://github.com/username", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 } else if (regNo1.getText().toString().startsWith("19") && email1.getText().toString().contains("2019")) {
@@ -81,7 +81,7 @@ public class recruitment_signup extends AppCompatActivity {
                                             User user1 = new User(name, regNo, password, email, 2, github,phoneNo);
                                             sendNetworkRequest(user1);
                                         } else {
-                                            Toast.makeText(v.getContext(), "Please enter full github link", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(v.getContext(), "Please enter in the format https://github.com/username", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 } else {
@@ -132,9 +132,6 @@ public class recruitment_signup extends AppCompatActivity {
             }
         });
     }
-    boolean checkPhone(){
-        return true;
-    }
     boolean checkEmpty(){
         if(name1.getText().length()==0){
             Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show();
@@ -158,6 +155,23 @@ public class recruitment_signup extends AppCompatActivity {
         }
         return true;
     }
+    boolean checkPhone(){
+        String tempEmail = phoneNo1.getText().toString();
+        if(tempEmail.startsWith("6")  && tempEmail.length()==10){
+            return true;
+        }
+        if(tempEmail.startsWith("7")  && tempEmail.length()==10){
+            return true;
+        }
+        if(tempEmail.startsWith("8")  && tempEmail.length()==10){
+            return true;
+        }
+        if(tempEmail.startsWith("9")  && tempEmail.length()==10){
+            return true;
+        }
+        Toast.makeText(this, "Please enter a correct phone number", Toast.LENGTH_SHORT).show();
+        return false;
+    }
     boolean checkMail(){
             String tempEmail=email1.getText().toString().trim();
             Pattern emailPattern=Pattern.compile("^[a-z]+.[a-z]*[0-9]?20[0-9][0-9]@vitstudent.ac.in$");
@@ -174,6 +188,7 @@ public class recruitment_signup extends AppCompatActivity {
         if(tempGit.startsWith("https://github.com/")){
             return true;
         }
+        Toast.makeText(this, "Please enter in the format https://github.com/username", Toast.LENGTH_SHORT).show();
         return false;
     }
     boolean isNetworkAvailable(final Context context) {

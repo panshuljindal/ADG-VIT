@@ -55,7 +55,6 @@ public class management_quiz extends AppCompatActivity {
         questionAnswer= new ArrayList<>();
         loadData();
         setData();
-        setCountDownTimer();
         onclicklisteners();
     }
     public void submitanswer(){
@@ -155,34 +154,6 @@ public class management_quiz extends AppCompatActivity {
         submit.setEnabled(false);
         submitanswer();
     }
-    public void setCountDownTimer(){
-        countDownTimer=new CountDownTimer(quiztime,1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                updateTextView(millisUntilFinished/1000);
-            }
-
-            @Override
-            public void onFinish() {
-                submitanswer();
-            }
-        }.start();
-    }
-    public void updateTextView(long secondsLeft){
-        int min = (int) (secondsLeft/60);
-        int seconds = (int) (secondsLeft-(min*60));
-        String secondString;
-        secondString = Integer.toString(seconds);
-        if(seconds<=9){
-            secondString="0"+secondString;
-        }
-        if(min>=1) {
-            time.setText(Integer.toString(min) + ":" + secondString +"s");
-        }
-        else{
-            time.setText(secondString + "s");
-        }
-    }
     public void sendNetWorkRequest(List<postQuestion> ques){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -281,19 +252,5 @@ public class management_quiz extends AppCompatActivity {
                 doubleback=false;
             }
         },3000);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        cheat=true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(cheat){
-            cheating();
-        }
     }
 }
