@@ -55,16 +55,16 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/domainsCardview"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="190dp"
+                    android:layout_height="165dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@color/recruitment_grey"
+                        android:background="@drawable/ic_group__4_"
                         android:orientation="vertical">
 
                         <TextView
@@ -81,8 +81,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/projectsCardview"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="190dp"
+                    android:layout_height="165dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
                     app:cardCornerRadius="10dp">
@@ -91,7 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@color/recruitment_grey"
+                        android:background="@drawable/ic_group__3_"
                         android:orientation="vertical">
 
                         <TextView
@@ -108,8 +108,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/eventsCardview"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="190dp"
+                    android:layout_height="165dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
                     app:cardCornerRadius="10dp">
@@ -118,7 +118,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@color/recruitment_grey"
+                        android:background="@drawable/ic_group1"
                         android:orientation="vertical">
 
                         <TextView
@@ -135,8 +135,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/teamsCardview"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="190dp"
+                    android:layout_height="165dp"
                     app:cardCornerRadius="10dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
@@ -146,7 +146,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@color/recruitment_grey"
+                        android:background="@drawable/ic_group__2_"
                         android:orientation="vertical">
 
                         <TextView
