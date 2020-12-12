@@ -260,7 +260,11 @@ public class recruitment_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedTechnical", true).commit();
                         editor.apply();
                         Toast.makeText(recruitment_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(recruitment_quiz.this,MainActivity.class));
+                        Intent intent =new Intent(recruitment_quiz.this,finishQuiz.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        String type="Technical (Cheated)";
+                        intent.putExtra("type",type);
+                        startActivity(intent);
                     }
                     else{
                         editor.putBoolean("attemptedTechnical", true).commit();
@@ -294,10 +298,35 @@ public class recruitment_quiz extends AppCompatActivity {
             }
         });
     }
+    private boolean doubleback=false;
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        if(doubleback){
+            cheat=true;
+            cheating();
+        }
+        doubleback=true;
+        Toast.makeText(this, "Test will be submitted if you press again", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleback=false;
+            }
+        },2000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
         cheat=true;
-        cheating();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(cheat){
+            cheating();
+        }
     }
 }

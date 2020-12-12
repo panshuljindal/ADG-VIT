@@ -160,7 +160,7 @@ public class secondYear1 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        cheat =true;
+        cheat =false;
         //cheating();
     }
 }

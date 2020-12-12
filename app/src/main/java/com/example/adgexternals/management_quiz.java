@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -203,9 +204,11 @@ public class management_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedManagement", true).commit();
                         editor.apply();
                         Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        Intent i =(new Intent(management_quiz.this,MainActivity.class));
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(i);
+                        Intent intent =new Intent(management_quiz.this,finishQuiz.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        String type="Management";
+                        intent.putExtra("type",type);
+                        startActivity(intent);
                     }
                     else{
                         editor.putBoolean("attemptedManagement", true).commit();
@@ -236,6 +239,13 @@ public class management_quiz extends AppCompatActivity {
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(i);
                     }
+                }else{
+                    editor.putBoolean("attemptedManagement", true).commit();
+                    editor.apply();
+                    Toast.makeText(management_quiz.this, "Error Occurred", Toast.LENGTH_SHORT).show();
+                    Intent i =(new Intent(management_quiz.this,MainActivity.class));
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
                 }
             }
 
@@ -254,10 +264,35 @@ public class management_quiz extends AppCompatActivity {
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 
+    private boolean doubleback=false;
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        cheat =true;
-        cheating();
+        if(doubleback){
+            cheat=true;
+            cheating();
+        }
+        doubleback=true;
+        Toast.makeText(this, "Test will be submitted if you press again", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleback=false;
+            }
+        },3000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        cheat=true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(cheat){
+            cheating();
+        }
     }
 }

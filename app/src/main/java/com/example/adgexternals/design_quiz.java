@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -256,9 +257,11 @@ public class design_quiz extends AppCompatActivity {
                         editor.putBoolean("attemptedDesign", true).commit();
                         editor.apply();
                         Toast.makeText(design_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(design_quiz.this,MainActivity.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(i);
+                        Intent intent =new Intent(design_quiz.this,finishQuiz.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        String type="Design (Cheated)";
+                        intent.putExtra("type",type);
+                        startActivity(intent);
                     }
                     else{
                         editor.putBoolean("attemptedDesign", true).commit();
@@ -297,10 +300,35 @@ public class design_quiz extends AppCompatActivity {
             }
         });
     }
+    private boolean doubleback=false;
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        if(doubleback){
+            cheat=true;
+            cheating();
+        }
+        doubleback=true;
+        Toast.makeText(this, "Test will be submitted if you press again", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleback=false;
+            }
+        },3000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
         cheat=true;
-        cheating();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(cheat){
+            cheating();
+        }
     }
 }
