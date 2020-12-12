@@ -12,25 +12,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdgExternals">
-        <activity android:name=".onboardingActivity"></activity>
-        <activity android:name=".secondYear1"></activity>
-        <activity android:name=".adg_info" />
-        <activity android:name=".management_quiz" />
-        <activity android:name=".finishQuiz" />
-        <activity android:name=".design_quiz" />
-        <activity android:name=".landingActivity">
+        <activity android:name=".onboardingActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".secondYear1"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".adg_info"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".management_quiz"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".finishQuiz"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".design_quiz"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".landingActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".recruitment_quiz" />
-        <activity android:name=".recruitment_home" />
-        <activity android:name=".recruitment_signup" />
-        <activity android:name=".recruitment_login" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".recruitment_quiz"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".recruitment_home"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".recruitment_signup"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".recruitment_login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"
