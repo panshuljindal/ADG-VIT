@@ -117,4 +117,12 @@ public class recruitment_login extends AppCompatActivity {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent i = new Intent(recruitment_login.this,recruitment_home.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+    }
 }
