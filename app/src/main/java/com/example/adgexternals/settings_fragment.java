@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class settings_fragment extends Fragment {
-    private Button editProfile,logout,aboutus;
+    private Button editProfile,logout,aboutus,feedback,bugreport,refer;
     private ImageView profilepic1;
     private TextView name1,email1;
     private String name,email;
@@ -51,6 +51,9 @@ public class settings_fragment extends Fragment {
         name1 = view.findViewById(R.id.profileName);
         email1 = view.findViewById(R.id.profileEmail);
         aboutus = view.findViewById(R.id.aboutUsBtn);
+        feedback = view.findViewById(R.id.feedbackBtn);
+        bugreport = view.findViewById(R.id.bugReportBtn);
+        refer = view.findViewById(R.id.ReferBtn);
 
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +117,25 @@ public class settings_fragment extends Fragment {
                 fragmentTransaction.replace(R.id.frameLayout,nextFrag);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }
+        });
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Send feedback
+            }
+        });
+        bugreport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Send Bug report
+            }
+        });
+        refer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Refer a friend
             }
         });
 
