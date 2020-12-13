@@ -135,7 +135,7 @@ public class management_quiz extends AppCompatActivity {
         q9A = findViewById(R.id.q9A);
         q10D = findViewById(R.id.q10D);
         q10A = findViewById(R.id.q10A);
-        time = findViewById(R.id.management_time);
+
     }
     public void loadData(){
         questionManagement.clear();
