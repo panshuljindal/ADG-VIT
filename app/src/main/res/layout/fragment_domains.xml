@@ -72,7 +72,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_technical"
+                        android:src="@drawable/ic_iosdomain"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,7 +141,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_icon_material_android" />
+                        android:src="@drawable/ic_android" />
 
                     <TextView
                         android:id="@+id/textViewManagement"
@@ -206,7 +206,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_technical"
+                        android:src="@drawable/ic_web"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

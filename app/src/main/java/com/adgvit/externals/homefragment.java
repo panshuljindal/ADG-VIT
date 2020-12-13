@@ -55,10 +55,8 @@ public class homefragment extends Fragment {
         return view;
     }
     void addData(){
-        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
-        list1.add(new recyler2item("Introduction to Machine Learning","Anna Audi","11:30","23","NOV"));
-        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
-        list1.add(new recyler2item("Introduction to Machine Learning","SMV","11:30","23","NOV"));
+        list1.add(new recyler2item("Recruitments","Online","9:40","14","JAN"));
+        list1.add(new recyler2item("HackGrid","Anna Audi","9:00","23","MAR"));
     }
     void onclickListeners(){
         faq.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Adg Externals</string>
+    <string name="app_name">ADG-VIT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Q_A">5 Q &amp; A</string>
+    <string name="Q_A_20">20 Q &amp; A</string>
 </resources>

@@ -83,9 +83,10 @@
                         android:id="@+id/faqcardtexts1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="40dp"
-                        android:orientation="vertical"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginLeft="45dp"
                         android:gravity="center_vertical"
+                        android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/faqcardicon1"
                         app:layout_constraintTop_toTopOf="parent">
@@ -103,9 +104,9 @@
                             android:id="@+id/faqcarddesc1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotolight"
-                            android:text="Lorem Ipsum"
                             android:layout_marginTop="3dp"
+                            android:fontFamily="@font/robotolight"
+                            android:text="@string/Q_A"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -167,7 +168,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/robotomedium"
-                            android:text="All Topics"
+                            android:text="General Topics"
                             android:textColor="@color/black"
                             android:textSize="14dp" />
 
@@ -175,9 +176,9 @@
                             android:id="@+id/faqcarddesc2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotolight"
-                            android:text="Lorem Ipsum"
                             android:layout_marginTop="3dp"
+                            android:fontFamily="@font/robotolight"
+                            android:text="@string/Q_A_20"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -247,9 +248,9 @@
                             android:id="@+id/faqcarddesc3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotolight"
-                            android:text="Lorem Ipsum"
                             android:layout_marginTop="3dp"
+                            android:fontFamily="@font/robotolight"
+                            android:text="@string/Q_A"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -317,9 +318,9 @@
                             android:id="@+id/faqcarddesc4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotolight"
-                            android:text="Lorem Ipsum"
                             android:layout_marginTop="3dp"
+                            android:fontFamily="@font/robotolight"
+                            android:text="@string/Q_A"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -387,9 +388,9 @@
                             android:id="@+id/faqcarddesc5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotolight"
-                            android:text="Lorem Ipsum"
                             android:layout_marginTop="3dp"
+                            android:fontFamily="@font/robotolight"
+                            android:text="@string/Q_A"
                             android:textColor="@color/black"
                             android:textSize="12dp" />
                     </LinearLayout>
