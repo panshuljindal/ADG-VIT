@@ -47,17 +47,8 @@ public class MainActivity extends AppCompatActivity {
                         selectedfragment = new homefragment();
                         break;
                     case R.id.navigation_recruitment:
-                        if(token.isEmpty()) {
-                            Intent i = new Intent(MainActivity.this,recruitment_home.class);
-                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(i);
-                            break;
-                        }
-                        else {
                             selectedfragment = new recruitmentfragment();
                             break;
-                        }
-
                     case R.id.navigation_faq:
                         selectedfragment = new faq_fragment();
                         break;

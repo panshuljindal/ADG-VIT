@@ -42,7 +42,6 @@ public class management_quiz extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private String token;
     private Boolean cheat=false;
-    private CountDownTimer countDownTimer;
     private int quiztime=600000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,7 +169,6 @@ public class management_quiz extends AppCompatActivity {
         call.enqueue(new Callback<postQuestion>() {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
-                countDownTimer.cancel();
                 if(response.code()==200){
                     if(cheat==true){
                         editor.putBoolean("attemptedManagement", true).commit();
