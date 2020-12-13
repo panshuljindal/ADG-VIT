@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.adgexternals.homefragment"
+        android:name="com.adgvit.externals.homefragment"
         android:label="Home"
         tools:layout="@layout/fragment_homefragment" />
 
     <fragment
         android:id="@+id/navigation_recruitment"
-        android:name="com.example.adgexternals.recruitmentfragment"
+        android:name="com.adgvit.externals.recruitmentfragment"
         android:label="Recruitments"
         tools:layout="@layout/fragment_recruitmentfragment" />
 
     <fragment
         android:id="@+id/navigation_faq"
-        android:name="com.example.adgexternals.faq_fragment"
+        android:name="com.adgvit.externals.faq_fragment"
         android:label="F.A.Q"
         tools:layout="@layout/fragment_faq_fragment" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.adgexternals.settings_fragment"
+        android:name="com.adgvit.externals.settings_fragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings_fragment" />
 

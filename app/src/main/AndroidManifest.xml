@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.adgexternals">
+    package="com.adgvit.externals">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,19 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdgExternals">
-        <activity android:name=".onboardingActivity"
+        <activity android:name="com.adgvit.externals.onboardingActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".secondYear1"
+        <activity android:name="com.adgvit.externals.secondYear1"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".adg_info"
+        <activity android:name="com.adgvit.externals.adg_info"
             android:screenOrientation="portrait"/>
-        <activity android:name=".management_quiz"
+        <activity android:name="com.adgvit.externals.management_quiz"
             android:screenOrientation="portrait"/>
-        <activity android:name=".finishQuiz"
+        <activity android:name="com.adgvit.externals.finishQuiz"
             android:screenOrientation="portrait"/>
-        <activity android:name=".design_quiz"
+        <activity android:name="com.adgvit.externals.design_quiz"
             android:screenOrientation="portrait"/>
-        <activity android:name=".landingActivity"
+        <activity android:name="com.adgvit.externals.landingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
@@ -33,15 +33,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".recruitment_quiz"
+        <activity android:name="com.adgvit.externals.recruitment_quiz"
             android:screenOrientation="portrait"/>
-        <activity android:name=".recruitment_home"
+        <activity android:name="com.adgvit.externals.recruitment_home"
             android:screenOrientation="portrait"/>
-        <activity android:name=".recruitment_signup"
+        <activity android:name="com.adgvit.externals.recruitment_signup"
             android:screenOrientation="portrait"/>
-        <activity android:name=".recruitment_login"
+        <activity android:name="com.adgvit.externals.recruitment_login"
             android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity"
+        <activity android:name="com.adgvit.externals.MainActivity"
             android:screenOrientation="portrait"/>
 
         <meta-data
