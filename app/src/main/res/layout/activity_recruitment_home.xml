@@ -12,8 +12,8 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="330dp"
+            android:layout_height="330dp"
             android:background="@drawable/adg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -68,7 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="45dp"
                 android:background="@drawable/ic_signup"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:foreground="?android:attr/selectableItemBackground"

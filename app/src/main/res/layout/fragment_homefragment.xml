@@ -55,10 +55,10 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/domainsCardview"
-                    android:layout_width="190dp"
-                    android:layout_height="155dp"
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="30dp">
+                    app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -73,11 +73,11 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/projectsCardview"
-                    android:layout_width="190dp"
-                    android:layout_height="155dp"
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="30dp">
+                    app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -93,11 +93,11 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/eventsCardview"
-                    android:layout_width="190dp"
-                    android:layout_height="155dp"
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
-                    app:cardCornerRadius="30dp">
+                    app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -112,9 +112,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/teamsCardview"
-                    android:layout_width="190dp"
-                    android:layout_height="155dp"
-                    app:cardCornerRadius="30dp"
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
+                    app:cardCornerRadius="20dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
                     >
@@ -140,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="Upcoming Events"
             android:fontFamily="@font/helveticaneu_bold"
             android:textColor="#000000"

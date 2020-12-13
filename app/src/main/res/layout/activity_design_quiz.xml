@@ -78,7 +78,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardOption1D"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
@@ -99,9 +99,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneue_medium"
-                android:paddingLeft="15dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
+                android:padding="15dp"
                 android:text="List"
                 android:textColor="#707070"
                 android:textSize="20dp"
@@ -133,11 +131,9 @@
 
             <TextView
                 android:id="@+id/option2TextD"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:paddingLeft="15dp"
+                android:padding="15dp"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:text="Dictionary"
                 android:textColor="#707070"
@@ -170,11 +166,9 @@
 
             <TextView
                 android:id="@+id/option3TextD"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:paddingLeft="15dp"
+                android:padding="15dp"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:text="Tuple"
                 android:textColor="#707070"
@@ -207,11 +201,9 @@
 
             <TextView
                 android:id="@+id/option4TextD"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:paddingLeft="15dp"
+                android:padding="15dp"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:text="Array"
                 android:textColor="#707070"
@@ -220,40 +212,28 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonDesignQuizNext"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/skipnxtbtnsD"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:background="@drawable/quiznext"
-        android:fontFamily="@font/helveticaneue_medium"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:paddingLeft="45dp"
-        android:paddingTop="10dp"
-        android:paddingRight="45dp"
-        android:paddingBottom="10dp"
-        android:text="Next"
-        android:textAllCaps="false"
-        android:textColor="#4766FF"
-        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardOption4D" />
+        app:layout_constraintTop_toBottomOf="@id/cardOption4D">
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonDesignQuizSkip"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="15dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginLeft="49dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:background="@drawable/quiznext"
         android:fontFamily="@font/helveticaneue_medium"
         android:foreground="?android:attr/selectableItemBackground"
@@ -265,9 +245,29 @@
         android:textAllCaps="false"
         android:textColor="#4766FF"
         android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDesignQuizNext"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardOption4D" />
+
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonDesignQuizNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/quiznext"
+        android:fontFamily="@font/helveticaneue_medium"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingLeft="45dp"
+        android:paddingTop="10dp"
+        android:paddingRight="45dp"
+        android:paddingBottom="10dp"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="#4766FF"
+        android:textSize="20dp"
+         />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/timetextView"
@@ -277,8 +277,10 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:text="1:30s"
+        android:padding="5dp"
         android:textColor="#000"
         android:textSize="15dp"
+        android:background="@drawable/timetxtbg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

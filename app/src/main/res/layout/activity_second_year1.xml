@@ -8,13 +8,9 @@
 
         <TextView
             android:id="@+id/twoHeading"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginRight="64dp"
             android:fontFamily="@font/helveticaneu_bold"
             android:text="Technical Round"
             android:textAlignment="center"
@@ -26,13 +22,11 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +48,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/management_edittext"
                 android:ems="10"
+                android:scrollbars="vertical"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:gravity="start|top"
                 android:hint="Your Answer"
@@ -68,13 +63,11 @@
 
         <LinearLayout
             android:id="@+id/linearLayout10"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +89,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/management_edittext"
                 android:ems="10"
+                android:scrollbars="vertical"
                 android:fontFamily="@font/helveticaneue_medium"
                 android:gravity="start|top"
                 android:hint="Your Answer"
@@ -108,23 +102,19 @@
                 android:textSize="14dp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/submit_button_secondTechnical"
-            android:layout_width="112dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="150dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="149dp"
-            android:layout_marginRight="149dp"
-            android:background="@drawable/management_submit"
-            android:fontFamily="@font/helveticaneu_bold"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:textColor="#4766FF"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout10" />
+    <Button
+        android:id="@+id/submit_button_secondTechnical"
+        android:layout_width="112dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/management_submit"
+        android:fontFamily="@font/helveticaneu_bold"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="#4766FF"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10" />
 </androidx.constraintlayout.widget.ConstraintLayout>

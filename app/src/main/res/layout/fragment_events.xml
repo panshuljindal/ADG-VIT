@@ -83,7 +83,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:text="iOS Fusion"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
+                    android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,6 +94,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="15dp"
+                    android:textColor="@color/black"
                     android:text="iOS Fusion is a premium workshop conducted by Apple Developers Group, VIT. Participants in our workshop are taught to create apps for  iOS  devices.  "
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +134,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/unidevD"
-                    app:srcCompat="@drawable/ios2" />
+                    app:srcCompat="@drawable/unidev2" />
 
                 <TextView
                     android:id="@+id/unidevT"
@@ -144,7 +145,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:text="Unidev"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
+                    android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -155,6 +156,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
+                    android:textColor="@color/black"
                     android:text="UNIDEV, a one-day workshop for both novices and experts, that gives a chance to explore tricks and tweaks of using Unity  Software  along with the powerful SDK Vuforia in order to build something as cool as Pokémon Go!"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -204,7 +206,7 @@
                     android:fontFamily="@font/robotomedium"
                     android:text="HackGrid"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
+                    android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -215,6 +217,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
+                    android:textColor="@color/black"
                     android:text="Apple Developers Group conducts a 48 hour long hackathon that encourages young developers to come up with scintillating technical solutions to real world problems."
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
