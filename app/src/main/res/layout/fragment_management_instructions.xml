@@ -149,7 +149,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/helveticaneue_regular"
-                android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                android:text="The participant can attempt the quiz only ONCE."
                 android:textColor="#000000"
                 android:textSize="16dp" />
 
@@ -178,7 +178,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/helveticaneue_regular"
-                android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                android:text="The quiz will have 10 Multiple choice questions."
                 android:textColor="#000000"
                 android:textSize="16dp" />
 
@@ -207,7 +207,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/helveticaneue_regular"
-                android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+                android:text="10 minutes will be provided to complete the quiz."
                 android:textColor="#000000"
                 android:textSize="16dp" />
 
@@ -229,6 +229,32 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/InstructionsPoint3man" />
+
+        <LinearLayout
+            android:id="@+id/InstructionsPoint3man"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="543dp">
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/helveticaneue_regular"
+                android:text=".In case the participant tries to close the app or go back from the quiz, it shall be considered cheating and the quiz will be auto submitted."
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
