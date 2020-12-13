@@ -95,7 +95,7 @@
                     android:layout_width="149dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/appss"/>
+                    android:src="@drawable/appss1"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

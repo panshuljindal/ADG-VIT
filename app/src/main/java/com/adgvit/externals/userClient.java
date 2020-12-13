@@ -19,16 +19,16 @@ public interface userClient {
     @GET("getuser")
     Call<root> getUser(@Header("auth-token") String authtoken);
 
-    @GET("management/get-quiz-questions")
+    @GET("management/get-quiz-questions/mobile")
     Call<List<questionObject>> getQuestionManagement(@Header("auth-token") String token);
 
-    @GET("design/get-quiz-questions")
+    @GET("design/get-quiz-questions/mobile")
     Call<List<questionObjectTechnical>> getQuestionDesign(@Header("auth-token") String token);
 
-    @GET("technical/get-quiz-questions/1")
+    @GET("technical/get-quiz-questions/1/mobile")
     Call<List<questionObjectTechnical>> getQuestionTechnical(@Header("auth-token") String token);
 
-    @GET("technical/get-quiz-questions/2")
+    @GET("technical/get-quiz-questions/2/mobile")
     Call<List<questionObjectTechnical>> getQuestionTechnical2(@Header("auth-token") String token);
 
     @POST("technical2/submit")
