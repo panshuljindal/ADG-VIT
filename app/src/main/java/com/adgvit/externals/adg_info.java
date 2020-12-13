@@ -13,14 +13,13 @@ import static android.net.Uri.*;
 
 public class adg_info extends AppCompatActivity {
     private Button cancel;
-    private ImageView adgFb , adgTwitter , adgInsta , adgLinkedin;
+    private ImageView adgFb, adgInsta,adgLinkedin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adg_info);
 
         adgFb = findViewById(R.id.adgFacebook);
-        adgTwitter = findViewById(R.id.adgTwitter);
         adgInsta = findViewById(R.id.adgInstagram);
         adgLinkedin = findViewById(R.id.adgLinkedin);
 
@@ -57,13 +56,6 @@ public class adg_info extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 githubLinkedin("https://www.facebook.com/vitios/",v);
-            }
-        });
-
-        adgTwitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                githubLinkedin("https://twitter.com/adgvit",v);
             }
         });
 
