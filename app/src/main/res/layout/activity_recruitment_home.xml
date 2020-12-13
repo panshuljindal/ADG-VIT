@@ -20,20 +20,19 @@
 
         </View>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="65dp"
-            android:fontFamily="@font/helveticaneu_bold"
-            android:text="Interview."
-            android:textColor="#000"
-            android:textSize="35dp"
-            app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="25dp"
+        android:fontFamily="@font/helveticaneu_bold"
+        android:text="Recruitments"
+        android:textColor="#000"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@id/textView2"
 
-            app:layout_constraintBottom_toTopOf="@id/textView2"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView2"

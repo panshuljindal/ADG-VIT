@@ -24,13 +24,13 @@ public class sliderAdapter extends PagerAdapter {
     };
 
     public  String[] slide_head = {
-            "ADG Interview Ground",
+            "ADG-VIT",
             "Recruitment Like never before"
     };
 
     public String[] slide_desc = {
-            "ADG’s official coding app which lets you code with your smartphone",
-            "With our Mobile platform IDE you can now code anywhere"
+            "ADG’s official app which will open the doors to endless possibilities, into the realm of unexplored",
+            "With our mobile platform, you can now apply for recruitments from anywhere"
 
     };
 
