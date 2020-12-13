@@ -113,7 +113,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/teamsCardview"
                     android:layout_width="190dp"
-                    android:layout_height="125dp"
+                    android:layout_height="150dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
                     app:cardCornerRadius="20dp">
