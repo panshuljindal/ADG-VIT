@@ -55,16 +55,17 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/domainsCardview"
-                    android:layout_width="190dp"
+                    android:layout_width="180dp"
                     android:layout_height="150dp"
                     android:foregroundGravity="center_horizontal"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/cardbgdomain"
+                        android:background="@drawable/domain"
                         android:orientation="vertical">
 
                     </LinearLayout>
@@ -73,7 +74,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/projectsCardview"
-                    android:layout_width="190dp"
+                    android:layout_width="180dp"
                     android:layout_height="150dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
@@ -83,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/projectcardbg"
+                        android:background="@drawable/projects"
                         android:orientation="vertical">
 
 
@@ -93,7 +94,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/eventsCardview"
-                    android:layout_width="190dp"
+                    android:layout_width="180dp"
                     android:layout_height="150dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
@@ -103,7 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/eventscardbg"
+                        android:background="@drawable/events2"
                         android:orientation="vertical">
 
                     </LinearLayout>
@@ -112,7 +113,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/teamsCardview"
-                    android:layout_width="190dp"
+                    android:layout_width="180dp"
                     android:layout_height="150dp"
                     android:layout_marginLeft="10dp"
                     android:foregroundGravity="center_horizontal"
@@ -122,7 +123,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/teamscardbg"
+                        android:background="@drawable/teams"
                         android:orientation="vertical">
 
                     </LinearLayout>

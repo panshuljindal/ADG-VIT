@@ -47,7 +47,7 @@ public class settings_fragment extends Fragment {
         email1 = view.findViewById(R.id.profileEmail);
         aboutus = view.findViewById(R.id.aboutUsBtn);
         feedback = view.findViewById(R.id.feedbackBtn);
-        bugreport = view.findViewById(R.id.bugReportBtn);
+        //bugreport = view.findViewById(R.id.bugReportBtn);
         refer = view.findViewById(R.id.ReferBtn);
 
         aboutus.setOnClickListener(new View.OnClickListener() {
@@ -121,12 +121,12 @@ public class settings_fragment extends Fragment {
                 // Send feedback
             }
         });
-        bugreport.setOnClickListener(new View.OnClickListener() {
+        /*bugreport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Send Bug report
             }
-        });
+        });*/
         refer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
