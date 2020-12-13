@@ -61,6 +61,7 @@ public class management_instructions extends Fragment {
             @Override
             public void onClick(View v) {
                 if(isNetworkAvailable(v.getContext())){
+                    start.setEnabled(false);
                     sendNetworkRequest();
                 }
                 else {
@@ -86,6 +87,7 @@ public class management_instructions extends Fragment {
             call.enqueue(new Callback<List<questionObject>>() {
                 @Override
                 public void onResponse(Call<List<questionObject>> call, Response<List<questionObject>> response) {
+                    start.setEnabled(true);
                     if (response.code() == 200) {
                         try {
                             questionManagement.clear();
@@ -129,7 +131,7 @@ public class management_instructions extends Fragment {
         Intent intent = new Intent(getActivity(),management_quiz.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("questionsManagement",json);
-        Log.i("json",json);
+        //Log.i("json",json);
         startActivity(intent);
     }
     boolean isNetworkAvailable(final Context context) {

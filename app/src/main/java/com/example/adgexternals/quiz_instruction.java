@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class quiz_instruction extends Fragment {
 
     private Button back,start;
-    private SharedPreferences pref,pref1;
+    private SharedPreferences pref;
     private String token;
     private View view;
     private List<questionObjectTechnical> questionsTechnical;
@@ -67,7 +67,9 @@ public class quiz_instruction extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(isNetworkAvailable(v.getContext())){
+                    start.setEnabled(false);
                     sendNetworkRequest();
                 }
                 else {
@@ -96,21 +98,25 @@ public class quiz_instruction extends Fragment {
                         try {
                             questionsTechnical.clear();
                             questionsTechnical = response.body();
+                            start.setEnabled(true);
                             saveData();
                         } catch (Exception e) {
                             Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
+                            start.setEnabled(true);
                         }
 
                     } else if (response.code() == 400) {
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
                         Intent i=(new Intent(view.getContext(), MainActivity.class));
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        start.setEnabled(true);
                         startActivity(i);
                     }
                     else {
                         Toast.makeText(view.getContext(), "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
                         Intent i=(new Intent(view.getContext(), MainActivity.class));
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        start.setEnabled(true);
                         startActivity(i);
                     }
                 }
@@ -120,6 +126,7 @@ public class quiz_instruction extends Fragment {
                     Toast.makeText(view.getContext(), "Network error. Please try again", Toast.LENGTH_SHORT).show();
                     Intent i=(new Intent(view.getContext(), MainActivity.class));
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    start.setEnabled(true);
                     startActivity(i);
                 }
             });

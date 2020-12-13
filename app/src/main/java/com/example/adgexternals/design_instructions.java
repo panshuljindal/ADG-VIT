@@ -65,6 +65,7 @@ public class design_instructions extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                start.setEnabled(false);
                 if(isNetworkAvailable(v.getContext())){
                     sendNetworkRequest();
                 }
@@ -90,6 +91,7 @@ public class design_instructions extends Fragment {
             call.enqueue(new Callback<List<questionObjectTechnical>>() {
                 @Override
                 public void onResponse(Call<List<questionObjectTechnical>> call, Response<List<questionObjectTechnical>> response) {
+                    start.setEnabled(true);
                     if (response.code() == 200) {
                         try {
                             questionsTechnical.clear();
@@ -97,7 +99,7 @@ public class design_instructions extends Fragment {
                             Toast.makeText(view.getContext(), "Start", Toast.LENGTH_SHORT).show();
                             saveData();
                         } catch (Exception e) {
-                            Toast.makeText(view.getContext(), "Try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(view.getContext(), "Error!", Toast.LENGTH_SHORT).show();
                         }
                     } else if (response.code() == 400) {
                         Toast.makeText(view.getContext(), "You have attempted the quiz before", Toast.LENGTH_SHORT).show();
