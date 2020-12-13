@@ -59,12 +59,6 @@ public class homefragment extends Fragment {
         list1.add(new recyler2item("HackGrid","Anna Audi","9:00","23","MAR"));
     }
     void onclickListeners(){
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Feature coming soon!", Toast.LENGTH_SHORT).show();
-            }
-        });
         adglogoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

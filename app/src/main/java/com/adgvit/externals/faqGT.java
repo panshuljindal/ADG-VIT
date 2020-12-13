@@ -87,5 +87,20 @@ public class faqGT extends Fragment {
         list.add(new faqitem(
                 "Q.15 I don't have a portfolio but I know how to design. Can I still apply?",
                 "- As long as you can prove that you have what it takes. You can be a part of the design team."));
+        list.add(new faqitem(
+                "Q16. What do I do for the club as part of the Editorial team?",
+                "-Being a part of the editorial team includes working on social media posts and marketing for upcoming events"));
+        list.add(new faqitem("Q17. Do I get to be a part of any technical domain as well?",
+                "-Yes, along with being a member of the Editorial Team, you also get to choose a Technical Domain offered by the club."));
+        list.add(new faqitem("Q18. What skills do I require to be apply for a place in the Editorial Committee?",
+                "-As long as you're able to put yourself in event managing scenarios and work with team members, you're most welcome to this committee.\n" +
+                        "Any past experiences definitely help here."));
+        list.add(new faqitem
+                ("Q19. How will I be benefited if become part of the editorial team?",
+                        "- Good writing skills are very important and will always come handy be it applying for jobs or further studies!"));
+        list.add(new faqitem(
+                "Q20. Can I be part of other management groups if I am in editorial?",
+                "- Of course you can! As long as you can manage , you’re most welcome to be part of other teams and gain as much as you can!"));
+
     }
 }

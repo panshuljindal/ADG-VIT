@@ -88,7 +88,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="We are blessed to be guided by our faculty co-ordinator Prof. Rajkumar R."
+        android:text="We are blessed to be guided by our faculty co-ordinator Dr. Rajkumar R."
         android:textColor="#fff"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"

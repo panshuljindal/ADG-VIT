@@ -121,7 +121,7 @@ public class settings_fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Send feedback
-                String app_url = "https://play.google.com/store/apps/details?id=com.whatsapp";
+                String app_url = "https://play.google.com/store/apps/details?id=com.adgvit.externals";
                 Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(app_url));
                 v.getContext().startActivity(intent);
             }
