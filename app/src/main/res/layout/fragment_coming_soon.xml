@@ -51,17 +51,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/comingsoontxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
+            android:fadingEdge="horizontal"
+            android:scrollHorizontally="true"
             android:fontFamily="@font/helveticaneu_bold"
             android:text="Coming soon!"
             android:textColor="#FF6200"
-            android:textSize="45dp"
+            android:textSize="47dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
