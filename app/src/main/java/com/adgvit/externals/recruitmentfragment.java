@@ -117,7 +117,7 @@ public class recruitmentfragment extends Fragment {
         call.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                
+
             }
 
             @Override
