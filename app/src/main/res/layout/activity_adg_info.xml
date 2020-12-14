@@ -25,7 +25,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="40dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Apple   Developers   Group  ( ADG )   is   a   name synonymous  with   excellence ,   simplicity   and  dedication. It is a registered student community at  VIT ,   Vellore   established   under  the  Apple University  program. A coterie of talented minds seeking not just success but perfection."
+        android:text="Apple Developers Group (ADG) is a name synonymous with excellence, simplicity and dedication. It is a registered student community at VIT, Vellore established under the Apple University program. A coterie of talented minds seeking not just success but perfection."
         android:textColor="#fff"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"

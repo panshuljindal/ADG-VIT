@@ -11,88 +11,72 @@
         android:layout_height="match_parent"
         >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/result_thumps_up" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/result_thumps_up" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/helveticaneu_bold"
-        android:text="You have Successfully Completed the Quiz"
-        android:textColor="#395AFF"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/helveticaneu_bold"
+            android:text="You have Successfully Completed the Quiz"
+            android:textColor="#395AFF"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/helveticaneue_regular"
-        android:text="It is a long established fact that a reader will be distracted by "
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/helveticaneue_regular"
+            android:text="Domain:"
+            android:textColor="#707070"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/helveticaneue_regular"
-        android:text="Domain:"
-        android:textColor="#707070"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        <TextView
+            android:id="@+id/resultText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/helveticaneue_regular"
+            android:text="Technical"
+            android:textColor="#000"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <TextView
-        android:id="@+id/resultText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/helveticaneue_regular"
-        android:text="Technical"
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/helveticaneue_medium"
-        android:text="Next Step?"
-        android:textColor="#000"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/helveticaneue_medium"
+            android:text="Next Step?"
+            android:textColor="#000"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
     <LinearLayout
         android:id="@+id/Point1fin"
         android:layout_width="match_parent"
@@ -116,7 +100,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/helveticaneue_regular"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+            android:text="Thank you for giving the quiz."
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -126,7 +110,7 @@
         android:id="@+id/Point2fin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal"
@@ -145,7 +129,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/helveticaneue_regular"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+            android:text="Results will be announced shortly!"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -155,7 +139,7 @@
         android:id="@+id/Point3fin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal"
@@ -174,16 +158,46 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/helveticaneue_regular"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+            android:text="Till then stay tuned to our social media handles for more updates."
             android:textColor="#000000"
             android:textSize="16dp" />
 
     </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Point4fin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/Point3fin"
+            tools:layout_editor_absoluteX="30dp">
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/helveticaneue_regular"
+                android:text="If selected, our team will contact you via mail or message giving you information regarding  further rounds!"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/finishHomeButton"
             android:layout_width="112dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="41dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/management_submit"
             android:fontFamily="@font/helveticaneu_bold"
             android:text="Home"
@@ -193,6 +207,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Point3fin" />
+            app:layout_constraintTop_toBottomOf="@+id/Point4fin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

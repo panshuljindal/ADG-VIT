@@ -61,7 +61,8 @@ public class recruitmentfragment extends Fragment {
         attemptedManagement = pref1.getBoolean("attemptedManagement",false);
         attemptedDesign = pref1.getBoolean("attemptedDesign",false);
         attemptedTechnical = pref1.getBoolean("attemptedTechnical",false);
-        onclicklisteners();
+
+        sendNetworkTrue();
 
         if(token.length()==0){
             startActivity(new Intent(getContext(),recruitment_home.class));
@@ -106,7 +107,24 @@ public class recruitmentfragment extends Fragment {
         else {
             type="null";
         }
+        onclicklisteners();
         return view;
+    }
+    void sendNetworkTrue(){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("").addConverterFactory(GsonConverterFactory.create()).build();
+        userClient client = retrofit.create(userClient.class);
+        Call<Boolean> call = client.getRecruitments();
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+
+            }
+        });
     }
     void findViewByIds(){
         clTechnical = view.findViewById(R.id.clTechnical);

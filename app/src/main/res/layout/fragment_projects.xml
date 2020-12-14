@@ -67,14 +67,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginTop="30dp"
-                    android:text="iOS Fusion is a premium workshop conducted by Apple Developers Group, VIT. Participants in our workshop are taught to create apps for  iOS  devices.  "
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/robotoregular"
-                    />
+                    android:padding="5dp"
+                    android:text="TAP is an app with powerful feautures to login to VIT WiFi without any hassle. You can now auto-login to VIT WiFi and operate various social media applications using a single app. "
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -97,14 +96,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginTop="30dp"
-                    android:text="iOS Fusion is a premium workshop conducted by Apple Developers Group, VIT. Participants in our workshop are taught to create apps for  iOS  devices.  "
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/robotoregular"
-                    />
+                    android:padding="5dp"
+                    android:text="ADG-VIT is an application built to give an insight of what this community holds for you. It is one stop app for new recruitments, FAQ, events , projects , various domains and a lot more!"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
 
                 <ImageView
                     android:layout_width="149dp"
@@ -133,19 +131,18 @@
                     android:layout_width="149dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/appss"/>
+                    android:src="@drawable/internals"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginTop="30dp"
-                    android:text="iOS Fusion is a premium workshop conducted by Apple Developers Group, VIT. Participants in our workshop are taught to create apps for  iOS  devices.  "
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/robotoregular"
-                    />
+                    android:padding="5dp"
+                    android:text="An app designed to make the functioning of the club more efficient and futuristic. With its advanced features and unique design, managing club events and activities has never been more fun"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

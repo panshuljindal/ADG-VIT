@@ -140,8 +140,16 @@ public class settings_fragment extends Fragment {
                 String app_url = " https://play.google.com/store/apps/details?id=com.adgvit.externals";
                 Intent shareIntent =   new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
+                String text = "ADG-VIT is an application built to give an insight of what this community holds for you. It is one stop app for new recruitments, FAQ, events , projects , various domains and a lot more!\n" +
+                        "Apple developers group aims to provide the best learning experience to its members and believes that creativity comes with collaboration! \n" +
+                        "Features:\n" +
+                        "1. All the latest updates about Apple Developers Group VIT.\n" +
+                        "2. All information about its domains, projects, events and team.\n" +
+                        "3. Recruitment made easier with interested candidates participating anytime,anywhere on the go. \n" +
+                        "4. FAQs that will solve all the doubts you might be having of Apple Developers Group VIT\n" +
+                        "5. A journey that will cover all your expectations and take you to unexplored realm of possibilities.\n";
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,"");
-                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,app_url);
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,text+app_url);
                 v.getContext().startActivity(Intent.createChooser(shareIntent,"Share via"));
             }
         });
