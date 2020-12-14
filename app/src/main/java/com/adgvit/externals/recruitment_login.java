@@ -69,14 +69,9 @@ public class recruitment_login extends AppCompatActivity {
         return true;
     }
     void sendNetworkRequest(loginrequest user){
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
         Call<loginResponse> call = client.loginUser(user);

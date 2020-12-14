@@ -43,7 +43,7 @@ public interface userClient {
     @POST("technical/submit")
     Call<postQuestion> postQuestionTechnical(@Header("auth-token") String authtoken, @Body List<postQuestion> ques);
 
-    @GET("")
-    Call<Boolean> getRecruitments();
+    @GET("recruitmentstatus")
+    Call<status> getRecruitments();
 
 }

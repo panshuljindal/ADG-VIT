@@ -78,14 +78,9 @@ public class quiz_instruction extends Fragment {
         });
     }
     void sendNetworkRequest() {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/questions/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
         if (isNetworkAvailable(view.getContext())) {

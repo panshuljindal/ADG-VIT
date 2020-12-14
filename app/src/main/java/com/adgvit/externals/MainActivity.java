@@ -65,14 +65,9 @@ public class MainActivity extends AppCompatActivity {
         sendNetworkRequest(token);
     }
     void sendNetworkRequest(String t){
-        HttpLoggingInterceptor logging  =new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
         Call<root> call = client.getUser(token);

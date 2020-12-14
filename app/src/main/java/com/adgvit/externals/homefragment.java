@@ -1,6 +1,7 @@
 package com.adgvit.externals;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -19,6 +20,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class homefragment extends Fragment {
 
@@ -43,6 +54,7 @@ public class homefragment extends Fragment {
         events = view.findViewById(R.id.eventsCardview);
         projects = view.findViewById(R.id.projectsCardview);
         teams = view.findViewById(R.id.teamsCardview);
+        sendNetworkTrue();
 
         list1 = new ArrayList<>();
         addData();
@@ -53,6 +65,28 @@ public class homefragment extends Fragment {
         recyclerView1.setAdapter(adapter);
         onclickListeners();
         return view;
+    }
+    void sendNetworkTrue(){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://adgrecruitments.herokuapp.com/user/").addConverterFactory(GsonConverterFactory.create())
+                .build();
+        userClient client = retrofit.create(userClient.class);
+        Call<status> call = client.getRecruitments();
+        call.enqueue(new Callback<status>() {
+            @Override
+            public void onResponse(Call<status> call, Response<status> response) {
+                if(response.code()==200){
+                    status item = response.body();
+                    SharedPreferences preferences = view.getContext().getSharedPreferences("com.adgexternals.com.status",MODE_PRIVATE);
+                    SharedPreferences.Editor editor2 = preferences.edit();
+                    editor2.putBoolean("status",item.getStatus()).commit();
+                    editor2.apply();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<status> call, Throwable t) {
+            }
+        });
     }
     void addData(){
         list1.add(new recyler2item("Recruitments","Online","9:40","14","JAN"));

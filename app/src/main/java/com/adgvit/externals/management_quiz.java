@@ -32,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class management_quiz extends AppCompatActivity {
 
-    private TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D,time;
+    private TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D;
     private EditText q1A,q2A,q3A,q4A,q5A,q6A,q7A,q8A,q9A,q10A;
     private Button submit,submit1,cancel;
     private List<questionObject> questionManagement;
@@ -56,6 +56,7 @@ public class management_quiz extends AppCompatActivity {
         onclicklisteners();
     }
     public void submitanswer(){
+        submit.setEnabled(false);
         questionAnswer.add(new postQuestion(questionManagement.get(0).get_id(), q1A.getText().toString()));
         questionAnswer.add(new postQuestion(questionManagement.get(1).get_id(), q2A.getText().toString()));
         questionAnswer.add(new postQuestion(questionManagement.get(2).get_id(), q3A.getText().toString()));
@@ -153,14 +154,9 @@ public class management_quiz extends AppCompatActivity {
         submitanswer();
     }
     public void sendNetWorkRequest(List<postQuestion> ques){
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
         if(isNetworkAvailable(this)){
@@ -168,6 +164,7 @@ public class management_quiz extends AppCompatActivity {
         call.enqueue(new Callback<postQuestion>() {
             @Override
             public void onResponse(Call<postQuestion> call, Response<postQuestion> response) {
+                submit.setEnabled(true);
                 if(response.code()==200){
                     if(cheat==true){
                         editor.putBoolean("attemptedManagement", true).commit();
@@ -175,7 +172,7 @@ public class management_quiz extends AppCompatActivity {
                         Toast.makeText(management_quiz.this, "Cheating", Toast.LENGTH_SHORT).show();
                         Intent intent =new Intent(management_quiz.this,finishQuiz.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        String type="Management";
+                        String type="Management (Cheated)";
                         intent.putExtra("type",type);
                         startActivity(intent);
                     }
@@ -220,7 +217,8 @@ public class management_quiz extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<postQuestion> call, Throwable t) {
-                Toast.makeText(management_quiz.this, "Network error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(management_quiz.this, "Network error. Please try again", Toast.LENGTH_SHORT).show();
+                submit.setEnabled(true);
             }
         });
         }

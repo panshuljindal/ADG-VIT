@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,14 +31,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class recruitmentfragment extends Fragment {
-    private SharedPreferences pref,pref1;
+    private SharedPreferences pref,pref1,pref2;
     private ImageView technical,management,designImage;
     private SharedPreferences.Editor editor;
     private String token;
     private TextView tech,tech1,manage,manage1,design,design1;
     private ConstraintLayout clTechnical,clManagement,clDesign;
     private String type="null";
-    private Boolean attemptedTechnical,attemptedManagement,attemptedDesign;
+    private Boolean attemptedTechnical,attemptedManagement,attemptedDesign,status;
     private Button submit;
     private int yearOfStudy;
     private View view;
@@ -62,70 +63,61 @@ public class recruitmentfragment extends Fragment {
         attemptedDesign = pref1.getBoolean("attemptedDesign",false);
         attemptedTechnical = pref1.getBoolean("attemptedTechnical",false);
 
-        sendNetworkTrue();
-
-        if(token.length()==0){
-            startActivity(new Intent(getContext(),recruitment_home.class));
-        }
-        else{
-            //startActivity(new Intent(view.getContext(),finishQuiz.class));
-            sendNetworkRequest(token);
-        }
-        if(type=="null"){
-
-        }
-        else if(type=="technical"){
-            reset();
-            technical.setImageResource(R.drawable.ic_r2);
-            management.setImageResource(R.drawable.ic_r3);
-            designImage.setImageResource(R.drawable.ic_r5);
-            clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
-            tech.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
-            tech1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
-            type = "technical";
-        }
-        else if(type=="management"){
-            reset();
-            technical.setImageResource(R.drawable.ic_r1);
-            management.setImageResource(R.drawable.ic_r4);
-            designImage.setImageResource(R.drawable.ic_r5);
-            clManagement.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
-            manage.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
-            manage1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
-            type = "management";
-        }
-        else if(type=="design"){
-            reset();
-            technical.setImageResource(R.drawable.ic_r1);
-            management.setImageResource(R.drawable.ic_r3);
-            designImage.setImageResource(R.drawable.ic_r6);
-            clDesign.setBackground(ContextCompat.getDrawable(view.getContext(),R.drawable.recruitment_selectedback));
-            design.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
-            design1.setTextColor(ContextCompat.getColor(view.getContext(),R.color.recruitment_white));
-            type = "design";
+        pref2 = view.getContext().getSharedPreferences("com.adgexternals.com.status",Context.MODE_PRIVATE);
+        status = pref2.getBoolean("status",false);
+        if(status==false){
+            comingSoon fragment = new comingSoon();
+            FragmentManager manager = ((FragmentActivity) view.getContext()).getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.frameLayout, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         else {
-            type="null";
+            if (token.length() == 0) {
+                Intent intent = new Intent(getContext(), recruitment_home.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            } else {
+                sendNetworkRequest(token);
+            }
+            if (type == "null") {
+
+            } else if (type == "technical") {
+                reset();
+                technical.setImageResource(R.drawable.ic_r2);
+                management.setImageResource(R.drawable.ic_r3);
+                designImage.setImageResource(R.drawable.ic_r5);
+                clTechnical.setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.recruitment_selectedback));
+                tech.setTextColor(ContextCompat.getColor(view.getContext(), R.color.recruitment_white));
+                tech1.setTextColor(ContextCompat.getColor(view.getContext(), R.color.recruitment_white));
+                type = "technical";
+            } else if (type == "management") {
+                reset();
+                technical.setImageResource(R.drawable.ic_r1);
+                management.setImageResource(R.drawable.ic_r4);
+                designImage.setImageResource(R.drawable.ic_r5);
+                clManagement.setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.recruitment_selectedback));
+                manage.setTextColor(ContextCompat.getColor(view.getContext(), R.color.recruitment_white));
+                manage1.setTextColor(ContextCompat.getColor(view.getContext(), R.color.recruitment_white));
+                type = "management";
+            } else if (type == "design") {
+                reset();
+                technical.setImageResource(R.drawable.ic_r1);
+                management.setImageResource(R.drawable.ic_r3);
+                designImage.setImageResource(R.drawable.ic_r6);
+                clDesign.setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.recruitment_selectedback));
+                design.setTextColor(ContextCompat.getColor(view.getContext(), R.color.recruitment_white));
+                design1.setTextColor(ContextCompat.getColor(view.getContext(), R.color.recruitment_white));
+                type = "design";
+            } else {
+                type = "null";
+            }
         }
         onclicklisteners();
         return view;
     }
-    void sendNetworkTrue(){
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("").addConverterFactory(GsonConverterFactory.create()).build();
-        userClient client = retrofit.create(userClient.class);
-        Call<Boolean> call = client.getRecruitments();
-        call.enqueue(new Callback<Boolean>() {
-            @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
 
-            }
-
-            @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
-
-            }
-        });
-    }
     void findViewByIds(){
         clTechnical = view.findViewById(R.id.clTechnical);
         clManagement = view.findViewById(R.id.clManagement);
@@ -270,14 +262,9 @@ public class recruitmentfragment extends Fragment {
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
     void sendNetworkRequest(String t){
-        HttpLoggingInterceptor logging  =new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
         Call<root> call = client.getUser(token);

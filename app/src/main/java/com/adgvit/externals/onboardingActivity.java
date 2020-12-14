@@ -9,6 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class onboardingActivity extends AppCompatActivity {
 
     private ViewPager vP;
@@ -27,7 +35,6 @@ public class onboardingActivity extends AppCompatActivity {
         nextBtnOnBoard = findViewById(R.id.nextBtnLanding);
         tabBtn1 = findViewById(R.id.tabBtn1);
         tabBtn2 = findViewById(R.id.tabBtn2);
-
         mslider = new sliderAdapter(this);
         vP.setAdapter(mslider);
 

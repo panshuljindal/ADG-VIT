@@ -61,7 +61,6 @@ public class recruitment_quiz extends AppCompatActivity {
 
         pref = getSharedPreferences("com.adgexternals.com.userdata",Context.MODE_PRIVATE);
         editor=pref.edit();
-
         setOptions();
         setCountDownTimer();
         onclicklisteners();
@@ -241,14 +240,10 @@ public class recruitment_quiz extends AppCompatActivity {
         sendNetworkRequest(questionList);
     }
     void sendNetworkRequest(List<postQuestion> ques){
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build()).build();
+                .build();
         userClient client = retrofit.create(userClient.class);
         Call<postQuestion> call = client.postQuestionTechnical(token,ques);
         call.enqueue(new Callback<postQuestion>() {
@@ -294,6 +289,8 @@ public class recruitment_quiz extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<postQuestion> call, Throwable t) {
+                next.setEnabled(true);
+                skip.setEnabled(true);
                 Toast.makeText(recruitment_quiz.this, "Network error. Please try again", Toast.LENGTH_SHORT).show();
             }
         });

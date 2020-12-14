@@ -62,14 +62,9 @@ public class secondYear1 extends AppCompatActivity {
         });
     }
     void sendPostQuestionRequest(postQuestion2 ques){
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/user/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build())
                 .build();
         userClient client = retrofit.create(userClient.class);
         Call<postQuestion2> call = client.postQuestionTechnical2(token,ques);
@@ -80,8 +75,10 @@ public class secondYear1 extends AppCompatActivity {
                     editor.putBoolean("attemptedTechnical", true).commit();
                     editor.apply();
                     Toast.makeText(secondYear1.this, "Thank you for your submission", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(secondYear1.this,MainActivity.class);
+                    Intent intent =new Intent(secondYear1.this,finishQuiz.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    String type="Technical";
+                    intent.putExtra("type",type);
                     startActivity(intent);
                 }
                 else if(response.code()==403){
@@ -105,14 +102,10 @@ public class secondYear1 extends AppCompatActivity {
         });
     }
     void sendQuestionsRequest(){
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpclient = new OkHttpClient.Builder();
-        httpclient.addInterceptor(logging);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://adgrecruitments.herokuapp.com/questions/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(httpclient.build()).build();
+                .build();
         userClient client = retrofit.create(userClient.class);
         Call<List<questionObjectTechnical>> call = client.getQuestionTechnical2(token);
         call.enqueue(new Callback<List<questionObjectTechnical>>() {
