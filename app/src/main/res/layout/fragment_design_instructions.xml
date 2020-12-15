@@ -61,33 +61,19 @@
             app:layout_constraintTop_toBottomOf="@+id/Designtesthead"
             />
 
-        <TextView
-            android:id="@+id/instructionTimeTextViewDes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/helveticaneue_regular"
-            android:text="It is a long established fact that a reader will be distracted by "
-            android:textColor="#000000"
-            android:textSize="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chooseTextViewDes" />
-
         <LinearLayout
             android:id="@+id/timetxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/timetxtbg"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/instructionTimeTextViewDes"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/chooseTextViewDes">
 
             <TextView
                 android:id="@+id/fromInstTextView"
@@ -102,13 +88,11 @@
                 android:id="@+id/fromInstTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 Mins"
                 android:fontFamily="@font/helveticaneu_bold"
+                android:text="10 Mins"
                 android:textColor="@color/black"
                 android:textSize="16dp"
-                app:layout_constraintStart_toEndOf="@id/fromInstTextView"
-                app:layout_constraintTop_toBottomOf="@id/instructionTimeTextView"
-                />
+                app:layout_constraintStart_toEndOf="@id/fromInstTextView" />
         </LinearLayout>
 
 
@@ -117,14 +101,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="60dp"
-            android:text="Instructions"
-            android:textSize="24dp"
-            android:textColor="@color/black"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/helveticaneu_bold"
-            app:layout_constraintTop_toBottomOf="@+id/timetxt"
+            android:text="Instructions"
+            android:textColor="@color/black"
+            android:textSize="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/timetxt" />
 
         <LinearLayout
             android:id="@+id/InstructionsPoint1Des"

@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,8 @@ public class settings_fragment extends Fragment {
     private ImageView profilepic1;
     private TextView name1,email1;
     private String name,email;
-    private SharedPreferences pref,pref1;
+    private SharedPreferences pref,pref1,pref2;
+    private boolean status;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,9 @@ public class settings_fragment extends Fragment {
 
         pref1 = view.getContext().getSharedPreferences("com.adgexternals.com.token",Context.MODE_PRIVATE);
         pref = view.getContext().getSharedPreferences("com.adgexternals.com.userdata", Context.MODE_PRIVATE);
+        pref2 = view.getContext().getSharedPreferences("com.adgexternals.com.status",Context.MODE_PRIVATE);
+
+        status = pref2.getBoolean("status",false);
         name = pref.getString("name","");
         email = pref.getString("email","");
 
@@ -51,6 +56,12 @@ public class settings_fragment extends Fragment {
         feedback = view.findViewById(R.id.feedbackBtn);
         //bugreport = view.findViewById(R.id.bugReportBtn);
         refer = view.findViewById(R.id.ReferBtn);
+
+        if(status){
+            logout.setVisibility(View.VISIBLE);
+        }else{
+            logout.setVisibility(View.INVISIBLE);
+        }
 
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override

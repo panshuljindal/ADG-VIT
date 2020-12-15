@@ -189,12 +189,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginRight="6dp"
-        android:text="Logout"
-        android:textSize="16dp"
-        android:textAllCaps="false"
-        android:fontFamily="@font/robotoregular"
-        android:textColor="#3582FF"
         android:background="@android:color/transparent"
+        android:fontFamily="@font/helveticaneu_bold"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="#3582FF"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
