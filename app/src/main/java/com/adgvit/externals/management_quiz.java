@@ -32,8 +32,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class management_quiz extends AppCompatActivity {
 
-    private TextView q1D,q2D,q3D,q4D,q5D,q6D,q7D,q8D,q9D,q10D;
-    private EditText q1A,q2A,q3A,q4A,q5A,q6A,q7A,q8A,q9A,q10A;
+    private TextView q1D,q2D,q3D,q4D,q5D;
+    private EditText q1A,q2A,q3A,q4A,q5A;
     private Button submit,submit1,cancel;
     private List<questionObject> questionManagement;
     private List<postQuestion> questionAnswer;
@@ -62,11 +62,6 @@ public class management_quiz extends AppCompatActivity {
         questionAnswer.add(new postQuestion(questionManagement.get(2).get_id(), q3A.getText().toString()));
         questionAnswer.add(new postQuestion(questionManagement.get(3).get_id(), q4A.getText().toString()));
         questionAnswer.add(new postQuestion(questionManagement.get(4).get_id(), q5A.getText().toString()));
-        questionAnswer.add(new postQuestion(questionManagement.get(5).get_id(), q6A.getText().toString()));
-        questionAnswer.add(new postQuestion(questionManagement.get(6).get_id(), q7A.getText().toString()));
-        questionAnswer.add(new postQuestion(questionManagement.get(7).get_id(), q8A.getText().toString()));
-        questionAnswer.add(new postQuestion(questionManagement.get(8).get_id(), q9A.getText().toString()));
-        questionAnswer.add(new postQuestion(questionManagement.get(9).get_id(), q10A.getText().toString()));
         sendNetWorkRequest(questionAnswer);
     }
     public void onclicklisteners(){
@@ -106,11 +101,6 @@ public class management_quiz extends AppCompatActivity {
         q3D.setText(questionManagement.get(2).getDescription());
         q4D.setText(questionManagement.get(3).getDescription());
         q5D.setText(questionManagement.get(4).getDescription());
-        q6D.setText(questionManagement.get(5).getDescription());
-        q7D.setText(questionManagement.get(6).getDescription());
-        q8D.setText(questionManagement.get(7).getDescription());
-        q9D.setText(questionManagement.get(8).getDescription());
-        q10D.setText(questionManagement.get(9).getDescription());
     }
     public void findViewByIds(){
         submit = findViewById(R.id.submit_button_management);
@@ -124,7 +114,7 @@ public class management_quiz extends AppCompatActivity {
         q4A = findViewById(R.id.q4A);
         q5D = findViewById(R.id.q5D);
         q5A = findViewById(R.id.q5A);
-        q6D = findViewById(R.id.q6D);
+        /*q6D = findViewById(R.id.q6D);
         q6A = findViewById(R.id.q6A);
         q7D = findViewById(R.id.q7D);
         q7A = findViewById(R.id.q7A);
@@ -133,7 +123,7 @@ public class management_quiz extends AppCompatActivity {
         q9D = findViewById(R.id.q9D);
         q9A = findViewById(R.id.q9A);
         q10D = findViewById(R.id.q10D);
-        q10A = findViewById(R.id.q10A);
+        q10A = findViewById(R.id.q10A);*/
 
     }
     public void loadData(){
