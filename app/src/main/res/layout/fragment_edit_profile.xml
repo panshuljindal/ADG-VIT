@@ -46,6 +46,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:fontFamily="@font/robotoregular"
         android:text="Back"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

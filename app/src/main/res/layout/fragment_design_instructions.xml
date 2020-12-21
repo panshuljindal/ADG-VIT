@@ -238,7 +238,8 @@
                 android:fontFamily="@font/helveticaneue_regular"
                 android:text="In case the participant tries to close the app or go back from the quiz, it shall be considered cheating and the quiz will be auto submitted."
                 android:textColor="#000000"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
