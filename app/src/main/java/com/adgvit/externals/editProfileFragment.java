@@ -63,13 +63,13 @@ public class editProfileFragment extends Fragment {
             regNo.setText("Registration Number");
         }
         if(email.getText().toString().isEmpty()){
-            email.setText("Email Id");
+            email.setText("Email ID");
         }
         if(phone.getText().toString().isEmpty()){
             phone.setText("Phone Number");
         }
         if(github.getText().toString().equals("https://github.com/adgvit") | github.getText().toString().isEmpty()){
-            github.setText("Github Link");
+            github.setText("GitHub");
         }
 
         if(tech1==true){

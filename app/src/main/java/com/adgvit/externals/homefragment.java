@@ -89,8 +89,8 @@ public class homefragment extends Fragment {
         });
     }
     void addData(){
-        list1.add(new recyler2item("Recruitments","Online","9:40","14","JAN"));
-        list1.add(new recyler2item("HackGrid","Anna Audi","9:00","23","MAR"));
+        list1.add(new recyler2item("Recruitments","Online","Coming Soon","TBD",""));
+        list1.add(new recyler2item("HackGrid","Anna Audi","Coming Soon","TBD",""));
     }
     void onclickListeners(){
         adglogoBtn.setOnClickListener(new View.OnClickListener() {

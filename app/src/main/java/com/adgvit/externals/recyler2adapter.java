@@ -50,7 +50,7 @@ public class recyler2adapter extends RecyclerView.Adapter<recyler2adapter.MyView
         recyler2item item = mlist.get(position);
         holder.heading.setText(item.getHeading());
         holder.venue.setText(item.getVenue());
-        holder.time.setText(item.getTime() + " AM");
+        holder.time.setText(item.getTime());
         holder.day.setText(item.getDay());
         holder.month.setText(item.getMonth());
         if(holder.heading.getText().toString()=="Recruitments"){
