@@ -59,11 +59,11 @@ public class recruitment_login extends AppCompatActivity {
 
     boolean checkEmpty(){
         if(regNo1.getText().length()==0){
-            Toast.makeText(this, "Please enter registration number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter Registration Number", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(password1.getText().length()==0){
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter Password", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -94,7 +94,7 @@ public class recruitment_login extends AppCompatActivity {
                     Toast.makeText(recruitment_login.this, "Password doesn't match", Toast.LENGTH_SHORT).show();
                 }
                 else if (response.code() == 400) {
-                    Toast.makeText(recruitment_login.this, "Registration number not found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(recruitment_login.this, "Registration Number not found", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(recruitment_login.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();

@@ -11,7 +11,7 @@
         android:id="@+id/faqquestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/helveticaneue_medium"
+        android:fontFamily="@font/robotomedium"
         android:text="Q1. How does this app protect my privacy and protect my data and identity"
         android:textColor="#000000"
         android:textSize="16dp"

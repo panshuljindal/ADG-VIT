@@ -85,7 +85,7 @@ public class recruitment_signup extends AppCompatActivity {
                                         }
                                     }
                                 } else {
-                                    Toast.makeText(v.getContext(), "Registration number and email id doesn't match", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(v.getContext(), "Registration Number and Email ID doesn't match", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -115,7 +115,7 @@ public class recruitment_signup extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(response.code()==400){
-                    Toast.makeText(recruitment_signup.this, "Email id or registration number already exists", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(recruitment_signup.this, "Email ID or Registration Number already exists", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(recruitment_signup.this, "Error occurred. Please try again", Toast.LENGTH_SHORT).show();
@@ -129,23 +129,23 @@ public class recruitment_signup extends AppCompatActivity {
     }
     boolean checkEmpty(){
         if(name1.getText().length()==0){
-            Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter Name", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(regNo1.getText().length()==0){
-            Toast.makeText(this, "Please enter a registration number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a Registration Number", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(email1.getText().length()==0){
-            Toast.makeText(this, "Please enter email id", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter Email ID", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(phoneNo1.getText().length()==0){
-            Toast.makeText(this, "Please enter a phone number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a Phone Number", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(password1.getText().length()==0){
-            Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a Password", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -164,7 +164,7 @@ public class recruitment_signup extends AppCompatActivity {
         if(tempEmail.startsWith("9")  && tempEmail.length()==10){
             return true;
         }
-        Toast.makeText(this, "Please enter a correct phone number", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Please enter a correct Phone Number", Toast.LENGTH_SHORT).show();
         return false;
     }
     boolean checkMail(){
@@ -175,7 +175,7 @@ public class recruitment_signup extends AppCompatActivity {
             {
                 return true;
             }
-            Toast.makeText(recruitment_signup.this, "Please enter Vit email id", Toast.LENGTH_SHORT).show();
+            Toast.makeText(recruitment_signup.this, "Please enter Vit Email ID", Toast.LENGTH_SHORT).show();
             return false;
     }
     boolean checkGithub(){
