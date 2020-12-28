@@ -53,13 +53,13 @@ public class faqD extends Fragment {
         list.add(new faqitem(
                 "Q.1PhotoShop or Illustrator?",
                 "- Whichever tool you're comfortable with as long as you have a basic idea for working with them."));
-        list.add(new faqitem("Q.2 Does Design team only make posters or is there more to it? ",
-                "- Design team is your one stop for learning and practicing everything Design. UI/UX, Graphic design, Product Design you name it. "));
+        list.add(new faqitem("Q.2 Does the design team only make posters or is there more to it? ",
+                "- The design team is your one stop for learning and practicing everything Design. UI/UX, Graphic design, Product Design you name it. "));
         list.add(new faqitem("Q.3 I am new to Design. Am I eligible?",
                 "- As long as you have the passion to work and determination to learn, you're welcome here."));
         list.add(new faqitem
                 ("Q.4 Will this help me in the future?",
-                        "- Design team plays a crucial role in every industry and field. With a chance to learn from some of the best designers with practical experience, design as a career is more than just a viable option."));
+                        "- The design team plays a crucial role in every industry and field. With a chance to learn from some of the best designers with practical experience, design as a career is more than just a viable option."));
         list.add(new faqitem(
                 "Q.5 I don't have a portfolio but I know how to design. Can I still apply?",
                 "- As long as you can prove that you have what it takes. You can be a part of the design team."));

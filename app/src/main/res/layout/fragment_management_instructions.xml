@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneu_bold"
-                android:text="10 Mins"
+                android:text="None"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@id/fromInstTextView" />
@@ -161,7 +161,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/helveticaneue_regular"
-                android:text="The quiz will have 10 Multiple choice questions."
+                android:text="The quiz will have 5 Long answer questions."
                 android:textColor="#000000"
                 android:textSize="16dp" />
 

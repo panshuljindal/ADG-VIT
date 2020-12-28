@@ -49,10 +49,10 @@ public class faqR extends Fragment {
     void addData(){
         list.add(new faqitem(
                 "Q1. I want to join ADG. So…when do you recruit?",
-                "- The tentative recruitment drive in at the start of every winter semester. Anything otherwise, shall be communicated through our social media platforms. Hence, keep checking them."));
-        list.add(new faqitem("Q2. Do I need Apple devices such as a MacBook to be a part this chapter?",
-                "- It's not at all necessary to have an apple device to be a part of ADG unless you need to be a part of iOS Domain, for iOS App Development MacBook is compulsory."));
-        list.add(new faqitem("Q3. Hey, Do I need to be good in coding to be a part of this chapter?",
+                "- The tentative recruitment drive starts every winter semester. Anything otherwise, shall be communicated through our social media platforms. Hence, keep checking them."));
+        list.add(new faqitem("Q2. Do I need Apple devices such as a MacBook to be a part of this chapter?",
+                "- It's not at all necessary to have an apple device to be a part of ADG unless you need to be a part of the iOS Domain, for iOS App Development MacBook is compulsory."));
+        list.add(new faqitem("Q3. Hey, Do I need to be good at coding to be a part of this chapter?",
                 "-If you want to be a part of the technical domains then yes, you need to have a decent technical knowledge when it comes to DSA (Don't get intimidated, practice what you know and you are good to go).\n" +
                         "Moreover, we have 3 more domains apart from technical which are Management, Design and Video Editing. So, if you are interested in any of those then you can definitely apply!"));
         list.add(new faqitem

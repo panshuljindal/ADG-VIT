@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneu_bold"
-                android:text="Please enter a breif description about yourself"
+                android:text="Please enter a breif description about yourself."
                 android:textColor="#395AFF"
                 android:textSize="14dp" />
 
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/helveticaneu_bold"
-                android:text="Pleas enter some links which you think that we should know about"
+                android:text="Please enter some links which you think that we should know about."
                 android:textColor="#395AFF"
                 android:textSize="14dp" />
 

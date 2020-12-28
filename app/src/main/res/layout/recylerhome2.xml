@@ -12,19 +12,6 @@
         android:layout_height="match_parent"
         >
 
-        <TextView
-            android:id="@+id/recycler2cardmonth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/helveticaneue_regular"
-            android:text="NOV"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:visibility="invisible"
-            tools:layout_editor_absoluteX="22dp"
-            tools:layout_editor_absoluteY="48dp" />
-
         <LinearLayout
             android:id="@+id/cardDate"
             android:layout_width="80dp"
@@ -45,7 +32,17 @@
                 android:fontFamily="@font/helveticaneue_medium"
                 android:text="24"
                 android:textColor="#000000"
-                android:textSize="25dp" />
+                android:textSize="28dp" />
+
+            <TextView
+                android:id="@+id/recycler2cardmonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/helveticaneue_regular"
+                android:text="NOV"
+                android:textColor="#000000"
+                android:textSize="18dp" />
 
 
         </LinearLayout>

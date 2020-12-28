@@ -189,7 +189,7 @@ public class design_quiz extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                questionList.add(new postQuestion(questionsDesign.get(qno).get_id(),"skip"));
+                questionList.add(new postQuestion(questionsDesign.get(qno).get_id(),"e"));
                 qno++;
                 option="null";
                 reset();
@@ -203,22 +203,22 @@ public class design_quiz extends AppCompatActivity {
                     if (option == "null") {
                         Toast.makeText(design_quiz.this, "Please select a option", Toast.LENGTH_SHORT).show();
                     } else if (option == "a") {
-                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "1"));
+                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "a"));
                         qno++;
                         option = "null";
                         setOptions();
                     } else if (option == "b") {
-                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "2"));
+                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "b"));
                         qno++;
                         option = "null";
                         setOptions();
                     } else if (option == "c") {
-                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "3"));
+                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "c"));
                         qno++;
                         option = "null";
                         setOptions();
                     } else if (option == "d") {
-                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "4"));
+                        questionList.add(new postQuestion(questionsDesign.get(qno).get_id(), "d"));
                         qno++;
                         option = "null";
                         setOptions();

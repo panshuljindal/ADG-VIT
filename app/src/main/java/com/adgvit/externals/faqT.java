@@ -49,15 +49,15 @@ public class faqT extends Fragment {
     }
     void addData(){
         list.add(new faqitem(
-                "Q.1 Do I need to have pre requisite knowledge about the domains in order to be a part of them?",
+                "Q.1 Do I need to have pre requisite knowledge about the domains to be a part of them?",
                 "- Just at the starting stage? No worries, we will guide you from scratch be it any domain.Having the will to explore and learn is all you need!"));
-        list.add(new faqitem("Q.2 Do I need a Mac in order to be a part of the iOS domain?",
-                "- Yes, in order to have smooth experience using Xcode , a Mac is required."));
+        list.add(new faqitem("Q.2 Do I need a Mac to be a part of the iOS domain?",
+                "- Yes,to have a smooth experience using Xcode , a Mac is required."));
         list.add(new faqitem("Q.3. Without much coding experience can I be a part of any technical domain?",
-                "- You need to have some basic knowledge about problem solving and at least be acquainted with one programming language to make learning easier for you!"));
-        list.add(new faqitem("Q.4  What shall the learning process be like if I get in a technical domain?",
+                "- You need to have some basic knowledge about problem-solving and at least be acquainted with one programming language to make learning easier for you!"));
+        list.add(new faqitem("Q.4  What shall the learning process be like if I get into a technical domain?",
                 "- At ADG you will be guided at every step, be it a beginner or a pro. You will learn through working on amazing projects, which you can include in your resume and we shall ensure you become the best version of yourself!"));
-        list.add(new faqitem("Q.5 Can I choose what domain I want to be a part of or it will be decided on the basis of the quiz marks?",
+        list.add(new faqitem("Q.5 Can I choose what domain I want to be a part of or it will be decided based on the quiz marks?",
                 "- Its upto you what domain you want to choose. We have domains for every possible interest!"));
     }
 }

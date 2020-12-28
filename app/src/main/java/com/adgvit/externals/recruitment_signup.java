@@ -108,7 +108,7 @@ public class recruitment_signup extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Log.i("Code",String.valueOf(response.code()));
-                if(response.code()==201){
+                if(response.code()==200){
                     Toast.makeText(recruitment_signup.this, "Sign up Successful. Please check inbox or spam for verification", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(recruitment_signup.this,recruitment_login.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

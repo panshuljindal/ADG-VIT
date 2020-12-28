@@ -52,14 +52,14 @@ public class faqE extends Fragment {
                 "-Being a part of the editorial team includes working on social media posts and marketing for upcoming events"));
         list.add(new faqitem("Q2. Do I get to be a part of any technical domain as well?",
                 "-Yes, along with being a member of the Editorial Team, you also get to choose a Technical Domain offered by the club."));
-        list.add(new faqitem("Q3. What skills do I require to be apply for a place in the Editorial Committee?",
+        list.add(new faqitem("Q3. What skills do I require to apply for a place on the Editorial Committee?",
                 "-As long as you're able to put yourself in event managing scenarios and work with team members, you're most welcome to this committee.\n" +
                         "Any past experiences definitely help here."));
         list.add(new faqitem
                 ("Q4. How will I be benefited if become part of the editorial team?",
-                        "- Good writing skills are very important and will always come handy be it applying for jobs or further studies!"));
+                        "- Good writing skills are very important and will always come in handy be it applying for jobs or further studies!"));
         list.add(new faqitem(
-                "Q5. Can I be part of other management groups if I am in editorial?",
+                "Q5. Can I be part of other management groups if I am on the editorial?",
                 "- Of course you can! As long as you can manage , you’re most welcome to be part of other teams and gain as much as you can!"));
     }
 }
