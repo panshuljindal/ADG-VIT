@@ -1,1 +1,1 @@
-# ADG-Externals-App-Android
+# ADG-VIT
